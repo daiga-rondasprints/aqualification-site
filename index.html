@@ -322,9 +322,9 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   content: ''; position: absolute; inset: 0;
   background-image: url('turtle-bg.jpg');
   background-size: cover;
-  background-position: center;
-  opacity: 0.14;
-  filter: saturate(0.6) contrast(1.1);
+  background-position: center 30%;
+  opacity: 0.22;
+  filter: saturate(0.75) contrast(1.15);
   pointer-events: none;
   z-index: 0;
 }
@@ -333,7 +333,7 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   background-image:
     radial-gradient(circle at 20% 30%, rgba(94, 234, 212, 0.08) 0%, transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(13, 148, 136, 0.12) 0%, transparent 50%),
-    linear-gradient(180deg, rgba(8, 51, 68, 0.4) 0%, transparent 30%, transparent 70%, rgba(8, 51, 68, 0.4) 100%);
+    linear-gradient(180deg, rgba(8, 51, 68, 0.55) 0%, rgba(8, 51, 68, 0.25) 40%, rgba(8, 51, 68, 0.25) 60%, rgba(8, 51, 68, 0.55) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -676,6 +676,40 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 .history-header p { font-size: 17px; line-height: 1.6; color: var(--muted); max-width: 480px; padding-bottom: 8px; }
 @media (max-width: 900px) { .history-header { grid-template-columns: 1fr; gap: 24px; } }
 
+/* Thin turtle banner between header and timeline */
+.history-banner {
+  position: relative;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  background: var(--deep);
+}
+.history-banner img {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.85; filter: saturate(0.85);
+}
+.history-banner::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg,
+    rgba(8, 51, 68, 0.75) 0%,
+    rgba(8, 51, 68, 0.25) 40%,
+    rgba(8, 51, 68, 0.1) 80%,
+    rgba(8, 51, 68, 0.4) 100%);
+  pointer-events: none;
+}
+.history-banner-caption {
+  position: absolute; left: 32px; bottom: 24px; right: 32px;
+  z-index: 1; color: var(--canvas);
+  font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2vw, 22px);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  max-width: 500px; line-height: 1.35;
+}
+@media (max-width: 700px) {
+  .history-banner { height: 160px; margin-bottom: 32px; }
+  .history-banner-caption { left: 20px; bottom: 16px; right: 20px; }
+}
+
 .timeline {
   position: relative; background: var(--canvas); border-radius: 8px;
   border: 1px solid var(--line); overflow: hidden;
@@ -842,7 +876,36 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   pointer-events: none;
 }
 .contact .container { position: relative; }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1fr;
+  gap: 48px; align-items: stretch;
+}
+.contact-visual {
+  position: relative; aspect-ratio: 3/4;
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.4);
+  align-self: start;
+}
+.contact-visual img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(0.9);
+}
+.contact-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(8, 51, 68, 0.1) 0%,
+    rgba(8, 51, 68, 0.2) 60%,
+    rgba(8, 51, 68, 0.7) 100%);
+  pointer-events: none;
+}
+.contact-visual-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px; color: var(--canvas);
+  font-family: var(--serif); font-style: italic; font-size: 17px;
+  line-height: 1.35; font-variation-settings: "SOFT" 100, "WONK" 1;
+  z-index: 1;
+}
 .contact-intro .eyebrow { color: var(--aqua-light); display: inline-block; margin-bottom: 24px; }
 .contact-intro .eyebrow .dot { background: var(--aqua-light); }
 .contact-intro h2 { font-size: clamp(40px, 5.5vw, 72px); color: var(--canvas); margin-bottom: 24px; line-height: 1.05; }
@@ -890,6 +953,10 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 }
 .contact-method-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--aqua-light); font-weight: 600; margin-bottom: 4px; }
 .contact-method-value { font-family: var(--serif); font-size: 18px; color: var(--canvas); font-weight: 500; }
+@media (max-width: 1100px) {
+  .contact-grid { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .contact-visual { display: none; }
+}
 @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
 
 /* ===== Footer ===== */
@@ -1368,6 +1435,15 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
       </p>
     </div>
 
+    <div class="history-banner reveal">
+      <img src="turtle-banner.jpg" alt="" loading="lazy">
+      <p class="history-banner-caption">
+        <span data-lv>"Mazi soļi gadu gaitā kļūst par meistarību."</span>
+        <span data-en>"Small steps, over the years, become mastery."</span>
+        <span data-ru>«Маленькие шаги с годами становятся мастерством.»</span>
+      </p>
+    </div>
+
     <div class="timeline reveal">
       <div class="timeline-row">
         <div class="timeline-year">2024</div>
@@ -1591,6 +1667,14 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-grid">
+      <div class="contact-visual reveal">
+        <img src="turtle-contact.jpg" alt="" loading="lazy">
+        <p class="contact-visual-overlay">
+          <span data-lv>Okeāna dziļumos atrodi savu mieru.</span>
+          <span data-en>In the depths of the ocean, find your peace.</span>
+          <span data-ru>В глубинах океана найди свой покой.</span>
+        </p>
+      </div>
       <div class="contact-intro reveal">
         <span class="eyebrow"><span class="dot"></span>
           <span data-lv>Sazināties</span><span data-en>Get in touch</span><span data-ru>Связаться</span>
