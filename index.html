@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aqualification — Dr. Jeļena Solovjova | Peldēšanas treneru izglītība</title>
+<meta name="description" content="Dr. Jeļena Solovjova, PhD — A kategorijas peldēšanas trenere. Semināri, konsultācijas un testēšana peldēšanas treneriem un sporta speciālistiem. LSFP sertificēti kursi.">
+<meta name="keywords" content="peldēšana, peldēšanas treneri, semināri, LSFP, Jeļena Solovjova, swimming coach education, Latvia">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Aqualification — Dr. Jeļena Solovjova">
+<meta property="og:description" content="Peldēšana ir dzīve. Semināri, konsultācijas un testēšana peldēšanas treneriem.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aqualification.lv/">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Manrope', -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--canvas);
+  overflow-x: hidden;
+  font-feature-settings: "ss01", "ss02";
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ===== Design Tokens ===== */
+:root {
+  --ink: #0d1f2d;
+  --deep: #083344;
+  --deep-2: #0c4a5e;
+  --aqua: #0d9488;
+  --aqua-bright: #14b8a6;
+  --aqua-light: #5eead4;
+  --seafoam: #ccfbf1;
+  --seafoam-soft: #e6fffa;
+  --sand: #f5ecd7;
+  --sand-warm: #eadcb8;
+  --canvas: #fafaf7;
+  --canvas-warm: #f7f3ea;
+  --muted: #64748b;
+  --line: #d6d3c7;
+
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Manrope', -apple-system, sans-serif;
+
+  --container: 1240px;
+  --ease: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ===== Typography ===== */
+.display {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-variation-settings: "SOFT" 50, "WONK" 0;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+.eyebrow {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--aqua);
+}
+.eyebrow .dot {
+  display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--aqua); margin-right: 10px; vertical-align: middle;
+  transform: translateY(-1px);
+}
+
+/* ===== Utility ===== */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+@media (max-width: 640px) { .container { padding: 0 20px; } }
+
+/* ===== Nav ===== */
+nav.site {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 0;
+  background: rgba(250, 250, 247, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+nav.site.scrolled { border-bottom-color: var(--line); }
+nav.site .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  color: var(--deep); letter-spacing: -0.01em;
+}
+.logo-mark {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--deep); display: grid; place-items: center;
+  position: relative; flex-shrink: 0;
+}
+.logo-mark svg { width: 22px; height: 22px; }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--ink);
+  transition: color 0.2s; position: relative;
+}
+.nav-links a:hover { color: var(--aqua); }
+.lang-toggle {
+  display: flex; align-items: center; gap: 2px;
+  background: var(--canvas-warm); padding: 4px; border-radius: 100px;
+  font-size: 12px; font-weight: 600;
+}
+.lang-toggle button {
+  padding: 6px 12px; border-radius: 100px; color: var(--muted);
+  transition: all 0.2s; font-family: var(--sans); font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.lang-toggle button.active { background: var(--deep); color: var(--canvas); }
+.mobile-menu-btn { display: none; width: 32px; height: 32px; position: relative; }
+.mobile-menu-btn span {
+  position: absolute; left: 4px; right: 4px; height: 2px; background: var(--ink);
+  transition: transform 0.3s ease;
+}
+.mobile-menu-btn span:nth-child(1) { top: 10px; }
+.mobile-menu-btn span:nth-child(2) { bottom: 10px; }
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+  .nav-links.open {
+    display: flex; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; padding: 24px 32px; gap: 20px;
+    background: var(--canvas); border-bottom: 1px solid var(--line);
+  }
+  .nav-links.open .lang-toggle { align-self: flex-start; }
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 180px 0 80px;
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas);
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; right: -10%; width: 80%; height: 100%;
+  background: radial-gradient(ellipse at top right, var(--seafoam-soft) 0%, transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px;
+  align-items: end; position: relative; z-index: 1;
+}
+.hero-text .eyebrow { margin-bottom: 28px; display: inline-block; }
+.hero h1 {
+  font-size: clamp(48px, 7vw, 104px);
+  color: var(--deep);
+  margin-bottom: 32px;
+}
+.hero h1 em {
+  font-style: italic; color: var(--aqua);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+.hero-tagline {
+  font-size: 19px; color: var(--ink); max-width: 540px; line-height: 1.5;
+  margin-bottom: 40px;
+}
+.hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 28px; border-radius: 100px;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
+  transition: all 0.3s var(--ease); white-space: nowrap;
+}
+.btn-primary { background: var(--deep); color: var(--canvas); }
+.btn-primary:hover { background: var(--aqua); transform: translateY(-2px); }
+.btn-primary svg { transition: transform 0.3s var(--ease); }
+.btn-primary:hover svg { transform: translateX(4px); }
+.btn-ghost { color: var(--deep); border: 1.5px solid var(--deep); }
+.btn-ghost:hover { background: var(--deep); color: var(--canvas); }
+
+.hero-portrait {
+  position: relative; aspect-ratio: 4/5; max-width: 420px; justify-self: end;
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgba(8, 51, 68, 0.35);
+}
+.hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.hero-portrait::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(8, 51, 68, 0.2) 100%);
+}
+.hero-credential-card {
+  position: absolute; bottom: -24px; left: -24px;
+  background: var(--canvas); padding: 18px 22px; border-radius: 4px;
+  box-shadow: 0 20px 40px -15px rgba(8, 51, 68, 0.25);
+  border-left: 3px solid var(--aqua);
+}
+.hero-credential-card .label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--muted); font-weight: 600; margin-bottom: 4px;
+}
+.hero-credential-card .value {
+  font-family: var(--serif); font-size: 18px; color: var(--deep); font-weight: 500;
+}
+@media (max-width: 900px) {
+  .hero { padding: 140px 0 60px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-portrait { max-width: 320px; justify-self: start; }
+}
+
+/* Hero stats strip */
+.hero-stats {
+  margin-top: 80px; padding-top: 36px; border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+  position: relative; z-index: 1;
+}
+.hero-stat .num {
+  font-family: var(--serif); font-size: 44px; font-weight: 400;
+  color: var(--deep); line-height: 1; margin-bottom: 8px;
+  font-variation-settings: "SOFT" 50;
+}
+.hero-stat .lbl {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted); font-weight: 600;
+}
+@media (max-width: 700px) {
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .hero-stat .num { font-size: 34px; }
+}
+
+/* ===== Turtle Philosophy Section ===== */
+.turtle-section {
+  background: var(--deep);
+  color: var(--canvas);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+.turtle-section::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(94, 234, 212, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(13, 148, 136, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+.turtle-section .container { position: relative; }
+.turtle-header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end;
+  margin-bottom: 80px;
+}
+.turtle-header .eyebrow { color: var(--aqua-light); margin-bottom: 24px; display: block; }
+.turtle-header .eyebrow .dot { background: var(--aqua-light); }
+.turtle-header h2 {
+  font-size: clamp(40px, 5.5vw, 72px); color: var(--canvas);
+}
+.turtle-header h2 em { font-style: italic; color: var(--aqua-light); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.turtle-header p {
+  font-size: 17px; line-height: 1.6; color: rgba(250, 250, 247, 0.7);
+  max-width: 480px;
+}
+@media (max-width: 800px) { .turtle-header { grid-template-columns: 1fr; gap: 32px; } }
+
+.quotes-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+}
+.quote-card {
+  padding: 40px 36px; border-left: 2px solid var(--aqua);
+  background: rgba(255, 255, 255, 0.02); border-radius: 0 4px 4px 0;
+  position: relative;
+}
+.quote-card .mark {
+  font-family: var(--serif); font-size: 80px; color: var(--aqua);
+  line-height: 0.5; position: absolute; top: 32px; right: 32px; opacity: 0.3;
+}
+.quote-card blockquote {
+  font-family: var(--serif); font-size: 22px; line-height: 1.35;
+  color: var(--canvas); font-style: italic; margin-bottom: 20px;
+  font-variation-settings: "SOFT" 80;
+}
+.quote-card cite {
+  font-style: normal; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--aqua-light); font-weight: 600;
+}
+@media (max-width: 800px) { .quotes-grid { grid-template-columns: 1fr; } }
+
+/* Speed comparison chart */
+.speed-chart {
+  margin-top: 80px; padding: 48px;
+  background: rgba(255, 255, 255, 0.04); border-radius: 8px;
+  border: 1px solid rgba(94, 234, 212, 0.15);
+}
+.speed-chart h3 {
+  font-family: var(--serif); font-size: 28px; color: var(--canvas);
+  margin-bottom: 8px; font-weight: 500;
+}
+.speed-chart .subtitle {
+  font-size: 14px; color: rgba(250, 250, 247, 0.6); margin-bottom: 32px;
+}
+.speed-bars { display: flex; flex-direction: column; gap: 18px; }
+.speed-row { display: grid; grid-template-columns: 200px 1fr 80px; gap: 20px; align-items: center; }
+.speed-row .name { font-size: 14px; font-weight: 500; color: var(--canvas); }
+.speed-row .bar-track { height: 10px; background: rgba(255, 255, 255, 0.06); border-radius: 100px; overflow: hidden; }
+.speed-row .bar-fill {
+  height: 100%; background: linear-gradient(90deg, var(--aqua) 0%, var(--aqua-light) 100%);
+  border-radius: 100px; transform-origin: left;
+  animation: barFill 1.5s var(--ease) forwards;
+}
+.speed-row.turtle .bar-fill { background: linear-gradient(90deg, #a16207 0%, #eab308 100%); }
+.speed-row .value { font-family: var(--serif); font-size: 16px; color: var(--aqua-light); text-align: right; }
+.speed-row.turtle .value { color: #fde68a; }
+@keyframes barFill { from { transform: scaleX(0); } }
+@media (max-width: 700px) {
+  .speed-chart { padding: 28px; }
+  .speed-row { grid-template-columns: 1fr; gap: 6px; }
+  .speed-row .value { text-align: left; }
+}
+
+/* ===== Services Section ===== */
+.services {
+  padding: 120px 0; background: var(--canvas);
+}
+.services-header { max-width: 800px; margin-bottom: 72px; }
+.services-header .eyebrow { display: inline-block; margin-bottom: 24px; }
+.services-header h2 { font-size: clamp(40px, 5.5vw, 72px); color: var(--deep); margin-bottom: 24px; }
+.services-header h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.services-header p { font-size: 18px; color: var(--muted); line-height: 1.6; max-width: 620px; }
+
+.services-grid {
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px;
+}
+.service-card {
+  grid-column: span 4; padding: 40px 32px;
+  background: var(--canvas-warm); border-radius: 6px;
+  position: relative; overflow: hidden;
+  transition: all 0.4s var(--ease);
+  border: 1px solid transparent;
+  display: flex; flex-direction: column; min-height: 340px;
+}
+.service-card:hover { background: var(--deep); color: var(--canvas); transform: translateY(-4px); }
+.service-card:hover .service-num { color: var(--aqua-light); }
+.service-card:hover .service-desc { color: rgba(250, 250, 247, 0.75); }
+.service-card:hover .service-arrow { color: var(--aqua-light); transform: translate(4px, -4px); }
+.service-card.featured { grid-column: span 8; background: var(--seafoam-soft); }
+.service-card.featured:hover { background: var(--deep); }
+.service-num {
+  font-family: var(--serif); font-size: 14px; color: var(--aqua);
+  font-weight: 500; margin-bottom: 32px; transition: color 0.4s var(--ease);
+}
+.service-title {
+  font-family: var(--serif); font-size: 32px; color: inherit;
+  margin-bottom: 16px; line-height: 1.1; font-weight: 500;
+}
+.service-card.featured .service-title { font-size: 40px; }
+.service-desc {
+  font-size: 15px; line-height: 1.55; color: var(--muted);
+  flex: 1; margin-bottom: 24px; transition: color 0.4s var(--ease);
+}
+.service-arrow {
+  align-self: flex-start; width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid currentColor; display: grid; place-items: center;
+  color: var(--deep); transition: all 0.4s var(--ease);
+}
+@media (max-width: 900px) {
+  .service-card, .service-card.featured { grid-column: span 12; }
+}
+
+/* ===== Seminars Section (the big offer) ===== */
+.seminars {
+  padding: 120px 0; background: var(--canvas-warm);
+  position: relative;
+}
+.seminars-intro {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start;
+  margin-bottom: 80px;
+}
+.seminars-intro .eyebrow { display: inline-block; margin-bottom: 24px; }
+.seminars-intro h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--deep); line-height: 1.05; }
+.seminars-intro h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.seminars-meta { padding-top: 8px; }
+.seminars-meta p { font-size: 17px; line-height: 1.6; color: var(--ink); margin-bottom: 20px; }
+.seminars-meta .cert-badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 12px 18px; background: var(--canvas); border-radius: 100px;
+  border: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--deep);
+  margin-top: 12px;
+}
+.seminars-meta .cert-badge svg { color: var(--aqua); flex-shrink: 0; }
+@media (max-width: 900px) { .seminars-intro { grid-template-columns: 1fr; gap: 32px; } }
+
+.seminars-caption {
+  font-family: var(--serif); font-style: italic;
+  font-size: 22px; line-height: 1.5; color: var(--deep-2);
+  padding: 32px 40px; background: var(--canvas); border-radius: 4px;
+  border-left: 3px solid var(--aqua); margin-bottom: 48px;
+  font-variation-settings: "SOFT" 80;
+}
+
+.topics-list { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line); border-radius: 6px; overflow: hidden; }
+.topic {
+  padding: 28px 32px; background: var(--canvas);
+  display: flex; gap: 20px; align-items: flex-start;
+  transition: background 0.3s ease;
+}
+.topic:hover { background: var(--seafoam-soft); }
+.topic-num {
+  font-family: var(--serif); font-size: 28px; color: var(--aqua);
+  line-height: 1; min-width: 36px; font-weight: 500;
+}
+.topic-text { font-size: 15px; line-height: 1.5; color: var(--ink); font-weight: 500; padding-top: 4px; }
+@media (max-width: 800px) { .topics-list { grid-template-columns: 1fr; } }
+
+/* ===== About Section ===== */
+.about {
+  padding: 120px 0; background: var(--canvas);
+  position: relative; overflow: hidden;
+}
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center;
+}
+.about-image {
+  aspect-ratio: 4/5; border-radius: 8px; overflow: hidden;
+  position: relative; box-shadow: 0 30px 60px -20px rgba(8, 51, 68, 0.25);
+}
+.about-image img { width: 100%; height: 100%; object-fit: cover; }
+.about-content .eyebrow { display: inline-block; margin-bottom: 24px; }
+.about-content h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--deep); margin-bottom: 28px; line-height: 1.05; }
+.about-content h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.about-content p { font-size: 17px; line-height: 1.65; color: var(--ink); margin-bottom: 20px; }
+.credentials-list { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
+.credential {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 18px 22px; background: var(--canvas-warm); border-radius: 4px;
+  border-left: 3px solid var(--aqua);
+}
+.credential-icon { color: var(--aqua); flex-shrink: 0; margin-top: 2px; }
+.credential-text { font-size: 15px; font-weight: 500; color: var(--deep); line-height: 1.4; }
+@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+/* ===== CTA Contact Section ===== */
+.contact {
+  padding: 120px 0; background: var(--deep);
+  color: var(--canvas); position: relative; overflow: hidden;
+}
+.contact::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(94, 234, 212, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.contact .container { position: relative; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-intro .eyebrow { color: var(--aqua-light); display: inline-block; margin-bottom: 24px; }
+.contact-intro .eyebrow .dot { background: var(--aqua-light); }
+.contact-intro h2 { font-size: clamp(40px, 5.5vw, 72px); color: var(--canvas); margin-bottom: 24px; line-height: 1.05; }
+.contact-intro h2 em { font-style: italic; color: var(--aqua-light); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.contact-intro p { font-size: 17px; line-height: 1.6; color: rgba(250, 250, 247, 0.7); max-width: 480px; }
+.contact-methods { display: flex; flex-direction: column; gap: 20px; }
+.contact-method {
+  display: flex; gap: 20px; align-items: center;
+  padding: 24px 28px; background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px; border: 1px solid rgba(94, 234, 212, 0.15);
+  transition: all 0.3s ease;
+}
+.contact-method:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--aqua-light); }
+.contact-method-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--aqua); color: var(--deep); display: grid; place-items: center; flex-shrink: 0;
+}
+.contact-method-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--aqua-light); font-weight: 600; margin-bottom: 4px; }
+.contact-method-value { font-family: var(--serif); font-size: 18px; color: var(--canvas); font-weight: 500; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+/* ===== Footer ===== */
+footer {
+  padding: 40px 0; background: var(--ink); color: rgba(250, 250, 247, 0.5);
+  font-size: 13px;
+}
+footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+footer a:hover { color: var(--aqua-light); }
+
+/* ===== Language toggle mechanism ===== */
+[data-en] { display: none; }
+html[lang="en"] [data-en] { display: inline; }
+html[lang="en"] [data-lv] { display: none; }
+/* block-level versions */
+[data-en-block] { display: none; }
+html[lang="en"] [data-en-block] { display: block; }
+html[lang="en"] [data-lv-block] { display: none; }
+
+/* ===== Reveal animations ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ===== Decorative turtle motif ===== */
+.deco-turtle {
+  position: absolute; opacity: 0.06; pointer-events: none;
+  width: 400px; height: 400px;
+}
+.deco-turtle.tr { top: -80px; right: -80px; }
+.deco-turtle.bl { bottom: -80px; left: -80px; transform: rotate(180deg); }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="site" id="nav">
+  <div class="container">
+    <a href="#" class="logo">
+      <span class="logo-mark">
+        <!-- Turtle silhouette icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="12" cy="13" rx="7" ry="5.5"/>
+          <circle cx="18.5" cy="10" r="1.8" fill="#5eead4"/>
+          <line x1="5" y1="10" x2="3.5" y2="8.5"/>
+          <line x1="5" y1="16" x2="3.5" y2="17.5"/>
+          <line x1="19" y1="15.5" x2="20.5" y2="17"/>
+          <path d="M9 10 L12 11 L15 10 M9 13 L12 14 L15 13 M10 16 L14 16" stroke-width="1"/>
+        </svg>
+      </span>
+      <span>aqualification</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-lv="Par mani" data-en="About">Par mani</a>
+      <a href="#services" data-lv="Piedāvājums" data-en="Services">Piedāvājums</a>
+      <a href="#seminars" data-lv="Semināri" data-en="Seminars">Semināri</a>
+      <a href="#contact" data-lv="Kontakti" data-en="Contact">Kontakti</a>
+      <div class="lang-toggle">
+        <button class="active" data-setlang="lv">LV</button>
+        <button data-setlang="en">EN</button>
+      </div>
+    </div>
+    <button class="mobile-menu-btn" id="mobileBtn" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text reveal">
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-lv="Peldēšana ir dzīve">Peldēšana ir dzīve</span>
+          <span data-en>Swimming is life</span>
+        </span>
+        <h1 class="display">
+          <span data-lv-block>Peldēšanas <em>meistarība</em>, dalīta ar treneriem un sportistiem.</span>
+          <span data-en-block>Swimming <em>mastery</em>, shared with coaches and athletes.</span>
+        </h1>
+        <p class="hero-tagline">
+          <span data-lv>Dr. Jeļena Solovjova — A kategorijas peldēšanas trenere, vada seminārus, konsultācijas un testēšanu treneriem un sporta speciālistiem visā Latvijā.</span>
+          <span data-en>Dr. Jeļena Solovjova — A-category swimming coach, delivering seminars, consultations, and functional testing for coaches and sports specialists across Latvia.</span>
+        </p>
+        <div class="hero-cta-group">
+          <a href="#seminars" class="btn btn-primary">
+            <span data-lv>Rezervēt semināru</span><span data-en>Book a seminar</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#services" class="btn btn-ghost">
+            <span data-lv>Skatīt piedāvājumu</span><span data-en>View services</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-portrait reveal">
+        <img src="https://aqualification.lv/wp-content/uploads/2025/03/Picture8-1-1-1.jpg" alt="Dr. Jeļena Solovjova" onerror="this.style.background='linear-gradient(135deg,#0d9488,#083344)';this.src=''">
+        <div class="hero-credential-card">
+          <div class="label">
+            <span data-lv>Kvalifikācija</span><span data-en>Credentials</span>
+          </div>
+          <div class="value">PhD · A kategorija</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal">
+      <div class="hero-stat">
+        <div class="num">15+</div>
+        <div class="lbl"><span data-lv>Gadu pieredze</span><span data-en>Years teaching</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">48h</div>
+        <div class="lbl"><span data-lv>Semināru apjoms</span><span data-en>Max seminar length</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">LSFP</div>
+        <div class="lbl"><span data-lv>Sertificēti kursi</span><span data-en>Certified courses</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">9</div>
+        <div class="lbl"><span data-lv>Semināru tēmas</span><span data-en>Seminar topics</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TURTLE PHILOSOPHY ===== -->
+<section class="turtle-section" id="philosophy">
+  <div class="container">
+    <div class="turtle-header reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-lv>Bruņurupuča filozofija</span>
+          <span data-en>Turtle philosophy</span>
+        </span>
+        <h2 class="display">
+          <span data-lv-block>Paskaties uz savu darbību ar <em>bruņurupuča</em> acīm.</span>
+          <span data-en-block>Look at your coaching through <em>turtle</em> eyes.</span>
+        </h2>
+      </div>
+      <p>
+        <span data-lv>Peldēšana — tāpat kā mācīšanās — nav par ātrumu. Tā ir par pacietību, noturību, un maziem soļiem, kas gadu gaitā kļūst par meistarību.</span>
+        <span data-en>Swimming — like learning — isn't about speed. It's about patience, persistence, and small steps that over the years become mastery.</span>
+      </p>
+    </div>
+
+    <div class="quotes-grid">
+      <div class="quote-card reveal">
+        <span class="mark">"</span>
+        <blockquote>
+          <span data-lv>Labāk ir virzīties uz savu mērķi bruņurupuča ātrumā, nekā gaismas ātrumā izdomāt attaisnojumus, kāpēc Tu stāv uz vietas.</span>
+          <span data-en>It is better to move towards a goal at the speed of a turtle than to come up with excuses for why you are standing still at the speed of light.</span>
+        </blockquote>
+        <cite>— Bodo Schäfer</cite>
+      </div>
+      <div class="quote-card reveal">
+        <span class="mark">"</span>
+        <blockquote>
+          <span data-lv>Mēģiniet būt kā bruņurupucis — jūtieties ērti savā čaulā.</span>
+          <span data-en>Try to be like the turtle — at ease in your shell.</span>
+        </blockquote>
+        <cite>— Bill Copeland</cite>
+      </div>
+      <div class="quote-card reveal">
+        <span class="mark">"</span>
+        <blockquote>
+          <span data-lv>Pacietība ir gudrības pavadonis.</span>
+          <span data-en>Patience is the companion of wisdom.</span>
+        </blockquote>
+        <cite><span data-lv>— Bruņurupuča devīze</span><span data-en>— Turtle motto</span></cite>
+      </div>
+      <div class="quote-card reveal">
+        <span class="mark">"</span>
+        <blockquote>
+          <span data-lv>Lielas lietas dara, apvienojot virkni mazu lietu — kā bruņurupuča soļi.</span>
+          <span data-en>Great things are done by a series of small things brought together — like a turtle's steps.</span>
+        </blockquote>
+        <cite>— Vincent van Gogh</cite>
+      </div>
+    </div>
+
+    <!-- Speed comparison (from her existing content) -->
+    <div class="speed-chart reveal">
+      <h3><span data-lv>Cik ātrs ir bruņurupucis?</span><span data-en>How fast is a turtle?</span></h3>
+      <p class="subtitle">
+        <span data-lv>Bruņurupuču un peldētāju ātrumi dažādos apstākļos (km/h)</span>
+        <span data-en>Turtle and swimmer speeds in different conditions (km/h)</span>
+      </p>
+      <div class="speed-bars">
+        <div class="speed-row">
+          <div class="name"><span data-lv>Olimpiskais peldētājs</span><span data-en>Olympic swimmer</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 95%"></div></div>
+          <div class="value">8.6 km/h</div>
+        </div>
+        <div class="speed-row">
+          <div class="name"><span data-lv>Vidējs peldētājs</span><span data-en>Average swimmer</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 35%"></div></div>
+          <div class="value">3.2 km/h</div>
+        </div>
+        <div class="speed-row turtle">
+          <div class="name"><span data-lv>Jūras bruņurupucis</span><span data-en>Sea turtle</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
+          <div class="value">3.6 km/h</div>
+        </div>
+        <div class="speed-row">
+          <div class="name"><span data-lv>Iesācējs peldētājs</span><span data-en>Beginner swimmer</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 20%"></div></div>
+          <div class="value">1.8 km/h</div>
+        </div>
+        <div class="speed-row turtle">
+          <div class="name"><span data-lv>Sauszemes bruņurupucis</span><span data-en>Land turtle</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 4%"></div></div>
+          <div class="value">0.4 km/h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <span class="eyebrow"><span class="dot"></span>
+        <span data-lv>Piedāvājums</span><span data-en>Services</span>
+      </span>
+      <h2 class="display">
+        <span data-lv-block>Pieci veidi, kā <em>strādāt kopā</em>.</span>
+        <span data-en-block>Five ways to <em>work together</em>.</span>
+      </h2>
+      <p>
+        <span data-lv>No profesionālajiem semināriem līdz individuālām konsultācijām un funkcionālai testēšanai — katrs pakalpojums balstīts uz gadiem ilgu praktisko un akadēmisko pieredzi.</span>
+        <span data-en>From professional seminars to individual consultations and functional testing — each service is grounded in years of practical and academic experience.</span>
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <a href="#seminars" class="service-card featured reveal">
+        <div class="service-num">01</div>
+        <h3 class="service-title"><span data-lv>Semināri treneriem un sporta speciālistiem</span><span data-en>Seminars for coaches & sports specialists</span></h3>
+        <p class="service-desc">
+          <span data-lv>Profesionālās kompetences pilnveides programmas ietvaros, 8–48 stundu semināri. LTTC sertifikāti derīgi LSFP sertifikācijai un resertifikācijai. Iespējams jūsu atrašanās reģionā.</span>
+          <span data-en>Professional competence development seminars, 8–48 hours. LTTC certificates valid for LSFP certification and re-certification. Available in your region.</span>
+        </p>
+        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </a>
+
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <h3 class="service-title"><span data-lv>Peldēšanas mācīšana</span><span data-en>Swimming instruction</span></h3>
+        <p class="service-desc">
+          <span data-lv>Kustību pamati un peldēšanas prasmju pilnveide visiem vecumiem. Drošība uz ūdens. Racionālā mācīšanas metodika.</span>
+          <span data-en>Movement fundamentals and swimming skill development for all ages. Water safety. Rational teaching methodology.</span>
+        </p>
+        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <h3 class="service-title"><span data-lv>Konsultācijas un testēšana</span><span data-en>Consultations & testing</span></h3>
+        <p class="service-desc">
+          <span data-lv>Tehnikas analīze, vingrinājumu izveide, funkcionālā testēšana — peldēšanas ātrums, ciklu skaits, pulss un laktāta rādītāji.</span>
+          <span data-en>Technique analysis, exercise design, functional testing — swim speed, stroke count, heart rate and lactate measurements.</span>
+        </p>
+        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <h3 class="service-title"><span data-lv>Treniņu programmas</span><span data-en>Training programs</span></h3>
+        <p class="service-desc">
+          <span data-lv>Treniņu programmas izveide un korekcija dažāda vecuma un sagatavotības līmeņa peldētājiem.</span>
+          <span data-en>Training program design and adjustment for swimmers of different ages and preparation levels.</span>
+        </p>
+        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
+        <h3 class="service-title"><span data-lv>Projekti un materiāli</span><span data-en>Projects & materials</span></h3>
+        <p class="service-desc">
+          <span data-lv>Izglītības materiāli un sadarbības projekti sporta skolām, federācijām un organizācijām.</span>
+          <span data-en>Educational materials and collaborative projects for sports schools, federations, and organizations.</span>
+        </p>
+        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEMINARS DEEP DIVE ===== -->
+<section class="seminars" id="seminars">
+  <div class="container">
+    <div class="seminars-intro reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-lv>Semināru programmas</span><span data-en>Seminar programs</span>
+        </span>
+        <h2 class="display">
+          <span data-lv-block>Deviņas tēmas. <em>Viena</em> caurviju ideja.</span>
+          <span data-en-block>Nine topics. <em>One</em> common thread.</span>
+        </h2>
+      </div>
+      <div class="seminars-meta">
+        <p>
+          <span data-lv>Semināri 8–48 stundu apjomā, pielāgojami jūsu komandas vajadzībām un vietai. Iespējams organizēt jebkurā reģionā Latvijā.</span>
+          <span data-en>Seminars of 8–48 hours, adaptable to your team's needs and location. Can be organized in any region of Latvia.</span>
+        </p>
+        <p>
+          <span data-lv>Visu kategoriju speciālistiem — no iesācējiem līdz A kategorijas treneriem.</span>
+          <span data-en>For specialists of all categories — from beginners to A-category coaches.</span>
+        </p>
+        <div class="cert-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          <span data-lv>LTTC sertifikāti LSFP sertifikācijai</span>
+          <span data-en>LTTC certificates for LSFP certification</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="seminars-caption reveal">
+      <span data-lv>"Cik daudz jātrenējas? Kāpēc daži peldētāji daudz trenējas, bet rezultāts neuzlabojas? Kas ir svarīgāk — izturība, ātrums vai veselība?"</span>
+      <span data-en>"How much should athletes train? Why do some swimmers train hard but see no results? What matters more — endurance, speed, or health?"</span>
+    </div>
+
+    <div class="topics-list reveal">
+      <div class="topic"><div class="topic-num">1</div><div class="topic-text">
+        <span data-lv>Visu peldēšanas veidu tehnikas mācīšanas īpatnības un pilnveide dažādos vecumos. Plānošana, kontrole, analīze.</span>
+        <span data-en>Teaching and refining all swimming stroke techniques across ages. Planning, monitoring, analysis.</span>
+      </div></div>
+      <div class="topic"><div class="topic-num">2</div><div class="topic-text">
+        <span data-lv>Peldētāju funkcionālā sagatavotība. Treniņu uzdevumu veidošana. Testēšana un slodžu kontrole.</span>
+        <span data-en>Swimmers' functional preparation. Designing training tasks. Testing and load control.</span>
+      </div></div>
+      <div class="topic"><div class="topic-num">3</div><div class="topic-text">
+        <span data-lv>Izturības attīstīšana un pilnveide dažāda vecuma peldētājiem.</span>
+        <span data-en>Developing and refining endurance in swimmers of different ages.</span>
+      </div></div>
+      <div class="topic"><div class="topic-num">4</div><div class="topic-text">
+        <span data-lv>Peldēšanas ātruma īpašību attīstīšana un pilnveide dažāda vecuma peldētājiem.</span>
+        <span data-en>Developing and refining speed qualities in swimmers of different ages.</span>
+      </div></div>
+      <div class="topic"><div class="topic-num">5</div><div class="topic-text">
+        <span data-lv>Spēka attīstīšana un pilnveide dažāda vecuma peldētājiem.</span>
+        <span data-en>Developing and refining strength in swimmers of different ages.</span>
+      </div></div>
+      <div class="topic"><div class="topic-num">6</div><div class="topic-text">
+        <span data-lv>Sacensību distances veikšanas izveide treniņu laikā. Sacensību darbības analīze.</span>
+        <span data-en>Building race distance execution during training. Competition performance analysis.</span>
+      </div></div>
+      <div class="topic"><div class="topic-num">7</div><div class="topic-text">
+        <span data-lv>Startu un apgriezienu pilnveide.</span>
+        <span data-en>Refining starts and turns.</span>
+      </div></div>
+      <div class="topic"><div class="topic-num">8</div><div class="topic-text">
+        <span data-lv>Treniņu metodes.</span>
+        <span data-en>Training methods.</span>
+      </div></div>
+      <div class="topic"><div class="topic-num">9</div><div class="topic-text">
+        <span data-lv>Atlase un selekcija sporta peldēšanā.</span>
+        <span data-en>Talent identification and selection in competitive swimming.</span>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="https://aqualification.lv/wp-content/uploads/2025/03/Picture8-1-1-1.jpg" alt="Dr. Jeļena Solovjova" onerror="this.style.background='linear-gradient(135deg,#0d9488,#083344)';this.src=''">
+      </div>
+      <div class="about-content reveal">
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-lv>Par mani</span><span data-en>About</span>
+        </span>
+        <h2 class="display">
+          <span data-lv-block>Dr. Jeļena <em>Solovjova</em></span>
+          <span data-en-block>Dr. Jeļena <em>Solovjova</em></span>
+        </h2>
+        <p>
+          <span data-lv>PhD sporta zinātnēs, A kategorijas peldēšanas trenere ar vairāk nekā 15 gadu pieredzi Latvijas Sporta pedagoģijas akadēmijā. Strādāju ar treneriem, sportistiem un sporta speciālistiem, lai celtu peldēšanas izglītības līmeni Latvijā un ārpus tās.</span>
+          <span data-en>PhD in sports science, A-category swimming coach with over 15 years of experience at the Latvian Academy of Sport Education. I work with coaches, athletes, and sports specialists to raise the level of swimming education in Latvia and beyond.</span>
+        </p>
+        <p>
+          <span data-lv>Mana pieeja apvieno akadēmisko stingrību ar praktisku baseina pieredzi — lai katra sesija, katrs seminārs un katra konsultācija patiesi mainītu to, kā treneri strādā un kā peldētāji aug.</span>
+          <span data-en>My approach combines academic rigor with practical poolside experience — so that every session, every seminar, and every consultation genuinely changes how coaches work and how swimmers grow.</span>
+        </p>
+
+        <div class="credentials-list">
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </span>
+            <span class="credential-text">PhD — <span data-lv>Sporta zinātnes</span><span data-en>Sports Science</span></span>
+          </div>
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </span>
+            <span class="credential-text"><span data-lv>A kategorijas peldēšanas trenere</span><span data-en>A-category swimming coach</span></span>
+          </div>
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </span>
+            <span class="credential-text"><span data-lv>Semināri 2010 – 2024</span><span data-en>Seminars 2010 – 2024</span></span>
+          </div>
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            </span>
+            <span class="credential-text">LTTC · LSFP <span data-lv>sertificēti kursi</span><span data-en>certified courses</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-intro reveal">
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-lv>Sazināties</span><span data-en>Get in touch</span>
+        </span>
+        <h2 class="display">
+          <span data-lv-block>Parunāsim par jūsu <em>komandu</em>.</span>
+          <span data-en-block>Let's talk about your <em>team</em>.</span>
+        </h2>
+        <p>
+          <span data-lv>Vēlaties semināru savai treneru komandai? Konsultāciju par peldēšanas tehniku? Rakstiet vai zvaniet — atbildēšu 48 stundu laikā.</span>
+          <span data-en>Want a seminar for your coaching team? A consultation on swimming technique? Write or call — I'll respond within 48 hours.</span>
+        </p>
+      </div>
+      <div class="contact-methods reveal">
+        <a href="mailto:elena.aqualification.lv@gmail.com" class="contact-method">
+          <span class="contact-method-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <div>
+            <div class="contact-method-label">Email</div>
+            <div class="contact-method-value">elena.aqualification.lv@gmail.com</div>
+          </div>
+        </a>
+        <a href="tel:+37129623902" class="contact-method">
+          <span class="contact-method-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <div>
+            <div class="contact-method-label"><span data-lv>Tālrunis</span><span data-en>Phone</span></div>
+            <div class="contact-method-value">+371 29623902</div>
+          </div>
+        </a>
+        <div class="contact-method">
+          <span class="contact-method-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div>
+            <div class="contact-method-label"><span data-lv>Atrašanās vieta</span><span data-en>Location</span></div>
+            <div class="contact-method-value">Rīga, Latvija</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div>© 2025 BDR Aqualification.lv · Reg. Nr. 40008344078</div>
+    <div><span data-lv>Peldēšana ir dzīve. 🐢</span><span data-en>Swimming is life. 🐢</span></div>
+  </div>
+</footer>
+
+<script>
+// Language toggle
+const langButtons = document.querySelectorAll('[data-setlang]');
+langButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.setlang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('[data-setlang="' + lang + '"]').forEach(b => b.classList.add('active'));
+    try { localStorage.setItem('aq-lang', lang); } catch(e) {}
+  });
+});
+// Restore language (only runs client side; safe for static hosting)
+try {
+  const saved = localStorage.getItem('aq-lang');
+  if (saved) {
+    document.documentElement.lang = saved;
+    document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('[data-setlang="' + saved + '"]').forEach(b => b.classList.add('active'));
+  }
+} catch(e) {}
+
+// Nav scroll state
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Mobile menu
+const mobileBtn = document.getElementById('mobileBtn');
+const navLinks = document.getElementById('navLinks');
+mobileBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
