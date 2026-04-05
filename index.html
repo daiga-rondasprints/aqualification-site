@@ -91,6 +91,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .container { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
 @media (max-width: 640px) { .container { padding: 0 20px; } }
 
+/* Anchor scroll offset (fixed nav is ~100px tall) */
+section[id] { scroll-margin-top: 100px; }
+
 /* ===== Nav ===== */
 nav.site {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -118,12 +121,21 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   .logo-img { width: 56px; height: 56px; }
   .logo { font-size: 18px; gap: 10px; }
 }
-.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
-  font-size: 14px; font-weight: 500; color: var(--ink);
-  transition: color 0.2s; position: relative;
+  font-size: 15px; font-weight: 600; color: var(--ink);
+  transition: color 0.2s; position: relative; padding: 4px 0;
+}
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -4px;
+  height: 2px; background: var(--aqua);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s var(--ease);
 }
 .nav-links a:hover { color: var(--aqua); }
+.nav-links a:hover::after,
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--aqua); }
 .lang-toggle {
   display: flex; align-items: center; gap: 2px;
   background: var(--canvas-warm); padding: 4px; border-radius: 100px;
@@ -1648,6 +1660,22 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 });
+
+// Scroll spy — highlight nav link for the section currently in view
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+const sectionIds = Array.from(navAnchors).map(a => a.getAttribute('href').slice(1));
+const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+const spyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navAnchors.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => spyObserver.observe(s));
 
 // Mobile menu
 const mobileBtn = document.getElementById('mobileBtn');
