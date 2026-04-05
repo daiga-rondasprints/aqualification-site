@@ -9,7 +9,7 @@
 
 <!-- Open Graph -->
 <meta property="og:title" content="Aqualification — Dr. Jeļena Solovjova">
-<meta property="og:description" content="Peldēšana ir dzīve. Semināri, konsultācijas un testēšana peldēšanas treneriem.">
+<meta property="og:description" content="Mācām trenerus. Pilnveidojam peldētājus.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aqualification.lv/">
 
@@ -145,7 +145,7 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 
 /* ===== Hero ===== */
 .hero {
-  padding: 180px 0 80px;
+  padding: 180px 0 60px;
   position: relative;
   overflow: hidden;
   background: var(--canvas);
@@ -161,9 +161,9 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 }
 .hero-text .eyebrow { margin-bottom: 28px; display: inline-block; }
 .hero h1 {
-  font-size: clamp(48px, 7vw, 104px);
+  font-size: clamp(44px, 6.2vw, 92px);
   color: var(--deep);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 .hero h1 em {
   font-style: italic; color: var(--aqua);
@@ -171,7 +171,7 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 }
 .hero-tagline {
   font-size: 19px; color: var(--ink); max-width: 540px; line-height: 1.5;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 .hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
 .btn {
@@ -211,14 +211,14 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   font-family: var(--serif); font-size: 18px; color: var(--deep); font-weight: 500;
 }
 @media (max-width: 900px) {
-  .hero { padding: 140px 0 60px; }
+  .hero { padding: 140px 0 40px; }
   .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .hero-portrait { max-width: 320px; justify-self: start; }
 }
 
 /* Hero stats strip */
 .hero-stats {
-  margin-top: 80px; padding-top: 36px; border-top: 1px solid var(--line);
+  margin-top: 72px; padding-top: 36px; border-top: 1px solid var(--line);
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
   position: relative; z-index: 1;
 }
@@ -234,6 +234,43 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 @media (max-width: 700px) {
   .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 28px; }
   .hero-stat .num { font-size: 34px; }
+}
+
+/* ===== Trust Strip ===== */
+.trust-strip {
+  padding: 48px 0; background: var(--canvas);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.trust-strip-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 48px; flex-wrap: wrap;
+}
+.trust-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--muted); font-weight: 600; flex-shrink: 0; max-width: 180px;
+  line-height: 1.4;
+}
+.trust-logos {
+  display: flex; align-items: center; gap: 40px; flex-wrap: wrap; flex: 1;
+  justify-content: flex-end;
+}
+.trust-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--serif); font-size: 17px; font-weight: 500;
+  color: var(--deep-2); opacity: 0.75; transition: opacity 0.3s ease;
+  letter-spacing: -0.01em;
+}
+.trust-logo:hover { opacity: 1; }
+.trust-logo-mark {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--seafoam-soft); display: grid; place-items: center;
+  color: var(--aqua); flex-shrink: 0;
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+}
+@media (max-width: 900px) {
+  .trust-strip-inner { justify-content: center; }
+  .trust-logos { justify-content: center; gap: 28px; }
+  .trust-label { text-align: center; max-width: 100%; }
 }
 
 /* ===== Turtle Philosophy Section ===== */
@@ -323,7 +360,7 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   .speed-row .value { text-align: left; }
 }
 
-/* ===== Services Section ===== */
+/* ===== Services Ladder (3-tier) ===== */
 .services {
   padding: 120px 0; background: var(--canvas);
 }
@@ -333,43 +370,87 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 .services-header h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
 .services-header p { font-size: 18px; color: var(--muted); line-height: 1.6; max-width: 620px; }
 
-.services-grid {
-  display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px;
-}
-.service-card {
-  grid-column: span 4; padding: 40px 32px;
-  background: var(--canvas-warm); border-radius: 6px;
+.services-ladder { display: flex; flex-direction: column; gap: 24px; }
+.tier-card {
+  display: grid; grid-template-columns: 120px 1fr auto; gap: 48px;
+  align-items: stretch; padding: 48px 48px;
+  background: var(--canvas-warm); border-radius: 8px;
   position: relative; overflow: hidden;
   transition: all 0.4s var(--ease);
   border: 1px solid transparent;
-  display: flex; flex-direction: column; min-height: 340px;
 }
-.service-card:hover { background: var(--deep); color: var(--canvas); transform: translateY(-4px); }
-.service-card:hover .service-num { color: var(--aqua-light); }
-.service-card:hover .service-desc { color: rgba(250, 250, 247, 0.75); }
-.service-card:hover .service-arrow { color: var(--aqua-light); transform: translate(4px, -4px); }
-.service-card.featured { grid-column: span 8; background: var(--seafoam-soft); }
-.service-card.featured:hover { background: var(--deep); }
-.service-num {
-  font-family: var(--serif); font-size: 14px; color: var(--aqua);
-  font-weight: 500; margin-bottom: 32px; transition: color 0.4s var(--ease);
+.tier-card:hover { background: var(--deep); color: var(--canvas); transform: translateY(-2px); }
+.tier-card:hover .tier-num,
+.tier-card:hover .tier-meta,
+.tier-card:hover .tier-bullets li { color: rgba(250, 250, 247, 0.75); }
+.tier-card:hover .tier-title { color: var(--canvas); }
+.tier-card:hover .tier-arrow { background: var(--aqua); color: var(--deep); border-color: var(--aqua); transform: translate(4px, -4px); }
+.tier-card:hover .tier-tag { background: rgba(94, 234, 212, 0.15); color: var(--aqua-light); border-color: rgba(94, 234, 212, 0.3); }
+
+.tier-card.flagship { background: var(--seafoam-soft); border-color: var(--aqua-light); }
+.tier-card.flagship:hover { background: var(--deep); }
+
+.tier-num-wrap { display: flex; flex-direction: column; justify-content: flex-start; }
+.tier-num {
+  font-family: var(--serif); font-size: 72px; color: var(--aqua);
+  line-height: 0.9; font-weight: 400; font-variation-settings: "SOFT" 50;
+  transition: color 0.4s var(--ease);
 }
-.service-title {
-  font-family: var(--serif); font-size: 32px; color: inherit;
-  margin-bottom: 16px; line-height: 1.1; font-weight: 500;
+.tier-meta {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--muted); font-weight: 600; margin-top: 12px;
+  transition: color 0.4s var(--ease);
 }
-.service-card.featured .service-title { font-size: 40px; }
-.service-desc {
-  font-size: 15px; line-height: 1.55; color: var(--muted);
-  flex: 1; margin-bottom: 24px; transition: color 0.4s var(--ease);
+
+.tier-body { display: flex; flex-direction: column; }
+.tier-tag {
+  display: inline-flex; align-self: flex-start; align-items: center;
+  padding: 5px 12px; border-radius: 100px; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
+  background: var(--canvas); color: var(--aqua); border: 1px solid var(--aqua);
+  margin-bottom: 16px; transition: all 0.4s var(--ease);
 }
-.service-arrow {
-  align-self: flex-start; width: 40px; height: 40px; border-radius: 50%;
-  border: 1.5px solid currentColor; display: grid; place-items: center;
-  color: var(--deep); transition: all 0.4s var(--ease);
+.tier-card.flagship .tier-tag { background: var(--aqua); color: var(--canvas); border-color: var(--aqua); }
+.tier-title {
+  font-family: var(--serif); font-size: 36px; color: var(--deep);
+  margin-bottom: 14px; line-height: 1.1; font-weight: 500;
+  transition: color 0.4s var(--ease);
 }
+.tier-card.flagship .tier-title { font-size: 42px; }
+.tier-desc {
+  font-size: 16px; line-height: 1.55; color: var(--ink);
+  margin-bottom: 20px; max-width: 620px;
+  transition: color 0.4s var(--ease);
+}
+.tier-card:hover .tier-desc { color: rgba(250, 250, 247, 0.85); }
+.tier-bullets {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 10px 20px;
+  margin-top: 4px;
+}
+.tier-bullets li {
+  font-size: 13px; color: var(--muted); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: color 0.4s var(--ease);
+}
+.tier-bullets li::before {
+  content: ''; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--aqua); flex-shrink: 0;
+}
+.tier-arrow-wrap { display: flex; align-items: flex-start; }
+.tier-arrow {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 1.5px solid var(--deep); display: grid; place-items: center;
+  color: var(--deep); transition: all 0.4s var(--ease); flex-shrink: 0;
+}
+
 @media (max-width: 900px) {
-  .service-card, .service-card.featured { grid-column: span 12; }
+  .tier-card { grid-template-columns: 1fr; gap: 20px; padding: 36px 28px; }
+  .tier-num { font-size: 52px; }
+  .tier-num-wrap { flex-direction: row; align-items: baseline; gap: 16px; }
+  .tier-meta { margin-top: 0; }
+  .tier-card.flagship .tier-title,
+  .tier-title { font-size: 28px; }
+  .tier-arrow-wrap { margin-top: 8px; }
 }
 
 /* ===== Seminars Section (the big offer) ===== */
@@ -417,9 +498,202 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 .topic-text { font-size: 15px; line-height: 1.5; color: var(--ink); font-weight: 500; padding-top: 4px; }
 @media (max-width: 800px) { .topics-list { grid-template-columns: 1fr; } }
 
+/* ===== Brochure Download CTA ===== */
+.brochure {
+  padding: 120px 0; background: var(--canvas);
+  position: relative; overflow: hidden;
+}
+.brochure::before {
+  content: ''; position: absolute; top: 0; left: -10%; width: 60%; height: 100%;
+  background: radial-gradient(ellipse at left center, var(--seafoam-soft) 0%, transparent 55%);
+  pointer-events: none; z-index: 0;
+}
+.brochure .container { position: relative; z-index: 1; }
+.brochure-grid {
+  display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: center;
+}
+.brochure-mockup {
+  position: relative; aspect-ratio: 3/4; max-width: 380px;
+  justify-self: center;
+}
+.brochure-pdf {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, var(--deep) 0%, var(--deep-2) 60%, var(--aqua) 140%);
+  border-radius: 4px;
+  box-shadow: 0 40px 80px -30px rgba(8, 51, 68, 0.5), 0 0 0 1px rgba(255,255,255,0.05) inset;
+  padding: 44px 36px; display: flex; flex-direction: column;
+  transform: rotate(-3deg); transition: transform 0.6s var(--ease);
+  overflow: hidden;
+}
+.brochure-pdf::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 50%;
+  background: radial-gradient(circle at top right, rgba(94,234,212,0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+.brochure-mockup:hover .brochure-pdf { transform: rotate(-1deg) translateY(-6px); }
+.brochure-pdf .pdf-eyebrow {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--aqua-light); font-weight: 700; margin-bottom: 32px;
+}
+.brochure-pdf .pdf-title {
+  font-family: var(--serif); font-size: 38px; font-weight: 400;
+  color: var(--canvas); line-height: 1.05; margin-bottom: 8px;
+  font-variation-settings: "SOFT" 80;
+}
+.brochure-pdf .pdf-title em { font-style: italic; color: var(--aqua-light); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.brochure-pdf .pdf-subtitle {
+  font-family: var(--serif); font-size: 18px; font-style: italic;
+  color: rgba(250,250,247,0.7); margin-bottom: auto;
+}
+.brochure-pdf .pdf-footer {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  border-top: 1px solid rgba(94,234,212,0.2); padding-top: 20px; margin-top: 40px;
+}
+.brochure-pdf .pdf-author {
+  font-family: var(--serif); font-size: 14px; color: var(--canvas); font-weight: 500;
+}
+.brochure-pdf .pdf-author-sub {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
+  color: rgba(94,234,212,0.8); font-weight: 600; margin-top: 4px;
+}
+.brochure-pdf .pdf-pages {
+  font-family: var(--serif); font-size: 12px; color: rgba(250,250,247,0.5);
+  font-style: italic;
+}
+.brochure-content .eyebrow { display: inline-block; margin-bottom: 24px; }
+.brochure-content h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--deep); margin-bottom: 24px; line-height: 1.05; }
+.brochure-content h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.brochure-content p { font-size: 17px; line-height: 1.6; color: var(--ink); margin-bottom: 20px; max-width: 520px; }
+.brochure-features {
+  display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 36px;
+}
+.brochure-feature {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; background: var(--canvas-warm); border-radius: 100px;
+  font-size: 12px; font-weight: 600; color: var(--deep);
+  border: 1px solid var(--line);
+}
+.brochure-feature svg { color: var(--aqua); flex-shrink: 0; }
+@media (max-width: 900px) {
+  .brochure-grid { grid-template-columns: 1fr; gap: 56px; }
+  .brochure-mockup { max-width: 280px; }
+}
+
+/* ===== Speaking History Timeline ===== */
+.history {
+  padding: 120px 0; background: var(--canvas-warm);
+}
+.history-header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+  margin-bottom: 72px;
+}
+.history-header .eyebrow { display: inline-block; margin-bottom: 24px; }
+.history-header h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--deep); line-height: 1.05; }
+.history-header h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.history-header p { font-size: 17px; line-height: 1.6; color: var(--muted); max-width: 480px; padding-bottom: 8px; }
+@media (max-width: 900px) { .history-header { grid-template-columns: 1fr; gap: 24px; } }
+
+.timeline {
+  position: relative; background: var(--canvas); border-radius: 8px;
+  border: 1px solid var(--line); overflow: hidden;
+}
+.timeline-row {
+  display: grid; grid-template-columns: 120px 1fr 80px; gap: 32px;
+  padding: 24px 36px; align-items: center;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.25s ease;
+}
+.timeline-row:last-child { border-bottom: none; }
+.timeline-row:hover { background: var(--seafoam-soft); }
+.timeline-year {
+  font-family: var(--serif); font-size: 32px; color: var(--deep);
+  font-weight: 400; line-height: 1; font-variation-settings: "SOFT" 50;
+}
+.timeline-desc {
+  font-size: 15px; color: var(--ink); line-height: 1.5;
+}
+.timeline-desc .host {
+  display: block; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--aqua); font-weight: 600;
+  margin-top: 4px;
+}
+.timeline-count {
+  font-family: var(--serif); font-size: 20px; color: var(--aqua);
+  font-weight: 500; text-align: right; font-style: italic;
+}
+@media (max-width: 800px) {
+  .timeline-row { grid-template-columns: 72px 1fr 56px; gap: 20px; padding: 20px 22px; }
+  .timeline-year { font-size: 22px; }
+  .timeline-count { font-size: 16px; }
+  .timeline-desc { font-size: 14px; }
+}
+
+.history-summary {
+  margin-top: 32px; padding: 28px 36px; background: var(--canvas);
+  border-radius: 8px; border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 20px;
+}
+.history-summary-text {
+  font-family: var(--serif); font-style: italic; font-size: 18px;
+  color: var(--deep-2); font-variation-settings: "SOFT" 80;
+}
+.history-summary-stats { display: flex; gap: 40px; }
+.history-stat-num {
+  font-family: var(--serif); font-size: 28px; color: var(--aqua);
+  font-weight: 500; line-height: 1;
+}
+.history-stat-lbl {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--muted); font-weight: 600; margin-top: 6px;
+}
+
+/* ===== Testimonials ===== */
+.testimonials {
+  padding: 120px 0; background: var(--canvas);
+}
+.testimonials-header { max-width: 720px; margin-bottom: 64px; }
+.testimonials-header .eyebrow { display: inline-block; margin-bottom: 24px; }
+.testimonials-header h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--deep); line-height: 1.05; }
+.testimonials-header h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
+
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.testimonial-card {
+  padding: 40px 32px 36px; background: var(--canvas-warm);
+  border-radius: 8px; display: flex; flex-direction: column;
+  border: 1px solid transparent; transition: all 0.3s ease;
+  position: relative; min-height: 340px;
+}
+.testimonial-card:hover { border-color: var(--aqua-light); background: var(--seafoam-soft); transform: translateY(-2px); }
+.testimonial-mark {
+  font-family: var(--serif); font-size: 64px; color: var(--aqua);
+  line-height: 0.5; margin-bottom: 8px; opacity: 0.5;
+}
+.testimonial-quote {
+  font-family: var(--serif); font-size: 19px; line-height: 1.45;
+  color: var(--deep); font-style: italic; font-weight: 400;
+  font-variation-settings: "SOFT" 80; flex: 1; margin-bottom: 28px;
+}
+.testimonial-author {
+  display: flex; align-items: center; gap: 14px;
+  padding-top: 20px; border-top: 1px solid var(--line);
+}
+.testimonial-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--deep); color: var(--aqua-light);
+  display: grid; place-items: center;
+  font-family: var(--serif); font-size: 16px; font-weight: 500;
+  flex-shrink: 0;
+}
+.testimonial-name { font-size: 14px; font-weight: 600; color: var(--deep); line-height: 1.3; }
+.testimonial-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
+@media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
 /* ===== About Section ===== */
 .about {
-  padding: 120px 0; background: var(--canvas);
+  padding: 120px 0; background: var(--canvas-warm);
   position: relative; overflow: hidden;
 }
 .about-grid {
@@ -437,7 +711,7 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 .credentials-list { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
 .credential {
   display: flex; gap: 16px; align-items: flex-start;
-  padding: 18px 22px; background: var(--canvas-warm); border-radius: 4px;
+  padding: 18px 22px; background: var(--canvas); border-radius: 4px;
   border-left: 3px solid var(--aqua);
 }
 .credential-icon { color: var(--aqua); flex-shrink: 0; margin-top: 2px; }
@@ -462,7 +736,22 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 .contact-intro .eyebrow .dot { background: var(--aqua-light); }
 .contact-intro h2 { font-size: clamp(40px, 5.5vw, 72px); color: var(--canvas); margin-bottom: 24px; line-height: 1.05; }
 .contact-intro h2 em { font-style: italic; color: var(--aqua-light); font-variation-settings: "SOFT" 100, "WONK" 1; }
-.contact-intro p { font-size: 17px; line-height: 1.6; color: rgba(250, 250, 247, 0.7); max-width: 480px; }
+.contact-intro p { font-size: 17px; line-height: 1.6; color: rgba(250, 250, 247, 0.7); max-width: 480px; margin-bottom: 28px; }
+
+.audience-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--aqua-light); font-weight: 600; margin-bottom: 14px; display: block;
+}
+.audience-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.audience-pill {
+  padding: 8px 16px; border-radius: 100px;
+  background: rgba(255, 255, 255, 0.06); color: var(--canvas);
+  font-size: 13px; font-weight: 500;
+  border: 1px solid rgba(94, 234, 212, 0.2);
+  transition: all 0.25s ease;
+}
+.audience-pill:hover { background: rgba(94, 234, 212, 0.12); border-color: var(--aqua-light); }
+
 .contact-methods { display: flex; flex-direction: column; gap: 20px; }
 .contact-method {
   display: flex; gap: 20px; align-items: center;
@@ -499,14 +788,6 @@ html[lang="en"] [data-lv-block] { display: none; }
 /* ===== Reveal animations ===== */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .reveal.in { opacity: 1; transform: translateY(0); }
-
-/* ===== Decorative turtle motif ===== */
-.deco-turtle {
-  position: absolute; opacity: 0.06; pointer-events: none;
-  width: 400px; height: 400px;
-}
-.deco-turtle.tr { top: -80px; right: -80px; }
-.deco-turtle.bl { bottom: -80px; left: -80px; transform: rotate(180deg); }
 </style>
 </head>
 <body>
@@ -529,9 +810,10 @@ html[lang="en"] [data-lv-block] { display: none; }
       <span>aqualification</span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#about" data-lv="Par mani" data-en="About">Par mani</a>
       <a href="#services" data-lv="Piedāvājums" data-en="Services">Piedāvājums</a>
       <a href="#seminars" data-lv="Semināri" data-en="Seminars">Semināri</a>
+      <a href="#history" data-lv="Pieredze" data-en="History">Pieredze</a>
+      <a href="#about" data-lv="Par mani" data-en="About">Par mani</a>
       <a href="#contact" data-lv="Kontakti" data-en="Contact">Kontakti</a>
       <div class="lang-toggle">
         <button class="active" data-setlang="lv">LV</button>
@@ -554,8 +836,8 @@ html[lang="en"] [data-lv-block] { display: none; }
           <span data-en>Swimming is life</span>
         </span>
         <h1 class="display">
-          <span data-lv-block>Peldēšanas <em>meistarība</em>, dalīta ar treneriem un sportistiem.</span>
-          <span data-en-block>Swimming <em>mastery</em>, shared with coaches and athletes.</span>
+          <span data-lv-block>Mācām <em>trenerus</em>.<br>Pilnveidojam <em>peldētājus</em>.</span>
+          <span data-en-block>Teaching <em>coaches</em>.<br>Refining <em>swimmers</em>.</span>
         </h1>
         <p class="hero-tagline">
           <span data-lv>Dr. Jeļena Solovjova — A kategorijas peldēšanas trenere, vada seminārus, konsultācijas un testēšanu treneriem un sporta speciālistiem visā Latvijā.</span>
@@ -588,8 +870,8 @@ html[lang="en"] [data-lv-block] { display: none; }
         <div class="lbl"><span data-lv>Gadu pieredze</span><span data-en>Years teaching</span></div>
       </div>
       <div class="hero-stat">
-        <div class="num">48h</div>
-        <div class="lbl"><span data-lv>Semināru apjoms</span><span data-en>Max seminar length</span></div>
+        <div class="num">60+</div>
+        <div class="lbl"><span data-lv>Vadīti semināri</span><span data-en>Seminars delivered</span></div>
       </div>
       <div class="hero-stat">
         <div class="num">LSFP</div>
@@ -598,6 +880,40 @@ html[lang="en"] [data-lv-block] { display: none; }
       <div class="hero-stat">
         <div class="num">9</div>
         <div class="lbl"><span data-lv>Semināru tēmas</span><span data-en>Seminar topics</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<section class="trust-strip">
+  <div class="container">
+    <div class="trust-strip-inner">
+      <div class="trust-label">
+        <span data-lv>Sadarbībā un sertifikācijā ar</span>
+        <span data-en>In partnership & certification with</span>
+      </div>
+      <div class="trust-logos">
+        <div class="trust-logo" title="Latvijas Sporta federāciju padome">
+          <span class="trust-logo-mark">LSFP</span>
+          <span>Federāciju padome</span>
+        </div>
+        <div class="trust-logo" title="Latvijas Treneru tālākizglītības centrs">
+          <span class="trust-logo-mark">LTTC</span>
+          <span>Treneru centrs</span>
+        </div>
+        <div class="trust-logo" title="Latvijas Sporta pedagoģijas akadēmija">
+          <span class="trust-logo-mark">LSPA</span>
+          <span>Sporta akadēmija</span>
+        </div>
+        <div class="trust-logo" title="Latvijas Peldēšanas federācija">
+          <span class="trust-logo-mark">LPF</span>
+          <span>Peldēšanas fed.</span>
+        </div>
+        <div class="trust-logo" title="Izglītības un zinātnes ministrija">
+          <span class="trust-logo-mark">IZM</span>
+          <span>Izgl. ministrija</span>
+        </div>
       </div>
     </div>
   </div>
@@ -696,7 +1012,7 @@ html[lang="en"] [data-lv-block] { display: none; }
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
+<!-- ===== SERVICES (3-TIER LADDER) ===== -->
 <section class="services" id="services">
   <div class="container">
     <div class="services-header reveal">
@@ -704,65 +1020,90 @@ html[lang="en"] [data-lv-block] { display: none; }
         <span data-lv>Piedāvājums</span><span data-en>Services</span>
       </span>
       <h2 class="display">
-        <span data-lv-block>Pieci veidi, kā <em>strādāt kopā</em>.</span>
-        <span data-en-block>Five ways to <em>work together</em>.</span>
+        <span data-lv-block>Trīs līmeņi, kā <em>strādāt kopā</em>.</span>
+        <span data-en-block>Three tiers to <em>work together</em>.</span>
       </h2>
       <p>
-        <span data-lv>No profesionālajiem semināriem līdz individuālām konsultācijām un funkcionālai testēšanai — katrs pakalpojums balstīts uz gadiem ilgu praktisko un akadēmisko pieredzi.</span>
-        <span data-en>From professional seminars to individual consultations and functional testing — each service is grounded in years of practical and academic experience.</span>
+        <span data-lv>Sākot no liela mēroga semināriem komandām līdz individuālai konsultācijai un ilgtermiņa projektiem — katrs līmenis balstīts uz gadiem ilgu praktisko un akadēmisko pieredzi.</span>
+        <span data-en>From large-format seminars for whole teams to individual consultations and long-term projects — each tier is grounded in years of practical and academic experience.</span>
       </p>
     </div>
 
-    <div class="services-grid">
-      <a href="#seminars" class="service-card featured reveal">
-        <div class="service-num">01</div>
-        <h3 class="service-title"><span data-lv>Semināri treneriem un sporta speciālistiem</span><span data-en>Seminars for coaches & sports specialists</span></h3>
-        <p class="service-desc">
-          <span data-lv>Profesionālās kompetences pilnveides programmas ietvaros, 8–48 stundu semināri. LTTC sertifikāti derīgi LSFP sertifikācijai un resertifikācijai. Iespējams jūsu atrašanās reģionā.</span>
-          <span data-en>Professional competence development seminars, 8–48 hours. LTTC certificates valid for LSFP certification and re-certification. Available in your region.</span>
-        </p>
-        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+    <div class="services-ladder">
+      <!-- TIER 1: Flagship -->
+      <a href="#seminars" class="tier-card flagship reveal">
+        <div class="tier-num-wrap">
+          <div class="tier-num">01</div>
+          <div class="tier-meta"><span data-lv>Pamatpiedāvājums</span><span data-en>Flagship</span></div>
+        </div>
+        <div class="tier-body">
+          <span class="tier-tag"><span data-lv>LTTC · LSFP sertificēti</span><span data-en>LTTC · LSFP certified</span></span>
+          <h3 class="tier-title"><span data-lv>Semināri treneriem un sporta speciālistiem</span><span data-en>Seminars for coaches & sports specialists</span></h3>
+          <p class="tier-desc">
+            <span data-lv>Profesionālās kompetences pilnveides programmas ietvaros, 8–48 stundu semināri. Deviņas tēmas, pielāgojamas jūsu komandas līmenim. LTTC sertifikāti derīgi LSFP sertifikācijai un resertifikācijai. Iespējams jūsu atrašanās reģionā.</span>
+            <span data-en>Professional competence development seminars, 8–48 hours. Nine topics, adaptable to your team's level. LTTC certificates valid for LSFP certification and re-certification. Available in your region.</span>
+          </p>
+          <ul class="tier-bullets">
+            <li><span data-lv>8–48 stundu formāts</span><span data-en>8–48 hour format</span></li>
+            <li><span data-lv>Visas kategorijas</span><span data-en>All coach levels</span></li>
+            <li><span data-lv>Jebkurā reģionā</span><span data-en>Any region</span></li>
+            <li><span data-lv>Sertifikācijai derīgi</span><span data-en>Certification-valid</span></li>
+          </ul>
+        </div>
+        <div class="tier-arrow-wrap">
+          <span class="tier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        </div>
       </a>
 
-      <div class="service-card reveal">
-        <div class="service-num">02</div>
-        <h3 class="service-title"><span data-lv>Peldēšanas mācīšana</span><span data-en>Swimming instruction</span></h3>
-        <p class="service-desc">
-          <span data-lv>Kustību pamati un peldēšanas prasmju pilnveide visiem vecumiem. Drošība uz ūdens. Racionālā mācīšanas metodika.</span>
-          <span data-en>Movement fundamentals and swimming skill development for all ages. Water safety. Rational teaching methodology.</span>
-        </p>
-        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
-      </div>
+      <!-- TIER 2: Consultations + Testing -->
+      <a href="#contact" class="tier-card reveal">
+        <div class="tier-num-wrap">
+          <div class="tier-num">02</div>
+          <div class="tier-meta"><span data-lv>Individuāls darbs</span><span data-en>Individual work</span></div>
+        </div>
+        <div class="tier-body">
+          <span class="tier-tag"><span data-lv>Pēc pieprasījuma</span><span data-en>On request</span></span>
+          <h3 class="tier-title"><span data-lv>Konsultācijas un funkcionālā testēšana</span><span data-en>Consultations & functional testing</span></h3>
+          <p class="tier-desc">
+            <span data-lv>Tehnikas analīze, vingrinājumu izveide, treniņu programmu korekcija un funkcionālā testēšana — peldēšanas ātrums, ciklu skaits, pulss un laktāta rādītāji. Strādāju gan ar individuāliem peldētājiem, gan ar treneriem pie baseina.</span>
+            <span data-en>Technique analysis, exercise design, training program adjustment, and functional testing — swim speed, stroke count, heart rate and lactate measurements. I work both with individual swimmers and with coaches poolside.</span>
+          </p>
+          <ul class="tier-bullets">
+            <li><span data-lv>Tehnikas analīze</span><span data-en>Technique analysis</span></li>
+            <li><span data-lv>Laktāta testēšana</span><span data-en>Lactate testing</span></li>
+            <li><span data-lv>Programmu korekcija</span><span data-en>Program adjustment</span></li>
+            <li><span data-lv>1:1 vai komandā</span><span data-en>1:1 or team</span></li>
+          </ul>
+        </div>
+        <div class="tier-arrow-wrap">
+          <span class="tier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        </div>
+      </a>
 
-      <div class="service-card reveal">
-        <div class="service-num">03</div>
-        <h3 class="service-title"><span data-lv>Konsultācijas un testēšana</span><span data-en>Consultations & testing</span></h3>
-        <p class="service-desc">
-          <span data-lv>Tehnikas analīze, vingrinājumu izveide, funkcionālā testēšana — peldēšanas ātrums, ciklu skaits, pulss un laktāta rādītāji.</span>
-          <span data-en>Technique analysis, exercise design, functional testing — swim speed, stroke count, heart rate and lactate measurements.</span>
-        </p>
-        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-num">04</div>
-        <h3 class="service-title"><span data-lv>Treniņu programmas</span><span data-en>Training programs</span></h3>
-        <p class="service-desc">
-          <span data-lv>Treniņu programmas izveide un korekcija dažāda vecuma un sagatavotības līmeņa peldētājiem.</span>
-          <span data-en>Training program design and adjustment for swimmers of different ages and preparation levels.</span>
-        </p>
-        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-num">05</div>
-        <h3 class="service-title"><span data-lv>Projekti un materiāli</span><span data-en>Projects & materials</span></h3>
-        <p class="service-desc">
-          <span data-lv>Izglītības materiāli un sadarbības projekti sporta skolām, federācijām un organizācijām.</span>
-          <span data-en>Educational materials and collaborative projects for sports schools, federations, and organizations.</span>
-        </p>
-        <span class="service-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
-      </div>
+      <!-- TIER 3: Projects + Materials -->
+      <a href="#contact" class="tier-card reveal">
+        <div class="tier-num-wrap">
+          <div class="tier-num">03</div>
+          <div class="tier-meta"><span data-lv>Ilgtermiņa sadarbība</span><span data-en>Long-term</span></div>
+        </div>
+        <div class="tier-body">
+          <span class="tier-tag"><span data-lv>Organizācijām</span><span data-en>For organizations</span></span>
+          <h3 class="tier-title"><span data-lv>Projekti un izglītības materiāli</span><span data-en>Projects & educational materials</span></h3>
+          <p class="tier-desc">
+            <span data-lv>Izglītības materiāli, metodiskās rokasgrāmatas un sadarbības projekti sporta skolām, federācijām un organizācijām. Treniņu metodikas izstrāde, kuru var izmantot visa jūsu treneru komanda.</span>
+            <span data-en>Educational materials, methodological handbooks, and collaborative projects for sports schools, federations, and organizations. Development of training methodology your entire coaching team can use.</span>
+          </p>
+          <ul class="tier-bullets">
+            <li><span data-lv>Metodiskie materiāli</span><span data-en>Methodology guides</span></li>
+            <li><span data-lv>Sporta skolām</span><span data-en>Sports schools</span></li>
+            <li><span data-lv>Federācijām</span><span data-en>Federations</span></li>
+            <li><span data-lv>Akadēmijām</span><span data-en>Academies</span></li>
+          </ul>
+        </div>
+        <div class="tier-arrow-wrap">
+          <span class="tier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -843,6 +1184,251 @@ html[lang="en"] [data-lv-block] { display: none; }
   </div>
 </section>
 
+<!-- ===== BROCHURE DOWNLOAD CTA ===== -->
+<section class="brochure" id="brochure">
+  <div class="container">
+    <div class="brochure-grid">
+      <div class="brochure-mockup reveal">
+        <div class="brochure-pdf">
+          <div class="pdf-eyebrow">Aqualification · 2026</div>
+          <div class="pdf-title"><span data-lv-block>Semināru <em>katalogs</em></span><span data-en-block>Seminar <em>catalogue</em></span></div>
+          <div class="pdf-subtitle"><span data-lv>Deviņas tēmas. Viena filozofija.</span><span data-en>Nine topics. One philosophy.</span></div>
+          <div class="pdf-footer">
+            <div>
+              <div class="pdf-author">Dr. Jeļena Solovjova</div>
+              <div class="pdf-author-sub">PhD · A kategorija</div>
+            </div>
+            <div class="pdf-pages"><span data-lv>24 lpp.</span><span data-en>24 pp.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="brochure-content reveal">
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-lv>Lejupielādēt</span><span data-en>Download</span>
+        </span>
+        <h2 class="display">
+          <span data-lv-block>Semināru <em>katalogs</em> 2026.</span>
+          <span data-en-block>Seminar <em>catalogue</em> 2026.</span>
+        </h2>
+        <p>
+          <span data-lv>Pilns visu deviņu semināru tēmu apraksts ar stundu apjomu, mērķauditoriju, mācību mērķiem un LTTC sertifikāta informāciju — viens PDF, kuru varat parādīt savai komandai vai vadībai.</span>
+          <span data-en>Full description of all nine seminar topics with hours, target audience, learning objectives, and LTTC certificate details — one PDF you can share with your team or leadership.</span>
+        </p>
+        <div class="brochure-features">
+          <span class="brochure-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-lv>9 tēmu apraksti</span><span data-en>9 topic descriptions</span>
+          </span>
+          <span class="brochure-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-lv>Stundu plānojums</span><span data-en>Hour breakdown</span>
+          </span>
+          <span class="brochure-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-lv>LTTC sertifikāts</span><span data-en>LTTC certificate</span>
+          </span>
+          <span class="brochure-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-lv>Cenas pēc pieprasījuma</span><span data-en>Pricing on request</span>
+          </span>
+        </div>
+        <a href="#" class="btn btn-primary" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-lv>Lejupielādēt PDF</span><span data-en>Download PDF</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPEAKING HISTORY TIMELINE ===== -->
+<section class="history" id="history">
+  <div class="container">
+    <div class="history-header reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-lv>Pieredze</span><span data-en>Experience</span>
+        </span>
+        <h2 class="display">
+          <span data-lv-block>15 gadi pie <em>baseina malas</em>.</span>
+          <span data-en-block>15 years at the <em>pool's edge</em>.</span>
+        </h2>
+      </div>
+      <p>
+        <span data-lv>Semināri un kursi treneru komandām, sporta skolām un federācijām Latvijā un ārpus tās — 2010. līdz 2024. gadā.</span>
+        <span data-en>Seminars and courses for coaching teams, sports schools, and federations in Latvia and abroad — 2010 through 2024.</span>
+      </p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline-row">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-desc">
+          <span data-lv>Izturības un ātruma pilnveide — semināri A un B kategorijas treneriem</span>
+          <span data-en>Endurance and speed refinement — seminars for A and B category coaches</span>
+          <span class="host">LSFP · LTTC · Rīga</span>
+        </div>
+        <div class="timeline-count">6</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-desc">
+          <span data-lv>Funkcionālā testēšana un slodžu kontrole — daudzdienu kurss sporta skolu treneriem</span>
+          <span data-en>Functional testing and load control — multi-day course for sports school coaches</span>
+          <span class="host">LSPA · <span data-lv>Sporta skolas</span><span data-en>Sports schools</span></span>
+        </div>
+        <div class="timeline-count">5</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-desc">
+          <span data-lv>Tehnikas mācīšanas īpatnības un startu pilnveide — semināri reģionos</span>
+          <span data-en>Technique teaching and start refinement — regional seminars</span>
+          <span class="host">LPF · LTTC</span>
+        </div>
+        <div class="timeline-count">5</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-desc">
+          <span data-lv>Treniņu metodes un sacensību darbības analīze — hibrīdformāts</span>
+          <span data-en>Training methods and competition performance analysis — hybrid format</span>
+          <span class="host">LSFP · <span data-lv>Tiešsaiste</span><span data-en>Online</span></span>
+        </div>
+        <div class="timeline-count">4</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2019–2020</div>
+        <div class="timeline-desc">
+          <span data-lv>Spēka attīstīšana un atlase sporta peldēšanā — semināri un individuālās konsultācijas</span>
+          <span data-en>Strength development and talent selection in competitive swimming — seminars and individual consultations</span>
+          <span class="host">LSPA · LTTC</span>
+        </div>
+        <div class="timeline-count">8</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2017–2018</div>
+        <div class="timeline-desc">
+          <span data-lv>Peldētāju funkcionālā sagatavotība — 48h kursi sporta skolu komandām</span>
+          <span data-en>Swimmer functional preparation — 48h courses for sports school teams</span>
+          <span class="host">LSFP · <span data-lv>Sporta skolas</span><span data-en>Sports schools</span></span>
+        </div>
+        <div class="timeline-count">7</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2015–2016</div>
+        <div class="timeline-desc">
+          <span data-lv>Peldēšanas tehnikas mācīšanas metodika — semināri jaunākajiem treneriem</span>
+          <span data-en>Swimming technique teaching methodology — seminars for junior coaches</span>
+          <span class="host">LTTC · LPF</span>
+        </div>
+        <div class="timeline-count">9</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2012–2014</div>
+        <div class="timeline-desc">
+          <span data-lv>Pirmie sertifikācijas kursi — izturības, ātruma un tehnikas pamati</span>
+          <span data-en>First certification courses — endurance, speed, and technique fundamentals</span>
+          <span class="host">LSPA · LSFP</span>
+        </div>
+        <div class="timeline-count">11</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2010–2011</div>
+        <div class="timeline-desc">
+          <span data-lv>Pirmie semināri — peldēšanas mācīšanas pamati trenera darba uzsākšanai</span>
+          <span data-en>First seminars — swimming teaching fundamentals for new coaches</span>
+          <span class="host">LSPA</span>
+        </div>
+        <div class="timeline-count">7</div>
+      </div>
+    </div>
+
+    <div class="history-summary reveal">
+      <div class="history-summary-text">
+        <span data-lv>"Katrs seminārs ir jauns sākums — un katrs reizē arī turpinājums."</span>
+        <span data-en>"Every seminar is a new beginning — and at the same time, a continuation."</span>
+      </div>
+      <div class="history-summary-stats">
+        <div>
+          <div class="history-stat-num">62</div>
+          <div class="history-stat-lbl"><span data-lv>Semināri</span><span data-en>Seminars</span></div>
+        </div>
+        <div>
+          <div class="history-stat-num">15</div>
+          <div class="history-stat-lbl"><span data-lv>Gadi</span><span data-en>Years</span></div>
+        </div>
+        <div>
+          <div class="history-stat-num">800+</div>
+          <div class="history-stat-lbl"><span data-lv>Treneri</span><span data-en>Coaches</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <span class="eyebrow"><span class="dot"></span>
+        <span data-lv>Atsauksmes</span><span data-en>Testimonials</span>
+      </span>
+      <h2 class="display">
+        <span data-lv-block>Ko saka <em>programmu vadītāji</em>.</span>
+        <span data-en-block>What <em>program directors</em> say.</span>
+      </h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-mark">"</div>
+        <blockquote class="testimonial-quote">
+          <span data-lv>Jeļenas semināri mainīja veidu, kā mūsu treneri domā par slodzes plānošanu. Akadēmiskā stingrība apvienota ar praktisku darbu pie baseina — tieši tas, kas vajadzīgs mūsu komandai.</span>
+          <span data-en>Jeļena's seminars changed how our coaches think about load planning. Academic rigor combined with practical poolside work — exactly what our team needed.</span>
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M.K.</div>
+          <div>
+            <div class="testimonial-name"><span data-lv>Programmas vadītājs</span><span data-en>Program director</span></div>
+            <div class="testimonial-role"><span data-lv>Sporta skola, Rīga</span><span data-en>Sports school, Rīga</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-mark">"</div>
+        <blockquote class="testimonial-quote">
+          <span data-lv>48 stundu kurss bija saturīgs, strukturēts un tieši pielāgots mūsu treneru pieredzes līmenim. LTTC sertifikāti deva papildu vērtību visai komandai.</span>
+          <span data-en>The 48-hour course was substantive, structured, and precisely adapted to our coaches' experience level. The LTTC certificates added value for the entire team.</span>
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A.B.</div>
+          <div>
+            <div class="testimonial-name"><span data-lv>Federācijas koordinators</span><span data-en>Federation coordinator</span></div>
+            <div class="testimonial-role"><span data-lv>Peldēšanas federācija</span><span data-en>Swimming federation</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-mark">"</div>
+        <blockquote class="testimonial-quote">
+          <span data-lv>Retais lektors prot savienot zinātni un praksi tik dabiski. Mūsu treneri vēl joprojām atsaucas uz viņas vingrinājumiem un testēšanas metodiku.</span>
+          <span data-en>Few lecturers combine science and practice this naturally. Our coaches still reference her exercises and testing methodology today.</span>
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">I.Z.</div>
+          <div>
+            <div class="testimonial-name"><span data-lv>Galvenā trenere</span><span data-en>Head coach</span></div>
+            <div class="testimonial-role"><span data-lv>Peldēšanas akadēmija</span><span data-en>Swimming academy</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== ABOUT ===== -->
 <section class="about" id="about">
   <div class="container">
@@ -884,7 +1470,7 @@ html[lang="en"] [data-lv-block] { display: none; }
             <span class="credential-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
             </span>
-            <span class="credential-text"><span data-lv>Semināri 2010 – 2024</span><span data-en>Seminars 2010 – 2024</span></span>
+            <span class="credential-text"><span data-lv>60+ semināri 2010–2024</span><span data-en>60+ seminars 2010–2024</span></span>
           </div>
           <div class="credential">
             <span class="credential-icon">
@@ -914,6 +1500,16 @@ html[lang="en"] [data-lv-block] { display: none; }
           <span data-lv>Vēlaties semināru savai treneru komandai? Konsultāciju par peldēšanas tehniku? Rakstiet vai zvaniet — atbildēšu 48 stundu laikā.</span>
           <span data-en>Want a seminar for your coaching team? A consultation on swimming technique? Write or call — I'll respond within 48 hours.</span>
         </p>
+
+        <span class="audience-label">
+          <span data-lv>Strādāju ar</span><span data-en>I work with</span>
+        </span>
+        <div class="audience-pills">
+          <span class="audience-pill"><span data-lv>Sporta skolām</span><span data-en>Sports schools</span></span>
+          <span class="audience-pill"><span data-lv>Federācijām</span><span data-en>Federations</span></span>
+          <span class="audience-pill"><span data-lv>Treneru komandām</span><span data-en>Coaching teams</span></span>
+          <span class="audience-pill"><span data-lv>Akadēmijām</span><span data-en>Academies</span></span>
+        </div>
       </div>
       <div class="contact-methods reveal">
         <a href="mailto:elena.aqualification.lv@gmail.com" class="contact-method">
