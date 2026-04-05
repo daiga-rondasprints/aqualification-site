@@ -1166,6 +1166,19 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
 .publications-header h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--deep); line-height: 1.05; }
 .publications-header h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
 .publications-header p { font-size: 17px; line-height: 1.6; color: var(--ink); padding-bottom: 10px; }
+.publications-header-right { display: flex; flex-direction: column; gap: 20px; }
+.publications-author-photo {
+  display: flex; align-items: center; gap: 16px;
+}
+.publications-author-photo img {
+  width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+  object-position: center 15%; border: 3px solid var(--aqua);
+  box-shadow: 0 4px 12px rgba(8, 51, 68, 0.12); flex-shrink: 0;
+}
+.publications-author-caption {
+  font-size: 13px; line-height: 1.4; color: rgba(13, 31, 45, 0.6);
+  font-style: italic;
+}
 .publications-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
 }
@@ -1905,9 +1918,15 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
           <span data-lv-block>Divas grāmatas. <em>Gadsimta ceturksnis rakstīšanas.</em></span><span data-en-block>Two books. <em>A quarter-century of writing.</em></span><span data-ru-block>Две книги. <em>Четверть века письма.</em></span>
         </h2>
       </div>
-      <p>
-        <span data-lv>Divas mācību grāmatas par peldēšanas tehniku un treniņu pamatiem, raksti populāros žurnālos un 50+ zinātniskas publikācijas.</span><span data-en>Two textbooks on swimming technique and training fundamentals, articles in popular magazines, and 50+ scientific publications.</span><span data-ru>Два учебника по технике плавания и основам тренировки, статьи в популярных журналах и 50+ научных публикаций.</span>
-      </p>
+      <div class="publications-header-right">
+        <p>
+          <span data-lv>Divas mācību grāmatas par peldēšanas tehniku un treniņu pamatiem, raksti populāros žurnālos un 50+ zinātniskas publikācijas.</span><span data-en>Two textbooks on swimming technique and training fundamentals, articles in popular magazines, and 50+ scientific publications.</span><span data-ru>Два учебника по технике плавания и основам тренировки, статьи в популярных журналах и 50+ научных публикаций.</span>
+        </p>
+        <div class="publications-author-photo">
+          <img src="lena-with-book.jpg" alt="" loading="lazy">
+          <span class="publications-author-caption"><span data-lv>Autore ar savu grāmatu „Peldēšana"</span><span data-en>The author with her textbook "Peldēšana"</span><span data-ru>Автор со своим учебником «Пелдешана»</span></span>
+        </div>
+      </div>
     </div>
     <div class="publications-grid reveal">
       <figure class="publication-card">
