@@ -767,6 +767,25 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   position: relative; box-shadow: 0 30px 60px -20px rgba(8, 51, 68, 0.25);
 }
 .about-image img { width: 100%; height: 100%; object-fit: cover; }
+.about-image::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(8, 51, 68, 0.85) 100%);
+  pointer-events: none;
+}
+.about-image-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 32px 28px 26px; color: var(--canvas);
+  z-index: 1;
+}
+.caption-name {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  color: var(--canvas); line-height: 1.2; margin-bottom: 4px;
+  font-variation-settings: "SOFT" 50;
+}
+.caption-role {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--aqua-light); font-weight: 600;
+}
 .about-content .eyebrow { display: inline-block; margin-bottom: 24px; }
 .about-content h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--deep); margin-bottom: 28px; line-height: 1.05; }
 .about-content h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
@@ -1489,7 +1508,11 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
   <div class="container">
     <div class="about-grid">
       <div class="about-image reveal">
-        <img src="https://aqualification.lv/wp-content/uploads/2025/03/Picture8-1-1-1.jpg" alt="Dr. Jeļena Solovjova" onerror="this.style.background='linear-gradient(135deg,#0d9488,#083344)';this.src=''">
+        <img src="lena-portrait.jpg" alt="Dr. Jeļena Solovjova" loading="lazy">
+        <div class="about-image-caption">
+          <div class="caption-name">Dr. Jeļena Solovjova</div>
+          <div class="caption-role">PhD · <span data-lv>A kategorijas peldēšanas trenere</span><span data-en>A-category swimming coach</span><span data-ru>Тренер по плаванию категории «А»</span></div>
+        </div>
       </div>
       <div class="about-content reveal">
         <span class="eyebrow"><span class="dot"></span>
