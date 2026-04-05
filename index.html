@@ -687,6 +687,7 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 }
 .history-banner img {
   width: 100%; height: 100%; object-fit: cover;
+  object-position: center 30%;
   opacity: 0.85; filter: saturate(0.85);
 }
 .history-banner::after {
@@ -1153,57 +1154,56 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
 .coaching-continues img:hover { filter: saturate(1.1); }
 @media (max-width: 700px) { .coaching-continues { grid-template-columns: 1fr; } }
 
-/* ===== Publications section ===== */
-.publications {
-  padding: 120px 0; background: var(--canvas); color: var(--ink);
+/* ===== Publications band (inside earlier/dark section) ===== */
+.publications-band {
+  margin-top: 72px; padding-top: 52px;
+  border-top: 1px solid rgba(94, 234, 212, 0.18);
 }
-.publications-header {
-  display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px;
-  margin-bottom: 64px; align-items: end;
+.publications-band-header {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px; margin-bottom: 36px;
 }
-.publications-header .eyebrow { display: inline-block; margin-bottom: 24px; color: var(--aqua); }
-.publications-header .eyebrow .dot { background: var(--aqua); }
-.publications-header h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--deep); line-height: 1.05; }
-.publications-header h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
-.publications-header p { font-size: 17px; line-height: 1.6; color: var(--ink); padding-bottom: 10px; }
-.publications-header-right { display: flex; flex-direction: column; gap: 20px; }
+.publications-band-header h3 {
+  font-family: var(--serif); font-size: clamp(24px, 3vw, 34px);
+  color: var(--canvas); font-weight: 400; line-height: 1.15;
+}
+.publications-band-header h3 em {
+  font-style: italic; color: var(--aqua-light);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
 .publications-author-photo {
   display: flex; align-items: center; gap: 16px;
 }
 .publications-author-photo img {
-  width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
-  object-position: center 15%; border: 3px solid var(--aqua);
-  box-shadow: 0 4px 12px rgba(8, 51, 68, 0.12); flex-shrink: 0;
+  width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+  object-position: center 15%; border: 2px solid var(--aqua-light);
+  flex-shrink: 0;
 }
 .publications-author-caption {
-  font-size: 13px; line-height: 1.4; color: rgba(13, 31, 45, 0.6);
-  font-style: italic;
+  font-size: 13px; line-height: 1.4; color: rgba(250, 250, 247, 0.65);
+  font-style: italic; max-width: 200px;
 }
 .publications-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
 }
 .publication-card { margin: 0; display: flex; flex-direction: column; }
 .publication-card img {
   width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px;
-  background: #fff; border: 1px solid rgba(13, 31, 45, 0.08);
-  box-shadow: 0 6px 24px rgba(13, 31, 45, 0.08);
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  border: 1px solid rgba(94, 234, 212, 0.15);
+  transition: transform 0.4s var(--ease);
 }
-.publication-card:hover img {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(13, 31, 45, 0.14);
-}
-.publication-card figcaption { padding: 16px 4px 0; }
+.publication-card:hover img { transform: translateY(-4px); }
+.publication-card figcaption { padding: 14px 2px 0; }
 .pub-title {
-  display: block; font-family: var(--serif); font-size: 18px;
-  color: var(--deep); font-weight: 500; line-height: 1.25; margin-bottom: 4px;
+  display: block; font-family: var(--serif); font-size: 16px;
+  color: var(--canvas); font-weight: 500; line-height: 1.25; margin-bottom: 3px;
 }
 .pub-meta {
-  display: block; font-size: 12px; text-transform: uppercase;
-  letter-spacing: 0.12em; color: var(--aqua); font-weight: 600;
+  display: block; font-size: 11px; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--aqua-light); font-weight: 600;
 }
 @media (max-width: 900px) {
-  .publications-header { grid-template-columns: 1fr; gap: 24px; }
+  .publications-band-header { flex-direction: column; align-items: flex-start; }
   .publications-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 500px) {
@@ -1250,11 +1250,11 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
       <span class="logo-text">aqualification</span>
     </a>
     <div class="nav-links" id="navLinks">
+      <a href="#lena" data-lv="Jeļena" data-en="Jeļena" data-ru="Елена">Jeļena</a>
       <a href="#services" data-lv="Piedāvājums" data-en="Services" data-ru="Услуги">Piedāvājums</a>
       <a href="#seminars" data-lv="Semināri" data-en="Seminars" data-ru="Семинары">Semināri</a>
-      <a href="#earlier" data-lv="Agrāk" data-en="Earlier" data-ru="Раньше">Agrāk</a>
       <a href="#history" data-lv="Pieredze" data-en="History" data-ru="Опыт">Pieredze</a>
-      <a href="#about" data-lv="Par mani" data-en="About" data-ru="Обо мне">Par mani</a>
+      <a href="#testimonials" data-lv="Atsauksmes" data-en="Testimonials" data-ru="Отзывы">Atsauksmes</a>
       <a href="#contact" data-lv="Kontakti" data-en="Contact" data-ru="Контакты">Kontakti</a>
       <div class="lang-toggle">
         <button class="active" data-setlang="lv">LV</button>
@@ -1267,7 +1267,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </button>
   </div>
 </nav>
-
 <!-- ===== HERO (video background) ===== -->
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="turtle-poster.jpg">
@@ -1318,7 +1317,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </div>
   </div>
 </section>
-
 <!-- ===== TRUST STRIP ===== -->
 <section class="trust-strip">
   <div class="container">
@@ -1351,7 +1349,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </div>
   </div>
 </section>
-
 <!-- ===== EXCHANGE BAND (from PIRMA_LAPA) ===== -->
 <section class="exchange-band">
   <div class="container">
@@ -1360,7 +1357,241 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </p>
   </div>
 </section>
+<!-- ===== LENA — the full story ===== -->
+<section class="about" id="lena">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-col reveal">
+        <div class="about-image">
+          <img src="lena-portrait.jpg" alt="Dr. Jeļena Solovjova" loading="lazy">
+          <div class="about-image-caption">
+            <div class="caption-name">Dr. Jeļena Solovjova</div>
+            <div class="caption-role">PhD · <span data-lv>A kategorijas peldēšanas trenere</span><span data-en>A-category swimming coach</span><span data-ru>Тренер по плаванию категории «А»</span></div>
+          </div>
+        </div>
+        <div class="about-proof-row">
+          <img src="cert-a-category-422.jpg" alt="A-category certificate #422" loading="lazy">
+          <img src="cert-lspa-pateiciba-2024.jpg" alt="LSPA Pateicība 2024" loading="lazy">
+          <img src="cert-lok-apliecinajums.jpg" alt="Latvian Olympic Committee Apliecinājums" loading="lazy">
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-lv>Par mani</span><span data-en>About</span><span data-ru>Обо мне</span>
+        </span>
+        <h2 class="display">
+          <span data-lv-block>Dr. Jeļena <em>Solovjova</em></span><span data-en-block>Dr. Jeļena <em>Solovjova</em></span><span data-ru-block>Др. Елена <em>Соловьёва</em></span>
+        </h2>
+        <p>
+          <span data-lv>PhD sporta zinātnēs, A kategorijas peldēšanas trenere ar vairāk nekā 15 gadu pieredzi Latvijas Sporta pedagoģijas akadēmijā. Latvijas izlases peldēšanas trenere kopš 1989. gada un trīs olimpisko spēļu izlases trenere — Atlanta 1996, Sidneja 2000, Atēnas 2004.</span><span data-en>PhD in sports science, A-category swimming coach with over 15 years at the Latvian Academy of Sport Education. National-team swimming coach for Latvia since 1989, and team coach at three Olympic Games — Atlanta 1996, Sydney 2000, Athens 2004.</span><span data-ru>Доктор спортивных наук, тренер по плаванию категории «А» с более чем 15-летним опытом работы в Латвийской академии спортивной педагогики. Тренер сборной Латвии по плаванию с 1989 года и тренер сборной на трёх Олимпийских играх — Атланта 1996, Сидней 2000, Афины 2004.</span>
+        </p>
+        <p>
+          <span data-lv>Autore diviem mācību grāmatām un vairāk nekā 50 zinātniskām publikācijām. Latvijas Zinātnes padomes eksperte sporta zinātnēs.</span><span data-en>Author of two textbooks and 50+ scientific publications. Latvian Science Council expert in sports sciences.</span><span data-ru>Автор двух учебников и более 50 научных публикаций. Эксперт Совета по науке Латвии в области спортивных наук.</span>
+        </p>
 
+        <div class="values-triplet">
+          <span class="value-word"><span data-lv>Droši.</span><span data-en>Safely.</span><span data-ru>Безопасно.</span></span>
+          <span class="value-sep">·</span>
+          <span class="value-word"><span data-lv>Pareizi.</span><span data-en>Correctly.</span><span data-ru>Правильно.</span></span>
+          <span class="value-sep">·</span>
+          <span class="value-word"><span data-lv>Ar prieku.</span><span data-en>With joy.</span><span data-ru>С радостью.</span></span>
+        </div>
+
+        <div class="credentials-list">
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </span>
+            <span class="credential-text">PhD — <span data-lv>Sporta zinātnes</span><span data-en>Sports Science</span><span data-ru>Спортивные науки</span></span>
+          </div>
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </span>
+            <span class="credential-text"><span data-lv>A kategorijas peldēšanas trenere</span><span data-en>A-category swimming coach</span><span data-ru>Тренер по плаванию категории «А»</span></span>
+          </div>
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </span>
+            <span class="credential-text"><span data-lv>Olimpisko spēļu izlases trenere · 1996 · 2000 · 2004</span><span data-en>Olympic Games team coach · 1996 · 2000 · 2004</span><span data-ru>Тренер сборной на Олимпийских играх · 1996 · 2000 · 2004</span></span>
+          </div>
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </span>
+            <span class="credential-text"><span data-lv>2 mācību grāmatas · 50+ zinātniskas publikācijas</span><span data-en>2 textbooks · 50+ scientific publications</span><span data-ru>2 учебника · 50+ научных публикаций</span></span>
+          </div>
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </span>
+            <span class="credential-text"><span data-lv>60+ semināri 2010–2024</span><span data-en>60+ seminars 2010–2024</span><span data-ru>60+ семинаров 2010–2024</span></span>
+          </div>
+          <div class="credential">
+            <span class="credential-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            </span>
+            <span class="credential-text">LTTC · LSFP <span data-lv>sertificēti kursi</span><span data-en>certified courses</span><span data-ru>сертифицированные курсы</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORIGINS — childhood to Olympic coaching ===== -->
+<section class="earlier" id="origins">
+  <div class="container">
+    <div class="earlier-header reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-lv>Ceļš</span><span data-en>The path</span><span data-ru>Путь</span>
+        </span>
+        <h2 class="display">
+          <span data-lv-block>Pirms semināriem — <em>baseins, trenere, trīs olimpieši.</em></span><span data-en-block>Before the seminars — <em>a pool, a coach, three Olympians.</em></span><span data-ru-block>До семинаров — <em>бассейн, тренер, трое олимпийцев.</em></span>
+        </h2>
+      </div>
+      <p>
+        <span data-lv>Pati meistarsports peldēšanā. Garš ceļš pirms tam, kad sākās lekcijas un kursi.</span><span data-en>A Master of Sports in swimming herself. A long road before the lectures and courses began.</span><span data-ru>Сама мастер спорта по плаванию. Долгий путь до того, как начались лекции и курсы.</span>
+      </p>
+    </div>
+
+    <div class="earlier-arc reveal">
+      <div class="earlier-arc-item">
+        <div class="earlier-arc-photo"><img src="lena-childhood-bw.jpg" alt="" loading="lazy"></div>
+        <div class="earlier-arc-year">1960s</div>
+        <div class="earlier-arc-label">
+          <span data-lv>Pirmā skolas diena — Rīga.</span><span data-en>First day of school — Rīga.</span><span data-ru>Первый день в школе — Рига.</span>
+        </div>
+      </div>
+      <div class="earlier-arc-item">
+        <div class="earlier-arc-photo"><img src="lena-teen-with-coach-bw.jpg" alt="" loading="lazy"></div>
+        <div class="earlier-arc-year">1970s</div>
+        <div class="earlier-arc-label">
+          <span data-lv>Pusaudze baseinā ar savu treneri. Peldētāja, pirms kļuva par treneri.</span><span data-en>Teenager poolside with her own coach. A swimmer first, before becoming a coach.</span><span data-ru>Подросток у бассейна со своим тренером. Сначала пловчиха — потом тренер.</span>
+        </div>
+      </div>
+      <div class="earlier-arc-item">
+        <div class="earlier-arc-photo"><img src="lena-teen-portrait-bw.jpg" alt="" loading="lazy"></div>
+        <div class="earlier-arc-year">1980s</div>
+        <div class="earlier-arc-label">
+          <span data-lv>Sportistes portrets — pirms pirmās izlases.</span><span data-en>Athlete portrait — before the first national team.</span><span data-ru>Портрет спортсменки — до первой сборной.</span>
+        </div>
+      </div>
+      <div class="earlier-arc-item">
+        <div class="earlier-arc-photo"><img src="ussr-master-of-sports-badge.jpg" alt="" loading="lazy"></div>
+        <div class="earlier-arc-year">PSRS</div>
+        <div class="earlier-arc-label">
+          <span data-lv>Meistarsports peldēšanā.</span><span data-en>Master of Sports in swimming (USSR).</span><span data-ru>Мастер спорта СССР по плаванию.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="olympic-band reveal">
+      <div class="olympic-band-header">
+        <h3><span data-lv-block>Trīs olimpiādes. <em>Trīs sportisti.</em></span><span data-en-block>Three Olympics. <em>Three athletes.</em></span><span data-ru-block>Три Олимпиады. <em>Трое спортсменов.</em></span></h3>
+        <div class="olympic-band-meta">
+          <span data-lv>Izlases trenere · 1996–2004</span><span data-en>National-team coach · 1996–2004</span><span data-ru>Тренер сборной · 1996–2004</span>
+        </div>
+      </div>
+      <div class="olympians-grid">
+        <div class="olympian-card">
+          <div class="olympian-portrait"><img src="athlete-kalmikovs.jpg" alt="Valērijs Kalmikovs" loading="lazy"></div>
+          <div class="olympian-details">
+            <div class="olympian-name">Valērijs Kalmikovs</div>
+            <div class="olympian-games">Atlanta 1996 · Sydney 2000</div>
+            <div class="olympian-placing">
+              <span data-lv>13. vieta · 19. vieta</span><span data-en>13th · 19th</span><span data-ru>13-е · 19-е</span>
+            </div>
+          </div>
+        </div>
+        <div class="olympian-card">
+          <div class="olympian-portrait"><img src="athlete-kalmikova.jpg" alt="Margarita Kalmikova" loading="lazy"></div>
+          <div class="olympian-details">
+            <div class="olympian-name">Margarita Kalmikova</div>
+            <div class="olympian-games">Sydney 2000</div>
+            <div class="olympian-placing">
+              <span data-lv>28. vieta</span><span data-en>28th</span><span data-ru>28-е</span>
+            </div>
+          </div>
+        </div>
+        <div class="olympian-card">
+          <div class="olympian-portrait"><img src="athlete-murans.jpg" alt="Pāvels Murāns" loading="lazy"></div>
+          <div class="olympian-details">
+            <div class="olympian-name">Pāvels Murāns</div>
+            <div class="olympian-games">Athens 2004</div>
+            <div class="olympian-placing">
+              <span data-lv>31. vieta</span><span data-en>31st</span><span data-ru>31-е</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="olympic-band-story reveal">
+        <figure class="olympic-band-story-figure">
+          <img src="kalmikovs-channel-crossing-news.jpg" alt="" loading="lazy">
+          <figcaption>
+            <span data-lv>Latvijas Avīze · 2019. Kalmikovs — peldus pāri Lamanšam.</span><span data-en>Latvijas Avīze · 2019. Kalmikovs crosses the English Channel.</span><span data-ru>Latvijas Avīze · 2019. Калмыков переплыл Ла-Манш.</span>
+          </figcaption>
+        </figure>
+        <div class="olympic-band-story-text">
+          <h4><span data-lv>Pēc olimpiādes — kanāls.</span><span data-en>Past the Olympics — the Channel.</span><span data-ru>После Олимпиады — канал.</span></h4>
+          <p><span data-lv>Mani bijušie sportisti turpina peldēt. 2019. gadā Valērijs šķērsoja Lamanšu.</span><span data-en>My former athletes keep swimming. In 2019 Valērijs swam across the English Channel.</span><span data-ru>Мои бывшие спортсмены продолжают плавать. В 2019 году Валерий переплыл Ла-Манш.</span></p>
+        </div>
+      </div>
+
+      <div class="coaching-continues reveal">
+        <img src="medals-team-poolside.jpg" alt="" loading="lazy">
+        <img src="medals-two-boys-lena.jpg" alt="" loading="lazy">
+        <img src="len-euro-juniors-2019.jpg" alt="LEN European Junior Championships 2019" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Publications woven into the story -->
+    <div class="publications-band reveal">
+      <div class="publications-band-header">
+        <div>
+          <h3><span data-lv-block>Divas grāmatas. <em>50+ publikācijas.</em></span><span data-en-block>Two books. <em>50+ publications.</em></span><span data-ru-block>Две книги. <em>50+ публикаций.</em></span></h3>
+        </div>
+        <div class="publications-author-photo">
+          <img src="lena-with-book.jpg" alt="" loading="lazy">
+          <span class="publications-author-caption"><span data-lv>Autore ar savu grāmatu „Peldēšana"</span><span data-en>The author with her textbook "Peldēšana"</span><span data-ru>Автор со своим учебником «Пелдешана»</span></span>
+        </div>
+      </div>
+      <div class="publications-grid">
+        <figure class="publication-card">
+          <img src="book-peldesanas-trenina-pamati-2001.jpg" alt="" loading="lazy">
+          <figcaption>
+            <span class="pub-title">Peldēšanas treniņa pamati</span>
+            <span class="pub-meta">Rīga · 2001 · LSPA</span>
+          </figcaption>
+        </figure>
+        <figure class="publication-card">
+          <img src="book-peldesana-cover.jpg" alt="" loading="lazy">
+          <figcaption>
+            <span class="pub-title">Peldēšana</span>
+            <span class="pub-meta">LSFP · LSPA</span>
+          </figcaption>
+        </figure>
+        <figure class="publication-card">
+          <img src="magazine-peldies-imunitate.jpg" alt="" loading="lazy">
+          <figcaption>
+            <span class="pub-title">Peldies un stiprini imunitāti!</span>
+            <span class="pub-meta"><span data-lv>Žurnāla raksts</span><span data-en>Magazine article</span><span data-ru>Статья в журнале</span></span>
+          </figcaption>
+        </figure>
+        <figure class="publication-card">
+          <img src="article-protu-peldet-vai-tiesam.jpg" alt="" loading="lazy">
+          <figcaption>
+            <span class="pub-title">Protu peldēt! Vai tiešām?</span>
+            <span class="pub-meta"><span data-lv>Raksts</span><span data-en>Feature article</span><span data-ru>Статья</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ===== TURTLE PHILOSOPHY ===== -->
 <section class="turtle-section" id="philosophy">
   <div class="container">
@@ -1453,7 +1684,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </div>
   </div>
 </section>
-
 <!-- ===== SERVICES (3-TIER LADDER) ===== -->
 <section class="services" id="services">
   <div class="container">
@@ -1545,7 +1775,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </div>
   </div>
 </section>
-
 <!-- ===== SEMINARS DEEP DIVE ===== -->
 <section class="seminars" id="seminars">
   <div class="container">
@@ -1616,7 +1845,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </div>
   </div>
 </section>
-
 <!-- ===== BROCHURE DOWNLOAD CTA ===== -->
 <section class="brochure" id="brochure">
   <div class="container">
@@ -1672,7 +1900,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </div>
   </div>
 </section>
-
 <!-- ===== SPEAKING HISTORY TIMELINE ===== -->
 <section class="history" id="history">
   <div class="container">
@@ -1795,172 +2022,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </div>
   </div>
 </section>
-
-<!-- ===== EARLIER YEARS (origin + Olympic coaching) ===== -->
-<section class="earlier" id="earlier">
-  <div class="container">
-    <div class="earlier-header reveal">
-      <div>
-        <span class="eyebrow"><span class="dot"></span>
-          <span data-lv>Agrāk</span><span data-en>Earlier</span><span data-ru>Раньше</span>
-        </span>
-        <h2 class="display">
-          <span data-lv-block>Pirms semināriem — <em>baseins, trenere, trīs olimpieši.</em></span><span data-en-block>Before the seminars — <em>a pool, a coach, three Olympians.</em></span><span data-ru-block>До семинаров — <em>бассейн, тренер, трое олимпийцев.</em></span>
-        </h2>
-      </div>
-      <p>
-        <span data-lv>Latvijas izlases peldēšanas trenere kopš 1989. gada. Trīs olimpisko spēļu — Atlantas, Sidnejas un Atēnu — izlases trenere. Pati meistarsports peldēšanā. Garš ceļš pirms tam, kad sākās lekcijas un kursi.</span><span data-en>National-team swimming coach for Latvia since 1989. Team coach at three Olympic Games — Atlanta, Sydney, Athens. A Master of Sports in swimming herself. A long road before the lectures and courses began.</span><span data-ru>Тренер сборной Латвии по плаванию с 1989 года. Тренер сборной на трёх Олимпийских играх — в Атланте, Сиднее и Афинах. Сама мастер спорта по плаванию. Долгий путь до того, как начались лекции и курсы.</span>
-      </p>
-    </div>
-
-    <div class="earlier-arc reveal">
-      <div class="earlier-arc-item">
-        <div class="earlier-arc-photo"><img src="lena-childhood-bw.jpg" alt="" loading="lazy"></div>
-        <div class="earlier-arc-year">1960s</div>
-        <div class="earlier-arc-label">
-          <span data-lv>Pirmā skolas diena — Rīga.</span><span data-en>First day of school — Rīga.</span><span data-ru>Первый день в школе — Рига.</span>
-        </div>
-      </div>
-      <div class="earlier-arc-item">
-        <div class="earlier-arc-photo"><img src="lena-teen-with-coach-bw.jpg" alt="" loading="lazy"></div>
-        <div class="earlier-arc-year">1970s</div>
-        <div class="earlier-arc-label">
-          <span data-lv>Pusaudze baseinā ar savu treneri. Peldētāja, pirms kļuva par treneri.</span><span data-en>Teenager poolside with her own coach. A swimmer first, before becoming a coach.</span><span data-ru>Подросток у бассейна со своим тренером. Сначала пловчиха — потом тренер.</span>
-        </div>
-      </div>
-      <div class="earlier-arc-item">
-        <div class="earlier-arc-photo"><img src="lena-teen-portrait-bw.jpg" alt="" loading="lazy"></div>
-        <div class="earlier-arc-year">1980s</div>
-        <div class="earlier-arc-label">
-          <span data-lv>Sportistes portrets — pirms pirmās izlases.</span><span data-en>Athlete portrait — before the first national team.</span><span data-ru>Портрет спортсменки — до первой сборной.</span>
-        </div>
-      </div>
-      <div class="earlier-arc-item">
-        <div class="earlier-arc-photo"><img src="ussr-master-of-sports-badge.jpg" alt="" loading="lazy"></div>
-        <div class="earlier-arc-year">PSRS</div>
-        <div class="earlier-arc-label">
-          <span data-lv>Meistarsports peldēšanā.</span><span data-en>Master of Sports in swimming (USSR).</span><span data-ru>Мастер спорта СССР по плаванию.</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="olympic-band reveal">
-      <div class="olympic-band-header">
-        <h3><span data-lv-block>Trīs olimpiādes. <em>Trīs sportisti.</em></span><span data-en-block>Three Olympics. <em>Three athletes.</em></span><span data-ru-block>Три Олимпиады. <em>Трое спортсменов.</em></span></h3>
-        <div class="olympic-band-meta">
-          <span data-lv>Izlases trenere · 1996–2004</span><span data-en>National-team coach · 1996–2004</span><span data-ru>Тренер сборной · 1996–2004</span>
-        </div>
-      </div>
-      <div class="olympians-grid">
-        <div class="olympian-card">
-          <div class="olympian-portrait"><img src="athlete-kalmikovs.jpg" alt="Valērijs Kalmikovs" loading="lazy"></div>
-          <div class="olympian-details">
-            <div class="olympian-name">Valērijs Kalmikovs</div>
-            <div class="olympian-games">Atlanta 1996 · Sydney 2000</div>
-            <div class="olympian-placing">
-              <span data-lv>13. vieta · 19. vieta</span><span data-en>13th · 19th</span><span data-ru>13-е · 19-е</span>
-            </div>
-          </div>
-        </div>
-        <div class="olympian-card">
-          <div class="olympian-portrait"><img src="athlete-kalmikova.jpg" alt="Margarita Kalmikova" loading="lazy"></div>
-          <div class="olympian-details">
-            <div class="olympian-name">Margarita Kalmikova</div>
-            <div class="olympian-games">Sydney 2000</div>
-            <div class="olympian-placing">
-              <span data-lv>28. vieta</span><span data-en>28th</span><span data-ru>28-е</span>
-            </div>
-          </div>
-        </div>
-        <div class="olympian-card">
-          <div class="olympian-portrait"><img src="athlete-murans.jpg" alt="Pāvels Murāns" loading="lazy"></div>
-          <div class="olympian-details">
-            <div class="olympian-name">Pāvels Murāns</div>
-            <div class="olympian-games">Athens 2004</div>
-            <div class="olympian-placing">
-              <span data-lv>31. vieta</span><span data-en>31st</span><span data-ru>31-е</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="olympic-band-story reveal">
-        <figure class="olympic-band-story-figure">
-          <img src="kalmikovs-channel-crossing-news.jpg" alt="" loading="lazy">
-          <figcaption>
-            <span data-lv>Latvijas Avīze · 2019. Kalmikovs — peldus pāri Lamanšam.</span><span data-en>Latvijas Avīze · 2019. Kalmikovs crosses the English Channel.</span><span data-ru>Latvijas Avīze · 2019. Калмыков переплыл Ла-Манш.</span>
-          </figcaption>
-        </figure>
-        <div class="olympic-band-story-text">
-          <h4><span data-lv>Pēc olimpiādes — kanāls.</span><span data-en>Past the Olympics — the Channel.</span><span data-ru>После Олимпиады — канал.</span></h4>
-          <p><span data-lv>Mani bijušie sportisti turpina peldēt. 2019. gadā Valērijs šķērsoja Lamanšu.</span><span data-en>My former athletes keep swimming. In 2019 Valērijs swam across the English Channel.</span><span data-ru>Мои бывшие спортсмены продолжают плавать. В 2019 году Валерий переплыл Ла-Манш.</span></p>
-        </div>
-      </div>
-
-      <div class="coaching-continues reveal">
-        <img src="medals-team-poolside.jpg" alt="" loading="lazy">
-        <img src="medals-two-boys-lena.jpg" alt="" loading="lazy">
-        <img src="len-euro-juniors-2019.jpg" alt="LEN European Junior Championships 2019" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PUBLICATIONS ===== -->
-<section class="publications" id="publications">
-  <div class="container">
-    <div class="publications-header reveal">
-      <div>
-        <span class="eyebrow"><span class="dot"></span>
-          <span data-lv>Publikācijas</span><span data-en>Published work</span><span data-ru>Публикации</span>
-        </span>
-        <h2 class="display">
-          <span data-lv-block>Divas grāmatas. <em>Gadsimta ceturksnis rakstīšanas.</em></span><span data-en-block>Two books. <em>A quarter-century of writing.</em></span><span data-ru-block>Две книги. <em>Четверть века письма.</em></span>
-        </h2>
-      </div>
-      <div class="publications-header-right">
-        <p>
-          <span data-lv>Divas mācību grāmatas par peldēšanas tehniku un treniņu pamatiem, raksti populāros žurnālos un 50+ zinātniskas publikācijas.</span><span data-en>Two textbooks on swimming technique and training fundamentals, articles in popular magazines, and 50+ scientific publications.</span><span data-ru>Два учебника по технике плавания и основам тренировки, статьи в популярных журналах и 50+ научных публикаций.</span>
-        </p>
-        <div class="publications-author-photo">
-          <img src="lena-with-book.jpg" alt="" loading="lazy">
-          <span class="publications-author-caption"><span data-lv>Autore ar savu grāmatu „Peldēšana"</span><span data-en>The author with her textbook "Peldēšana"</span><span data-ru>Автор со своим учебником «Пелдешана»</span></span>
-        </div>
-      </div>
-    </div>
-    <div class="publications-grid reveal">
-      <figure class="publication-card">
-        <img src="book-peldesanas-trenina-pamati-2001.jpg" alt="" loading="lazy">
-        <figcaption>
-          <span class="pub-title">Peldēšanas treniņa pamati</span>
-          <span class="pub-meta">Rīga · 2001 · LSPA</span>
-        </figcaption>
-      </figure>
-      <figure class="publication-card">
-        <img src="book-peldesana-cover.jpg" alt="" loading="lazy">
-        <figcaption>
-          <span class="pub-title">Peldēšana</span>
-          <span class="pub-meta">LSFP · LSPA</span>
-        </figcaption>
-      </figure>
-      <figure class="publication-card">
-        <img src="magazine-peldies-imunitate.jpg" alt="" loading="lazy">
-        <figcaption>
-          <span class="pub-title">Peldies un stiprini imunitāti!</span>
-          <span class="pub-meta"><span data-lv>Žurnāla raksts</span><span data-en>Magazine article</span><span data-ru>Статья в журнале</span></span>
-        </figcaption>
-      </figure>
-      <figure class="publication-card">
-        <img src="article-protu-peldet-vai-tiesam.jpg" alt="" loading="lazy">
-        <figcaption>
-          <span class="pub-title">Protu peldēt! Vai tiešām?</span>
-          <span class="pub-meta"><span data-lv>Raksts</span><span data-en>Feature article</span><span data-ru>Статья</span></span>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
 <!-- ===== TESTIMONIALS =====  -->
 <section class="testimonials" id="testimonials">
   <div class="container">
@@ -2018,93 +2079,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </div>
   </div>
 </section>
-
-<!-- ===== ABOUT ===== -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-image-col reveal">
-        <div class="about-image">
-          <img src="lena-portrait.jpg" alt="Dr. Jeļena Solovjova" loading="lazy">
-          <div class="about-image-caption">
-            <div class="caption-name">Dr. Jeļena Solovjova</div>
-            <div class="caption-role">PhD · <span data-lv>A kategorijas peldēšanas trenere</span><span data-en>A-category swimming coach</span><span data-ru>Тренер по плаванию категории «А»</span></div>
-          </div>
-        </div>
-        <div class="about-proof-row">
-          <img src="cert-a-category-422.jpg" alt="A-category certificate #422" loading="lazy">
-          <img src="cert-lspa-pateiciba-2024.jpg" alt="LSPA Pateicība 2024" loading="lazy">
-          <img src="cert-lok-apliecinajums.jpg" alt="Latvian Olympic Committee Apliecinājums" loading="lazy">
-        </div>
-      </div>
-      <div class="about-content reveal">
-        <span class="eyebrow"><span class="dot"></span>
-          <span data-lv>Par mani</span><span data-en>About</span><span data-ru>Обо мне</span>
-        </span>
-        <h2 class="display">
-          <span data-lv-block>Dr. Jeļena <em>Solovjova</em></span><span data-en-block>Dr. Jeļena <em>Solovjova</em></span><span data-ru-block>Др. Елена <em>Соловьёва</em></span>
-        </h2>
-        <p>
-          <span data-lv>PhD sporta zinātnēs, A kategorijas peldēšanas trenere ar vairāk nekā 15 gadu pieredzi Latvijas Sporta pedagoģijas akadēmijā. Strādāju ar treneriem, sportistiem un sporta speciālistiem, lai celtu peldēšanas izglītības līmeni Latvijā un ārpus tās.</span><span data-en>PhD in sports science, A-category swimming coach with over 15 years of experience at the Latvian Academy of Sport Education. I work with coaches, athletes, and sports specialists to raise the level of swimming education in Latvia and beyond.</span><span data-ru>Доктор спортивных наук, тренер по плаванию категории «А» с более чем 15-летним опытом работы в Латвийской академии спортивной педагогики. Работаю с тренерами, спортсменами и спортивными специалистами, чтобы поднять уровень обучения плаванию в Латвии и за её пределами.</span>
-        </p>
-        <p>
-          <span data-lv>Latvijas izlases peldēšanas trenere kopš 1989. gada un trīs olimpisko spēļu izlases trenere — Atlanta 1996, Sidneja 2000, Atēnas 2004. Autore diviem mācību grāmatām un vairāk nekā 50 zinātniskām publikācijām. Latvijas Zinātnes padomes eksperte sporta zinātnēs.</span><span data-en>National-team swimming coach for Latvia since 1989, and team coach at three Olympic Games — Atlanta 1996, Sydney 2000, Athens 2004. Author of two textbooks and 50+ scientific publications. Latvian Science Council expert in sports sciences.</span><span data-ru>Тренер сборной Латвии по плаванию с 1989 года и тренер сборной на трёх Олимпийских играх — Атланта 1996, Сидней 2000, Афины 2004. Автор двух учебников и более 50 научных публикаций. Эксперт Совета по науке Латвии в области спортивных наук.</span>
-        </p>
-        <p>
-          <span data-lv>Mana pieeja apvieno akadēmisko stingrību ar praktisku baseina pieredzi — lai katra sesija, katrs seminārs un katra konsultācija patiesi mainītu to, kā treneri strādā un kā peldētāji aug.</span><span data-en>My approach combines academic rigor with practical poolside experience — so that every session, every seminar, and every consultation genuinely changes how coaches work and how swimmers grow.</span><span data-ru>Мой подход сочетает академическую строгость с практическим опытом у бортика бассейна — чтобы каждая сессия, каждый семинар и каждая консультация действительно меняли то, как работают тренеры и как растут пловцы.</span>
-        </p>
-
-        <div class="values-triplet">
-          <span class="value-word"><span data-lv>Droši.</span><span data-en>Safely.</span><span data-ru>Безопасно.</span></span>
-          <span class="value-sep">·</span>
-          <span class="value-word"><span data-lv>Pareizi.</span><span data-en>Correctly.</span><span data-ru>Правильно.</span></span>
-          <span class="value-sep">·</span>
-          <span class="value-word"><span data-lv>Ar prieku.</span><span data-en>With joy.</span><span data-ru>С радостью.</span></span>
-        </div>
-
-        <div class="credentials-list">
-          <div class="credential">
-            <span class="credential-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </span>
-            <span class="credential-text">PhD — <span data-lv>Sporta zinātnes</span><span data-en>Sports Science</span><span data-ru>Спортивные науки</span></span>
-          </div>
-          <div class="credential">
-            <span class="credential-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-            </span>
-            <span class="credential-text"><span data-lv>A kategorijas peldēšanas trenere</span><span data-en>A-category swimming coach</span><span data-ru>Тренер по плаванию категории «А»</span></span>
-          </div>
-          <div class="credential">
-            <span class="credential-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-            </span>
-            <span class="credential-text"><span data-lv>Olimpisko spēļu izlases trenere · 1996 · 2000 · 2004</span><span data-en>Olympic Games team coach · 1996 · 2000 · 2004</span><span data-ru>Тренер сборной на Олимпийских играх · 1996 · 2000 · 2004</span></span>
-          </div>
-          <div class="credential">
-            <span class="credential-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            </span>
-            <span class="credential-text"><span data-lv>2 mācību grāmatas · 50+ zinātniskas publikācijas</span><span data-en>2 textbooks · 50+ scientific publications</span><span data-ru>2 учебника · 50+ научных публикаций</span></span>
-          </div>
-          <div class="credential">
-            <span class="credential-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            </span>
-            <span class="credential-text"><span data-lv>60+ semināri 2010–2024</span><span data-en>60+ seminars 2010–2024</span><span data-ru>60+ семинаров 2010–2024</span></span>
-          </div>
-          <div class="credential">
-            <span class="credential-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-            </span>
-            <span class="credential-text">LTTC · LSFP <span data-lv>sertificēti kursi</span><span data-en>certified courses</span><span data-ru>сертифицированные курсы</span></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== CONTACT ===== -->
 <section class="contact" id="contact">
   <div class="container">
@@ -2180,7 +2154,6 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     </div>
   </div>
 </section>
-
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
