@@ -864,18 +864,18 @@ footer a:hover { color: var(--aqua-light); }
   margin-top: 4px;
 }
 
-/* ===== Language toggle mechanism ===== */
-[data-en], [data-ru] { display: none; }
-html[lang="en"] [data-en] { display: inline; }
-html[lang="en"] [data-lv], html[lang="en"] [data-ru] { display: none; }
-html[lang="ru"] [data-ru] { display: inline; }
-html[lang="ru"] [data-lv], html[lang="ru"] [data-en] { display: none; }
+/* ===== Language toggle mechanism (scoped to spans) ===== */
+span[data-en], span[data-ru] { display: none; }
+html[lang="en"] span[data-en] { display: inline; }
+html[lang="en"] span[data-lv], html[lang="en"] span[data-ru] { display: none; }
+html[lang="ru"] span[data-ru] { display: inline; }
+html[lang="ru"] span[data-lv], html[lang="ru"] span[data-en] { display: none; }
 /* block-level versions */
-[data-en-block], [data-ru-block] { display: none; }
-html[lang="en"] [data-en-block] { display: block; }
-html[lang="en"] [data-lv-block], html[lang="en"] [data-ru-block] { display: none; }
-html[lang="ru"] [data-ru-block] { display: block; }
-html[lang="ru"] [data-lv-block], html[lang="ru"] [data-en-block] { display: none; }
+span[data-en-block], span[data-ru-block] { display: none; }
+html[lang="en"] span[data-en-block] { display: block; }
+html[lang="en"] span[data-lv-block], html[lang="en"] span[data-ru-block] { display: none; }
+html[lang="ru"] span[data-ru-block] { display: block; }
+html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { display: none; }
 
 /* ===== Reveal animations ===== */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
@@ -1628,12 +1628,22 @@ html[lang="ru"] [data-lv-block], html[lang="ru"] [data-en-block] { display: none
 <script>
 // Language toggle
 const langButtons = document.querySelectorAll('[data-setlang]');
+
+// Swap textContent of elements that have data-lv/en/ru attributes (nav links etc.)
+function applyLangToAttributeElements(lang) {
+  document.querySelectorAll('[data-lv][data-en][data-ru]').forEach(el => {
+    const newText = el.getAttribute('data-' + lang);
+    if (newText !== null) el.textContent = newText;
+  });
+}
+
 langButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.dataset.setlang;
     document.documentElement.lang = lang;
     document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('[data-setlang="' + lang + '"]').forEach(b => b.classList.add('active'));
+    applyLangToAttributeElements(lang);
     try { localStorage.setItem('aq-lang', lang); } catch(e) {}
   });
 });
@@ -1652,6 +1662,7 @@ try {
     document.documentElement.lang = lang;
     document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('[data-setlang="' + lang + '"]').forEach(b => b.classList.add('active'));
+    applyLangToAttributeElements(lang);
   }
 } catch(e) {}
 
