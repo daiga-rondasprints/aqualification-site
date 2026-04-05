@@ -165,34 +165,47 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   .nav-links.open .lang-toggle { align-self: flex-start; }
 }
 
-/* ===== Hero ===== */
+/* ===== Hero (video background) ===== */
 .hero {
-  padding: 200px 0 60px;
   position: relative;
+  padding: 180px 0 60px;
+  min-height: 100vh;
   overflow: hidden;
-  background: var(--canvas);
+  background: var(--deep);
+  display: flex;
+  align-items: center;
 }
-.hero::before {
-  content: ''; position: absolute; top: 0; right: -10%; width: 80%; height: 100%;
-  background: radial-gradient(ellipse at top right, var(--seafoam-soft) 0%, transparent 60%);
-  pointer-events: none; z-index: 0;
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
-.hero-grid {
-  display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px;
-  align-items: end; position: relative; z-index: 1;
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(100deg,
+    rgba(8, 51, 68, 0.92) 0%,
+    rgba(8, 51, 68, 0.70) 45%,
+    rgba(8, 51, 68, 0.35) 85%,
+    rgba(8, 51, 68, 0.25) 100%);
+  z-index: 1;
 }
-.hero-text .eyebrow { margin-bottom: 28px; display: inline-block; }
+.hero .container { position: relative; z-index: 2; width: 100%; }
+.hero-text { max-width: 780px; }
+.hero-text .eyebrow { margin-bottom: 28px; display: inline-block; color: var(--aqua-light); }
+.hero-text .eyebrow .dot { background: var(--aqua-light); }
 .hero h1 {
   font-size: clamp(44px, 6.2vw, 92px);
-  color: var(--deep);
+  color: var(--canvas);
   margin-bottom: 28px;
 }
 .hero h1 em {
-  font-style: italic; color: var(--aqua);
+  font-style: italic; color: var(--aqua-light);
   font-variation-settings: "SOFT" 100, "WONK" 1;
 }
 .hero-tagline {
-  font-size: 19px; color: var(--ink); max-width: 540px; line-height: 1.5;
+  font-size: 19px; color: rgba(250, 250, 247, 0.85);
+  max-width: 540px; line-height: 1.5;
   margin-bottom: 36px;
 }
 .hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
@@ -202,60 +215,42 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
   transition: all 0.3s var(--ease); white-space: nowrap;
 }
-.btn-primary { background: var(--deep); color: var(--canvas); }
-.btn-primary:hover { background: var(--aqua); transform: translateY(-2px); }
+.btn-primary { background: var(--aqua); color: var(--deep); }
+.btn-primary:hover { background: var(--aqua-light); transform: translateY(-2px); }
 .btn-primary svg { transition: transform 0.3s var(--ease); }
 .btn-primary:hover svg { transform: translateX(4px); }
-.btn-ghost { color: var(--deep); border: 1.5px solid var(--deep); }
-.btn-ghost:hover { background: var(--deep); color: var(--canvas); }
+.btn-ghost { color: var(--canvas); border: 1.5px solid rgba(250, 250, 247, 0.4); }
+.btn-ghost:hover { background: var(--canvas); color: var(--deep); border-color: var(--canvas); }
 
-.hero-portrait {
-  position: relative; aspect-ratio: 4/5; max-width: 420px; justify-self: end;
-  border-radius: 8px; overflow: hidden;
-  box-shadow: 0 40px 80px -30px rgba(8, 51, 68, 0.35);
-}
-.hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
-.hero-portrait::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(8, 51, 68, 0.2) 100%);
-}
-.hero-credential-card {
-  position: absolute; bottom: -24px; left: -24px;
-  background: var(--canvas); padding: 18px 22px; border-radius: 4px;
-  box-shadow: 0 20px 40px -15px rgba(8, 51, 68, 0.25);
-  border-left: 3px solid var(--aqua);
-}
-.hero-credential-card .label {
-  font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
-  color: var(--muted); font-weight: 600; margin-bottom: 4px;
-}
-.hero-credential-card .value {
-  font-family: var(--serif); font-size: 18px; color: var(--deep); font-weight: 500;
-}
 @media (max-width: 900px) {
-  .hero { padding: 160px 0 40px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .hero-portrait { max-width: 320px; justify-self: start; }
+  .hero { padding: 140px 0 40px; min-height: auto; }
 }
 
-/* Hero stats strip */
+/* Hero stats strip — on video */
 .hero-stats {
-  margin-top: 72px; padding-top: 36px; border-top: 1px solid var(--line);
+  margin-top: 72px; padding-top: 36px;
+  border-top: 1px solid rgba(250, 250, 247, 0.15);
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
-  position: relative; z-index: 1;
+  position: relative; z-index: 2;
 }
 .hero-stat .num {
   font-family: var(--serif); font-size: 44px; font-weight: 400;
-  color: var(--deep); line-height: 1; margin-bottom: 8px;
+  color: var(--canvas); line-height: 1; margin-bottom: 8px;
   font-variation-settings: "SOFT" 50;
 }
 .hero-stat .lbl {
   font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--muted); font-weight: 600;
+  color: rgba(250, 250, 247, 0.6); font-weight: 600;
 }
 @media (max-width: 700px) {
   .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 28px; }
   .hero-stat .num { font-size: 34px; }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+  .hero { background: var(--deep) url('turtle-poster.jpg') center/cover; }
 }
 
 /* ===== Trust Strip ===== */
@@ -909,40 +904,33 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO (video background) ===== -->
 <section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="turtle-poster.jpg">
+    <source src="turtle-hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="container">
-    <div class="hero-grid">
-      <div class="hero-text reveal">
-        <span class="eyebrow"><span class="dot"></span>
-          <span data-lv="Peldēšana ir dzīve">Peldēšana ir dzīve</span>
-          <span data-en>Swimming is life</span>
-          <span data-ru>Плавание — это жизнь</span>
-        </span>
-        <h1 class="display">
-          <span data-lv-block>Mācām <em>trenerus</em>.<br>Pilnveidojam <em>peldētājus</em>.</span><span data-en-block>Teaching <em>coaches</em>.<br>Refining <em>swimmers</em>.</span><span data-ru-block>Обучаем <em>тренеров</em>.<br>Развиваем <em>пловцов</em>.</span>
-        </h1>
-        <p class="hero-tagline">
-          <span data-lv>Dr. Jeļena Solovjova — A kategorijas peldēšanas trenere, vada seminārus, konsultācijas un testēšanu treneriem un sporta speciālistiem visā Latvijā.</span><span data-en>Dr. Jeļena Solovjova — A-category swimming coach, delivering seminars, consultations, and functional testing for coaches and sports specialists across Latvia.</span><span data-ru>Др. Елена Соловьёва — тренер по плаванию категории «А», проводит семинары, консультации и функциональное тестирование для тренеров и спортивных специалистов по всей Латвии.</span>
-        </p>
-        <div class="hero-cta-group">
-          <a href="#seminars" class="btn btn-primary">
-            <span data-lv>Rezervēt semināru</span><span data-en>Book a seminar</span><span data-ru>Забронировать семинар</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#services" class="btn btn-ghost">
-            <span data-lv>Skatīt piedāvājumu</span><span data-en>View services</span><span data-ru>Посмотреть услуги</span>
-          </a>
-        </div>
-      </div>
-      <div class="hero-portrait reveal">
-        <img src="https://aqualification.lv/wp-content/uploads/2025/03/Picture8-1-1-1.jpg" alt="Dr. Jeļena Solovjova" onerror="this.style.background='linear-gradient(135deg,#0d9488,#083344)';this.src=''">
-        <div class="hero-credential-card">
-          <div class="label">
-            <span data-lv>Kvalifikācija</span><span data-en>Credentials</span><span data-ru>Квалификация</span>
-          </div>
-          <div class="value">PhD · A kategorija</div>
-        </div>
+    <div class="hero-text reveal">
+      <span class="eyebrow"><span class="dot"></span>
+        <span data-lv="Peldēšana ir dzīve">Peldēšana ir dzīve</span>
+        <span data-en>Swimming is life</span>
+        <span data-ru>Плавание — это жизнь</span>
+      </span>
+      <h1 class="display">
+        <span data-lv-block>Mācām <em>trenerus</em>.<br>Pilnveidojam <em>peldētājus</em>.</span><span data-en-block>Teaching <em>coaches</em>.<br>Refining <em>swimmers</em>.</span><span data-ru-block>Обучаем <em>тренеров</em>.<br>Развиваем <em>пловцов</em>.</span>
+      </h1>
+      <p class="hero-tagline">
+        <span data-lv>Dr. Jeļena Solovjova — A kategorijas peldēšanas trenere, vada seminārus, konsultācijas un testēšanu treneriem un sporta speciālistiem visā Latvijā.</span><span data-en>Dr. Jeļena Solovjova — A-category swimming coach, delivering seminars, consultations, and functional testing for coaches and sports specialists across Latvia.</span><span data-ru>Др. Елена Соловьёва — тренер по плаванию категории «А», проводит семинары, консультации и функциональное тестирование для тренеров и спортивных специалистов по всей Латвии.</span>
+      </p>
+      <div class="hero-cta-group">
+        <a href="#seminars" class="btn btn-primary">
+          <span data-lv>Rezervēt semināru</span><span data-en>Book a seminar</span><span data-ru>Забронировать семинар</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost">
+          <span data-lv>Skatīt piedāvājumu</span><span data-en>View services</span><span data-ru>Посмотреть услуги</span>
+        </a>
       </div>
     </div>
 
