@@ -359,6 +359,33 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   .speed-row { grid-template-columns: 1fr; gap: 6px; }
   .speed-row .value { text-align: left; }
 }
+.chart-source {
+  margin-top: 24px; padding-top: 20px;
+  border-top: 1px solid rgba(94, 234, 212, 0.1);
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: rgba(250, 250, 247, 0.4); font-weight: 500;
+}
+.turtle-closer {
+  margin-top: 72px; text-align: center;
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(22px, 3vw, 32px); line-height: 1.3;
+  color: var(--aqua-light); font-weight: 400;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  max-width: 680px; margin-left: auto; margin-right: auto;
+}
+
+/* ===== Exchange-place band ===== */
+.exchange-band {
+  background: var(--canvas); padding: 56px 0;
+  border-bottom: 1px solid var(--line);
+}
+.exchange-band-text {
+  text-align: center; font-family: var(--serif); font-style: italic;
+  font-size: clamp(22px, 2.8vw, 30px); line-height: 1.3;
+  color: var(--deep-2); font-variation-settings: "SOFT" 100, "WONK" 1;
+  max-width: 720px; margin: 0 auto;
+}
+.exchange-band-text em { color: var(--aqua); font-style: italic; }
 
 /* ===== Services Ladder (3-tier) ===== */
 .services {
@@ -708,8 +735,17 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 .about-content h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--deep); margin-bottom: 28px; line-height: 1.05; }
 .about-content h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
 .about-content p { font-size: 17px; line-height: 1.65; color: var(--ink); margin-bottom: 20px; }
-.credentials-list { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
-.credential {
+.values-triplet {
+  margin: 32px 0 8px; display: flex; align-items: baseline;
+  flex-wrap: wrap; gap: 14px; font-family: var(--serif);
+  font-size: clamp(22px, 2.6vw, 28px); font-style: italic;
+  color: var(--deep); font-weight: 400;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  padding: 24px 0 8px; border-top: 1px solid var(--line);
+}
+.values-triplet .value-word { color: var(--aqua); }
+.values-triplet .value-sep { color: var(--line); font-style: normal; font-size: 0.7em; }
+.credentials-list { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }.credential {
   display: flex; gap: 16px; align-items: flex-start;
   padding: 18px 22px; background: var(--canvas); border-radius: 4px;
   border-left: 3px solid var(--aqua);
@@ -760,6 +796,19 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   transition: all 0.3s ease;
 }
 .contact-method:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--aqua-light); }
+.contact-method.featured {
+  background: rgba(94, 234, 212, 0.1);
+  border-color: var(--aqua-light);
+  position: relative;
+}
+.contact-method.featured:hover { background: rgba(94, 234, 212, 0.16); }
+.free-badge {
+  position: absolute; top: -10px; right: 20px;
+  background: var(--aqua-light); color: var(--deep);
+  padding: 4px 12px; border-radius: 100px;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+  font-weight: 700; font-family: var(--sans);
+}
 .contact-method-icon {
   width: 48px; height: 48px; border-radius: 50%;
   background: var(--aqua); color: var(--deep); display: grid; place-items: center; flex-shrink: 0;
@@ -775,6 +824,10 @@ footer {
 }
 footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
 footer a:hover { color: var(--aqua-light); }
+.footer-tagline {
+  font-family: var(--serif); font-style: italic; font-size: 14px;
+  color: var(--aqua-light); font-variation-settings: "SOFT" 100, "WONK" 1;
+}
 
 /* ===== Language toggle mechanism ===== */
 [data-en] { display: none; }
@@ -919,6 +972,16 @@ html[lang="en"] [data-lv-block] { display: none; }
   </div>
 </section>
 
+<!-- ===== EXCHANGE BAND (from PIRMA_LAPA) ===== -->
+<section class="exchange-band">
+  <div class="container">
+    <p class="exchange-band-text">
+      <span data-lv>Te ir <em>pieredzes apmaiņas</em> vieta.</span>
+      <span data-en>A place to <em>exchange experience</em>.</span>
+    </p>
+  </div>
+</section>
+
 <!-- ===== TURTLE PHILOSOPHY ===== -->
 <section class="turtle-section" id="philosophy">
   <div class="container">
@@ -970,44 +1033,54 @@ html[lang="en"] [data-lv-block] { display: none; }
           <span data-lv>Lielas lietas dara, apvienojot virkni mazu lietu — kā bruņurupuča soļi.</span>
           <span data-en>Great things are done by a series of small things brought together — like a turtle's steps.</span>
         </blockquote>
-        <cite>— Vincent van Gogh</cite>
+        <cite>— Vincent van Gogh <span data-lv>(ar bruņurupuča piemetinājumu)</span><span data-en>(with a turtle footnote)</span></cite>
       </div>
     </div>
 
     <!-- Speed comparison (from her existing content) -->
     <div class="speed-chart reveal">
-      <h3><span data-lv>Cik ātrs ir bruņurupucis?</span><span data-en>How fast is a turtle?</span></h3>
+      <h3><span data-lv>Cik lēns ir bruņurupucītis?</span><span data-en>How slow is the little turtle?</span></h3>
       <p class="subtitle">
         <span data-lv>Bruņurupuču un peldētāju ātrumi dažādos apstākļos (km/h)</span>
         <span data-en>Turtle and swimmer speeds in different conditions (km/h)</span>
       </p>
       <div class="speed-bars">
-        <div class="speed-row">
-          <div class="name"><span data-lv>Olimpiskais peldētājs</span><span data-en>Olympic swimmer</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width: 95%"></div></div>
-          <div class="value">8.6 km/h</div>
+        <div class="speed-row turtle">
+          <div class="name"><span data-lv>Jūras bruņurupucis · apdraudēts</span><span data-en>Sea turtle · under threat</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
+          <div class="value">35 km/h</div>
         </div>
         <div class="speed-row">
-          <div class="name"><span data-lv>Vidējs peldētājs</span><span data-en>Average swimmer</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width: 35%"></div></div>
-          <div class="value">3.2 km/h</div>
+          <div class="name"><span data-lv>Peldētājs · 25 m sprints</span><span data-en>Swimmer · 25 m sprint</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 29%"></div></div>
+          <div class="value">10.08 km/h</div>
+        </div>
+        <div class="speed-row">
+          <div class="name"><span data-lv>Peldētājs · 100 m</span><span data-en>Swimmer · 100 m</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 21%"></div></div>
+          <div class="value">7.5 km/h</div>
+        </div>
+        <div class="speed-row">
+          <div class="name"><span data-lv>Peldētājs · 400 m</span><span data-en>Swimmer · 400 m</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 17%"></div></div>
+          <div class="value">6 km/h</div>
         </div>
         <div class="speed-row turtle">
-          <div class="name"><span data-lv>Jūras bruņurupucis</span><span data-en>Sea turtle</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
-          <div class="value">3.6 km/h</div>
-        </div>
-        <div class="speed-row">
-          <div class="name"><span data-lv>Iesācējs peldētājs</span><span data-en>Beginner swimmer</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width: 20%"></div></div>
-          <div class="value">1.8 km/h</div>
-        </div>
-        <div class="speed-row turtle">
-          <div class="name"><span data-lv>Sauszemes bruņurupucis</span><span data-en>Land turtle</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width: 4%"></div></div>
-          <div class="value">0.4 km/h</div>
+          <div class="name"><span data-lv>Jūras bruņurupucis · brīvi peldot</span><span data-en>Sea turtle · free swimming</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 9%"></div></div>
+          <div class="value">3 km/h</div>
         </div>
       </div>
+      <p class="chart-source">
+        <span data-lv>Avoti: infocgerepahi.ru · en.wikipedia.org</span>
+        <span data-en>Sources: infocgerepahi.ru · en.wikipedia.org</span>
+      </p>
+    </div>
+
+    <!-- Closing tagline from turtle doc -->
+    <div class="turtle-closer reveal">
+      <span data-lv>Okeāna dziļumos atrodi savu mieru.</span>
+      <span data-en>In the depths of the ocean, find your peace.</span>
     </div>
   </div>
 </section>
@@ -1038,12 +1111,13 @@ html[lang="en"] [data-lv-block] { display: none; }
         </div>
         <div class="tier-body">
           <span class="tier-tag"><span data-lv>LTTC · LSFP sertificēti</span><span data-en>LTTC · LSFP certified</span></span>
-          <h3 class="tier-title"><span data-lv>Semināri treneriem un sporta speciālistiem</span><span data-en>Seminars for coaches & sports specialists</span></h3>
+          <h3 class="tier-title"><span data-lv>Semināri, lekcijas un kursi</span><span data-en>Seminars, lectures & courses</span></h3>
           <p class="tier-desc">
-            <span data-lv>Profesionālās kompetences pilnveides programmas ietvaros, 8–48 stundu semināri. Deviņas tēmas, pielāgojamas jūsu komandas līmenim. LTTC sertifikāti derīgi LSFP sertifikācijai un resertifikācijai. Iespējams jūsu atrašanās reģionā.</span>
-            <span data-en>Professional competence development seminars, 8–48 hours. Nine topics, adaptable to your team's level. LTTC certificates valid for LSFP certification and re-certification. Available in your region.</span>
+            <span data-lv>Profesionālās kompetences pilnveides programmas ietvaros — semināri 8–48 stundu formātā, atsevišķas lekcijas un daudzdienu kursi. Deviņas tēmas, pielāgojamas jūsu komandas līmenim. LTTC sertifikāti derīgi LSFP sertifikācijai un resertifikācijai. Iespējams jūsu atrašanās reģionā.</span>
+            <span data-en>Under the professional competence development programme — seminars of 8–48 hours, standalone lectures, and multi-day courses. Nine topics, adaptable to your team's level. LTTC certificates valid for LSFP certification and re-certification. Available in your region.</span>
           </p>
           <ul class="tier-bullets">
+            <li><span data-lv>Semināri · Lekcijas · Kursi</span><span data-en>Seminars · Lectures · Courses</span></li>
             <li><span data-lv>8–48 stundu formāts</span><span data-en>8–48 hour format</span></li>
             <li><span data-lv>Visas kategorijas</span><span data-en>All coach levels</span></li>
             <li><span data-lv>Jebkurā reģionā</span><span data-en>Any region</span></li>
@@ -1453,6 +1527,14 @@ html[lang="en"] [data-lv-block] { display: none; }
           <span data-en>My approach combines academic rigor with practical poolside experience — so that every session, every seminar, and every consultation genuinely changes how coaches work and how swimmers grow.</span>
         </p>
 
+        <div class="values-triplet">
+          <span class="value-word"><span data-lv>Droši.</span><span data-en>Safely.</span></span>
+          <span class="value-sep">·</span>
+          <span class="value-word"><span data-lv>Pareizi.</span><span data-en>Correctly.</span></span>
+          <span class="value-sep">·</span>
+          <span class="value-word"><span data-lv>Ar prieku.</span><span data-en>With joy.</span></span>
+        </div>
+
         <div class="credentials-list">
           <div class="credential">
             <span class="credential-icon">
@@ -1497,8 +1579,8 @@ html[lang="en"] [data-lv-block] { display: none; }
           <span data-en-block>Let's talk about your <em>team</em>.</span>
         </h2>
         <p>
-          <span data-lv>Vēlaties semināru savai treneru komandai? Konsultāciju par peldēšanas tehniku? Rakstiet vai zvaniet — atbildēšu 48 stundu laikā.</span>
-          <span data-en>Want a seminar for your coaching team? A consultation on swimming technique? Write or call — I'll respond within 48 hours.</span>
+          <span data-lv>Vēlaties semināru savai treneru komandai? Konsultāciju par peldēšanas tehniku? Sāciet ar bezmaksas 30 minūšu video zvanu — pastāstiet par savu komandu, un es pastāstīšu, kā varu palīdzēt.</span>
+          <span data-en>Want a seminar for your coaching team? A consultation on swimming technique? Start with a free 30-minute video call — tell me about your team, and I'll tell you how I can help.</span>
         </p>
 
         <span class="audience-label">
@@ -1512,6 +1594,16 @@ html[lang="en"] [data-lv-block] { display: none; }
         </div>
       </div>
       <div class="contact-methods reveal">
+        <a href="mailto:elena.aqualification.lv@gmail.com?subject=Bezmaksas%20s%C4%81kuma%20konsult%C4%81cija" class="contact-method featured">
+          <span class="free-badge"><span data-lv>Bezmaksas</span><span data-en>Free</span></span>
+          <span class="contact-method-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </span>
+          <div>
+            <div class="contact-method-label"><span data-lv>Sākuma konsultācija · 30 min</span><span data-en>Intro call · 30 min</span></div>
+            <div class="contact-method-value"><span data-lv>Pastāsti par savu komandu</span><span data-en>Tell me about your team</span></div>
+          </div>
+        </a>
         <a href="mailto:elena.aqualification.lv@gmail.com" class="contact-method">
           <span class="contact-method-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -1548,7 +1640,7 @@ html[lang="en"] [data-lv-block] { display: none; }
 <footer>
   <div class="container">
     <div>© 2025 BDR Aqualification.lv · Reg. Nr. 40008344078</div>
-    <div><span data-lv>Peldēšana ir dzīve. 🐢</span><span data-en>Swimming is life. 🐢</span></div>
+    <div class="footer-tagline"><span data-lv>Kā tu peldi, tā tu dzīvo. 🐢</span><span data-en>How you swim is how you live. 🐢</span></div>
   </div>
 </footer>
 
