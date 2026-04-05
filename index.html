@@ -108,12 +108,13 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   font-family: var(--serif); font-size: 22px; font-weight: 500;
   color: var(--deep); letter-spacing: -0.01em;
 }
-.logo-mark {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--deep); display: grid; place-items: center;
-  position: relative; flex-shrink: 0;
+.logo-img {
+  width: 42px; height: 42px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0;
+  box-shadow: 0 2px 8px -2px rgba(8, 51, 68, 0.25);
 }
-.logo-mark svg { width: 22px; height: 22px; }
+.logo-text { display: inline-flex; align-items: baseline; }
+.logo-text-sub { color: var(--aqua); font-size: 0.85em; }
 .nav-links { display: flex; gap: 36px; align-items: center; }
 .nav-links a {
   font-size: 14px; font-weight: 500; color: var(--ink);
@@ -564,6 +565,13 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   pointer-events: none;
 }
 .brochure-mockup:hover .brochure-pdf { transform: rotate(-1deg) translateY(-6px); }
+.brochure-logo-stamp {
+  position: absolute; top: 24px; right: 24px;
+  width: 56px; height: 56px; border-radius: 50%;
+  object-fit: cover; opacity: 0.85;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(94, 234, 212, 0.3);
+}
 .brochure-pdf .pdf-eyebrow {
   font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em;
   color: var(--aqua-light); font-weight: 700; margin-bottom: 32px;
@@ -830,9 +838,15 @@ footer {
 }
 footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
 footer a:hover { color: var(--aqua-light); }
+.footer-brand { display: flex; align-items: center; gap: 16px; }
+.footer-logo {
+  width: 48px; height: 48px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0; opacity: 0.85;
+}
 .footer-tagline {
   font-family: var(--serif); font-style: italic; font-size: 14px;
   color: var(--aqua-light); font-variation-settings: "SOFT" 100, "WONK" 1;
+  margin-top: 4px;
 }
 
 /* ===== Language toggle mechanism ===== */
@@ -859,18 +873,8 @@ html[lang="ru"] [data-lv-block], html[lang="ru"] [data-en-block] { display: none
 <nav class="site" id="nav">
   <div class="container">
     <a href="#" class="logo">
-      <span class="logo-mark">
-        <!-- Turtle silhouette icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <ellipse cx="12" cy="13" rx="7" ry="5.5"/>
-          <circle cx="18.5" cy="10" r="1.8" fill="#5eead4"/>
-          <line x1="5" y1="10" x2="3.5" y2="8.5"/>
-          <line x1="5" y1="16" x2="3.5" y2="17.5"/>
-          <line x1="19" y1="15.5" x2="20.5" y2="17"/>
-          <path d="M9 10 L12 11 L15 10 M9 13 L12 14 L15 13 M10 16 L14 16" stroke-width="1"/>
-        </svg>
-      </span>
-      <span>aqualification</span>
+      <img src="logo.jpg" alt="Aqualification.lv" class="logo-img">
+      <span class="logo-text">aqualification<span class="logo-text-sub">.lv</span></span>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#services" data-lv="Piedāvājums" data-en="Services" data-ru="Услуги">Piedāvājums</a>
@@ -1243,6 +1247,7 @@ html[lang="ru"] [data-lv-block], html[lang="ru"] [data-en-block] { display: none
     <div class="brochure-grid">
       <div class="brochure-mockup reveal">
         <div class="brochure-pdf">
+          <img src="logo.jpg" alt="" class="brochure-logo-stamp">
           <div class="pdf-eyebrow">Aqualification · 2026</div>
           <div class="pdf-title"><span data-lv-block>Semināru <em>katalogs</em></span><span data-en-block>Seminar <em>catalogue</em></span><span data-ru-block>Каталог <em>семинаров</em></span></div>
           <div class="pdf-subtitle"><span data-lv>Deviņas tēmas. Viena filozofija.</span><span data-en>Nine topics. One philosophy.</span><span data-ru>Девять тем. Одна философия.</span></div>
@@ -1595,8 +1600,13 @@ html[lang="ru"] [data-lv-block], html[lang="ru"] [data-en-block] { display: none
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
-    <div>© 2025 BDR Aqualification.lv · Reg. Nr. 40008344078</div>
-    <div class="footer-tagline"><span data-lv>Kā tu peldi, tā tu dzīvo. 🐢</span><span data-en>How you swim is how you live. 🐢</span><span data-ru>Как плывёшь — так и живёшь. 🐢</span></div>
+    <div class="footer-brand">
+      <img src="logo.jpg" alt="Aqualification.lv" class="footer-logo">
+      <div>
+        <div>© 2025 BDR Aqualification.lv · Reg. Nr. 40008344078</div>
+        <div class="footer-tagline"><span data-lv>Kā tu peldi, tā tu dzīvo. 🐢</span><span data-en>How you swim is how you live. 🐢</span><span data-ru>Как плывёшь — так и живёшь. 🐢</span></div>
+      </div>
+    </div>
   </div>
 </footer>
 
