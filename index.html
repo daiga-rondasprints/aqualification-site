@@ -27,7 +27,7 @@
 <style>
 /* ===== Reset & Base ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 body {
   font-family: 'Manrope', -apple-system, sans-serif;
   font-weight: 400;
@@ -90,7 +90,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ===== Utility ===== */
 .container { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
 @media (max-width: 640px) { .container { padding: 0 20px; } }
-section[id] { scroll-margin-top: 20px; }
+section[id] { scroll-margin-top: 110px; }
+@media (max-width: 640px) {
+  section[id] { scroll-margin-top: 80px; }
+  nav.site { padding: 10px 0; }
+}
 
 /* ===== Nav ===== */
 nav.site {
@@ -103,7 +107,7 @@ nav.site {
   transition: border-color 0.3s ease;
 }
 nav.site.scrolled { border-bottom-color: var(--line); }
-nav.site .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+nav.site .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .logo {
   display: flex; align-items: center; gap: 14px;
   font-family: var(--serif); font-size: 22px; font-weight: 500;
@@ -116,8 +120,26 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 }
 .logo-text { display: inline-flex; align-items: baseline; }
 @media (max-width: 640px) {
-  .logo-img { width: 56px; height: 56px; }
-  .logo { font-size: 18px; gap: 10px; }
+  .logo-img { width: 44px; height: 44px; }
+  .logo { font-size: 16px; gap: 8px; }
+}
+
+/* ===== Global mobile fixes ===== */
+@media (max-width: 900px) {
+  /* Reduce section padding */
+  .how-section,
+  .seminars,
+  .about,
+  .earlier,
+  .history,
+  .brochure,
+  .contact { padding: 72px 0; }
+  .social-proof { padding: 64px 0; }
+
+  /* Fix content ordering on mobile — headings before images */
+  .brochure-grid { grid-template-columns: 1fr; gap: 40px; }
+  .brochure-content { order: -1; }
+  .brochure-mockup { max-width: 260px; }
 }
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
@@ -698,7 +720,10 @@ footer { padding-bottom: 60px; }
 }
 .credential-icon { color: var(--aqua); flex-shrink: 0; margin-top: 2px; }
 .credential-text { font-size: 15px; font-weight: 500; color: var(--deep); line-height: 1.4; }
-@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 36px; }
+  .about-content { order: -1; }
+}
 
 /* Credential proof — lightbox-enabled */
 .about-proof-row {
@@ -1155,10 +1180,6 @@ footer { padding-bottom: 60px; }
   border: 1px solid var(--line);
 }
 .brochure-feature svg { color: var(--aqua); flex-shrink: 0; }
-@media (max-width: 900px) {
-  .brochure-grid { grid-template-columns: 1fr; gap: 56px; }
-  .brochure-mockup { max-width: 280px; }
-}
 
 /* ===== Contact CTA ===== */
 .contact {
