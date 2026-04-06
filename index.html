@@ -294,11 +294,12 @@ nav.site .container { display: flex; align-items: center; justify-content: space
 }
 .trust-logo:hover { opacity: 1; }
 .trust-logo-mark {
-  width: 30px; height: 30px; border-radius: 50%;
-  background: var(--seafoam-soft); display: grid; place-items: center;
-  color: var(--aqua); flex-shrink: 0;
-  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  height: 40px; flex-shrink: 0;
+  display: block;
+  filter: grayscale(0.3);
+  transition: filter 0.3s ease;
 }
+.trust-logo:hover .trust-logo-mark { filter: grayscale(0); }
 @media (max-width: 900px) {
   .trust-strip-inner { justify-content: center; }
   .trust-logos { justify-content: center; gap: 28px; }
@@ -1328,23 +1329,23 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
       </div>
       <div class="trust-logos">
         <div class="trust-logo" title="Latvijas Sporta federāciju padome">
-          <span class="trust-logo-mark">LSFP</span>
+          <img src="logo-lsfp.png" alt="LSFP" class="trust-logo-mark">
           <span>Federāciju padome</span>
         </div>
         <div class="trust-logo" title="Latvijas Treneru tālākizglītības centrs">
-          <span class="trust-logo-mark">LTTC</span>
+          <img src="logo-lttc.png" alt="LTTC" class="trust-logo-mark">
           <span>Treneru centrs</span>
         </div>
         <div class="trust-logo" title="Latvijas Sporta pedagoģijas akadēmija">
-          <span class="trust-logo-mark">LSPA</span>
+          <img src="logo-lspa.png" alt="LSPA" class="trust-logo-mark">
           <span>Sporta akadēmija</span>
         </div>
         <div class="trust-logo" title="Latvijas Peldēšanas federācija">
-          <span class="trust-logo-mark">LPF</span>
+          <img src="logo-lpf.png" alt="LPF" class="trust-logo-mark">
           <span>Peldēšanas fed.</span>
         </div>
         <div class="trust-logo" title="Izglītības un zinātnes ministrija">
-          <span class="trust-logo-mark">IZM</span>
+          <img src="logo-izm.png" alt="IZM" class="trust-logo-mark">
           <span>Izgl. ministrija</span>
         </div>
       </div>
@@ -1416,10 +1417,10 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
     <div class="how-header reveal">
       <div>
         <span class="eyebrow"><span class="dot"></span>
-          <span data-lv>Kā strādāt kopā</span><span data-en>Ways to work together</span><span data-ru>Как работать вместе</span>
+          <span data-lv>Mans piedāvājums</span><span data-en>My offerings</span><span data-ru>Мои предложения</span>
         </span>
         <h2 class="display">
-          <span data-lv-block>Trīs līmeņi — <em>viens mērķis</em>.</span><span data-en-block>Three tiers — <em>one goal</em>.</span><span data-ru-block>Три уровня — <em>одна цель</em>.</span>
+          <span data-lv-block>Trīs piedāvājumi — <em>viena metodoloģija</em>.</span><span data-en-block>Three offerings — built on <em>one methodology</em>.</span><span data-ru-block>Три предложения — <em>одна методология</em>.</span>
         </h2>
       </div>
       <p>
