@@ -90,9 +90,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ===== Utility ===== */
 .container { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
 @media (max-width: 640px) { .container { padding: 0 20px; } }
-section[id] { scroll-margin-top: 110px; }
+section[id] { scroll-margin-top: 96px; }
 @media (max-width: 640px) {
-  section[id] { scroll-margin-top: 80px; }
+  section[id] { scroll-margin-top: 68px; }
   nav.site { padding: 10px 0; }
 }
 
@@ -133,8 +133,8 @@ nav.site .container { display: flex; align-items: center; justify-content: space
   .earlier,
   .history,
   .brochure,
-  .contact { padding: 72px 0; }
-  .social-proof { padding: 64px 0; }
+  .contact { padding: 56px 0; }
+  .social-proof { padding: 48px 0; }
 
   /* Fix content ordering on mobile — headings before images */
   .brochure-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -376,7 +376,7 @@ footer { padding-bottom: 72px; }
 
 /* ===== Social Proof / Testimonials (moved UP) ===== */
 .social-proof {
-  padding: 100px 0; background: var(--canvas-warm);
+  padding: 72px 0; background: var(--canvas-warm);
 }
 .social-proof-header { max-width: 720px; margin-bottom: 64px; }
 .social-proof-header .eyebrow { display: inline-block; margin-bottom: 24px; }
@@ -418,7 +418,7 @@ footer { padding-bottom: 72px; }
 
 /* ===== "How I help" / Problem section ===== */
 .how-section {
-  padding: 120px 0; background: var(--canvas);
+  padding: 80px 0; background: var(--canvas);
   position: relative;
 }
 .how-section::before {
@@ -519,7 +519,7 @@ footer { padding-bottom: 72px; }
 
 /* ===== Seminars Section ===== */
 .seminars {
-  padding: 120px 0; background: var(--canvas-warm);
+  padding: 80px 0; background: var(--canvas-warm);
   position: relative;
 }
 .seminars-intro {
@@ -667,7 +667,7 @@ footer { padding-bottom: 72px; }
 
 /* ===== About Section ===== */
 .about {
-  padding: 120px 0; background: var(--canvas);
+  padding: 80px 0; background: var(--canvas);
   position: relative; overflow: hidden;
 }
 .about-grid {
@@ -740,7 +740,7 @@ footer { padding-bottom: 72px; }
 
 /* ===== Origins Section (condensed) ===== */
 .earlier {
-  background: var(--deep); color: var(--canvas); padding: 120px 0;
+  background: var(--deep); color: var(--canvas); padding: 80px 0;
   position: relative; overflow: hidden;
 }
 .earlier::before {
@@ -1003,7 +1003,7 @@ footer { padding-bottom: 72px; }
 
 /* ===== Speaking History Timeline ===== */
 .history {
-  padding: 120px 0; background: var(--canvas-warm);
+  padding: 80px 0; background: var(--canvas-warm);
 }
 .history-header {
   display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
@@ -1099,7 +1099,7 @@ footer { padding-bottom: 72px; }
 
 /* ===== Brochure CTA ===== */
 .brochure {
-  padding: 120px 0; background: var(--canvas);
+  padding: 80px 0; background: var(--canvas);
   position: relative; overflow: hidden;
 }
 .brochure::before {
@@ -1181,9 +1181,42 @@ footer { padding-bottom: 72px; }
 }
 .brochure-feature svg { color: var(--aqua); flex-shrink: 0; }
 
+/* Email chooser dropdown */
+.email-chooser { position: relative; }
+.email-chooser-trigger { cursor: pointer; width: 100%; }
+.email-dropdown {
+  position: absolute; bottom: calc(100% + 8px); left: 0; right: 0;
+  background: var(--canvas); border-radius: 10px;
+  box-shadow: 0 16px 48px -8px rgba(0, 0, 0, 0.35);
+  padding: 8px; display: none; z-index: 10;
+  border: 1px solid var(--line);
+}
+.email-dropdown.open { display: block; }
+.email-dropdown-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--muted); font-weight: 600; padding: 8px 14px 6px;
+}
+.email-dropdown a,
+.email-dropdown button {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; padding: 12px 14px; border-radius: 6px;
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  color: var(--deep); background: none; border: none;
+  cursor: pointer; transition: background 0.2s ease;
+  text-decoration: none;
+}
+.email-dropdown a:hover,
+.email-dropdown button:hover { background: var(--seafoam-soft); }
+.email-dropdown svg { flex-shrink: 0; }
+.email-dropdown .copied-msg {
+  font-size: 12px; color: var(--aqua); font-weight: 600;
+  padding: 8px 14px; text-align: center; display: none;
+}
+.email-dropdown .copied-msg.show { display: block; }
+
 /* ===== Contact CTA ===== */
 .contact {
-  padding: 120px 0; background: var(--deep);
+  padding: 80px 0; background: var(--deep);
   color: var(--canvas); position: relative; overflow: hidden;
 }
 .contact::before {
@@ -2006,15 +2039,37 @@ html[lang="ru"] span[data-lv-block], html[lang="ru"] span[data-en-block] { displ
             <div class="contact-method-value"><span data-lv>Aprunāsim jūsu vajadzības</span><span data-en>Let's discuss your requirements</span><span data-ru>Обсудим ваши потребности</span></div>
           </div>
         </a>
-        <a href="mailto:elena.aqualification.lv@gmail.com?subject=Seminar%20%2F%20Consultation%20Inquiry&body=Hello%20Dr.%20Solovjova%2C%0A%0AI%20would%20like%20to%20discuss%20seminar%20or%20consultation%20options%20for%20my%20coaching%20team.%0A%0AOrganisation%3A%20%0ATeam%20size%3A%20%0ATopics%20of%20interest%3A%20%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0ABest%20regards" class="contact-method featured">
-          <span class="contact-method-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </span>
-          <div>
-            <div class="contact-method-label"><span data-lv>Nosūtīt e-pastu</span><span data-en>Send an email</span><span data-ru>Отправить email</span></div>
-            <div class="contact-method-value"><span data-lv>Aprunāsim jūsu vajadzības</span><span data-en>Let's discuss your requirements</span><span data-ru>Обсудим ваши потребности</span></div>
+        <div class="email-chooser">
+          <div class="contact-method featured email-chooser-trigger" id="emailTrigger" onclick="document.getElementById('emailDrop').classList.toggle('open')">
+            <span class="contact-method-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <div>
+              <div class="contact-method-label"><span data-lv>Nosūtīt e-pastu</span><span data-en>Send an email</span><span data-ru>Отправить email</span></div>
+              <div class="contact-method-value"><span data-lv>Aprunāsim jūsu vajadzības</span><span data-en>Let's discuss your requirements</span><span data-ru>Обсудим ваши потребности</span></div>
+            </div>
           </div>
-        </a>
+          <div class="email-dropdown" id="emailDrop">
+            <div class="email-dropdown-label"><span data-lv>Atvērt ar</span><span data-en>Open with</span><span data-ru>Открыть в</span></div>
+            <a href="https://mail.google.com/mail/?view=cm&to=elena.aqualification.lv@gmail.com&su=Seminar%20%2F%20Consultation%20Inquiry&body=Hello%20Dr.%20Solovjova%2C%0A%0AI%20would%20like%20to%20discuss%20seminar%20or%20consultation%20options%20for%20my%20coaching%20team.%0A%0AOrganisation%3A%20%0ATeam%20size%3A%20%0ATopics%20of%20interest%3A%20%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0ABest%20regards" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Gmail
+            </a>
+            <a href="https://outlook.live.com/mail/0/deeplink/compose?to=elena.aqualification.lv@gmail.com&subject=Seminar%20%2F%20Consultation%20Inquiry&body=Hello%20Dr.%20Solovjova%2C%0A%0AI%20would%20like%20to%20discuss%20seminar%20or%20consultation%20options%20for%20my%20coaching%20team.%0A%0AOrganisation%3A%20%0ATeam%20size%3A%20%0ATopics%20of%20interest%3A%20%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0ABest%20regards" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Outlook
+            </a>
+            <a href="mailto:elena.aqualification.lv@gmail.com?subject=Seminar%20%2F%20Consultation%20Inquiry&body=Hello%20Dr.%20Solovjova%2C%0A%0AI%20would%20like%20to%20discuss%20seminar%20or%20consultation%20options%20for%20my%20coaching%20team.%0A%0AOrganisation%3A%20%0ATeam%20size%3A%20%0ATopics%20of%20interest%3A%20%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0ABest%20regards">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span data-lv>Noklusējuma e-pasts</span><span data-en>Default email app</span><span data-ru>Почтовое приложение</span>
+            </a>
+            <button onclick="copyEmail(this)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span data-lv>Kopēt e-pasta adresi</span><span data-en>Copy email address</span><span data-ru>Скопировать адрес</span>
+            </button>
+            <div class="copied-msg" id="copiedMsg">✓ <span data-lv>Nokopēts!</span><span data-en>Copied!</span><span data-ru>Скопировано!</span></div>
+          </div>
+        </div>
         <a href="tel:+37129623902" class="contact-method">
           <span class="contact-method-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -2155,6 +2210,23 @@ const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ===== EMAIL CHOOSER =====
+function copyEmail(btn) {
+  navigator.clipboard.writeText('elena.aqualification.lv@gmail.com').then(() => {
+    const msg = document.getElementById('copiedMsg');
+    msg.classList.add('show');
+    setTimeout(() => { msg.classList.remove('show'); }, 2000);
+  });
+}
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+  const drop = document.getElementById('emailDrop');
+  const trigger = document.getElementById('emailTrigger');
+  if (drop && !drop.contains(e.target) && !trigger.contains(e.target)) {
+    drop.classList.remove('open');
+  }
+});
 
 // ===== LIGHTBOX =====
 const lb = document.getElementById('lightbox');
