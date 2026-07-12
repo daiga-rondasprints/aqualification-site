@@ -26,7 +26,7 @@ Do not make the page feel like a generic AI landing page, a startup sales funnel
 - Prefer direct contact and clear sections over heavy persuasion.
 - Keep the turtle/Swimming is Life identity as brand texture, not as a gimmick.
 - Use photos and documents as evidence; do not imply affiliations the site cannot prove.
-- Build English first, then translate once the claims and structure are settled.
+- Keep Latvian as the default public language. English is available only through the top-right language toggle.
 
 ## Accessibility & Inclusion
 

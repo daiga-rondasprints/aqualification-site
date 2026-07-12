@@ -34,4 +34,4 @@ Remove the old SiteGround hosting A record for the apex if it conflicts. Propaga
 
 ## Editing content
 
-Everything is in `index.html` — one file, inline CSS and JS. Latvian and English text live side-by-side inside `data-lv` / `data-en` spans; the toggle in the nav switches them via a small script. To swap photos, replace the two `<img src="...">` URLs in the hero and about sections.
+Everything is in `index.html` — one file, inline CSS and JS. Latvian is the default DOM copy. English strings live in `data-en` / `data-en-html` attributes and are shown only after the visitor selects `EN` in the top-right language toggle.
