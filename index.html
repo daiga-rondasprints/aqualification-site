@@ -15,7 +15,6 @@
 
 <link rel="canonical" href="https://aqualification.lv/">
 <link rel="alternate" hreflang="lv" href="https://aqualification.lv/">
-<link rel="alternate" hreflang="en" href="https://aqualification.lv/">
 <link rel="alternate" hreflang="x-default" href="https://aqualification.lv/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -52,8 +51,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   --aqua-bright: #14b8a6;
   --aqua-light: #5eead4;
   --pool: #006b7a;
-  --chlorine: #d9f99d;
-  --flare: #ff7847;
+  --chlorine: #bfe7d5;
+  --flare: #c98265;
   --ink-strong: #041f2a;
   --seafoam: #ccfbf1;
   --seafoam-soft: #e6fffa;
@@ -107,7 +106,7 @@ nav.site {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 14px 0;
   background:
-    linear-gradient(90deg, rgba(244, 251, 248, 0.96) 0%, rgba(218, 245, 236, 0.9) 54%, rgba(217, 249, 157, 0.24) 100%);
+    linear-gradient(90deg, rgba(244, 251, 248, 0.97) 0%, rgba(232, 245, 238, 0.94) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
@@ -182,17 +181,6 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 .nav-links a:hover::after,
 .nav-links a.active::after { transform: scaleX(1); }
 .nav-links a.active { color: var(--aqua); }
-.lang-toggle {
-  display: flex; align-items: center; gap: 2px;
-  background: var(--canvas-warm); padding: 4px; border-radius: 100px;
-  font-size: 12px; font-weight: 600;
-}
-.lang-toggle button {
-  padding: 6px 12px; border-radius: 100px; color: var(--muted);
-  transition: all 0.2s; font-family: var(--sans); font-weight: 600;
-  letter-spacing: 0.04em;
-}
-.lang-toggle button.active { background: var(--deep); color: var(--canvas); }
 .nav-actions {
   display: flex; align-items: center; gap: 12px;
 }
@@ -231,11 +219,6 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   .nav-links.open a:last-of-type { border-bottom: none; }
   .nav-links.open a::after { display: none; }
 }
-@media (max-width: 640px) {
-  .lang-toggle { padding: 3px; }
-  .lang-toggle button { padding: 5px 9px; font-size: 11px; }
-}
-
 /* ===== Hero ===== */
 .hero {
   position: relative;
@@ -256,16 +239,12 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 }
 .hero::before {
   background:
-    linear-gradient(128deg, rgba(255, 120, 71, 0.48) 0 12%, transparent 12% 100%),
-    linear-gradient(28deg, transparent 0 56%, rgba(217, 249, 157, 0.32) 56% 70%, transparent 70% 100%);
-  mix-blend-mode: screen;
-  opacity: 0.78;
+    linear-gradient(110deg, rgba(13, 148, 136, 0.2) 0%, transparent 52%),
+    linear-gradient(180deg, transparent 0%, rgba(4, 31, 42, 0.36) 100%);
+  opacity: 0.9;
 }
 .hero::after {
-  background:
-    repeating-linear-gradient(112deg, rgba(217, 249, 157, 0.15) 0 2px, transparent 2px 78px),
-    linear-gradient(90deg, transparent 0 48%, rgba(4, 31, 42, 0.44) 100%);
-  clip-path: polygon(54% 0, 100% 0, 100% 100%, 38% 100%);
+  display: none;
 }
 .hero-video {
   position: absolute; inset: 0;
@@ -317,26 +296,25 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   transition: all 0.3s var(--ease); white-space: nowrap;
 }
 .btn-primary { background: var(--chlorine); color: var(--ink-strong); box-shadow: 0 16px 34px -22px var(--chlorine); }
-.btn-primary:hover { background: #f0ffb8; transform: translateY(-3px); }
+.btn-primary:hover { background: #d9f5ea; transform: translateY(-3px); }
 .btn-primary svg { transition: transform 0.3s var(--ease); }
 .btn-primary:hover svg { transform: translateX(4px); }
-.btn-ghost { color: var(--canvas); border: 1.5px solid rgba(255, 120, 71, 0.72); }
-.btn-ghost:hover { background: var(--flare); color: var(--ink-strong); border-color: var(--flare); }
+.btn-ghost { color: var(--canvas); border: 1.5px solid rgba(94, 234, 212, 0.58); }
+.btn-ghost:hover { background: rgba(94, 234, 212, 0.14); color: var(--canvas); border-color: var(--aqua-light); }
 @media (max-width: 900px) {
   .hero { padding: 150px 0 80px; min-height: auto; }
-  .hero::after { clip-path: polygon(68% 0, 100% 0, 100% 100%, 52% 100%); opacity: 0.72; }
 }
 @media (max-width: 640px) {
   .hero { padding: 132px 0 64px; }
-  .hero-text { max-width: 100%; }
-  .hero h1 { font-size: 44px; line-height: 1.04; overflow-wrap: anywhere; }
-  .hero-tagline { font-size: 16px; line-height: 1.55; max-width: 100%; overflow-wrap: anywhere; }
-  .hero-note { font-size: 13px; max-width: 100%; overflow-wrap: anywhere; }
+  .hero-text { max-width: 100%; min-width: 0; }
+  .hero h1 { font-size: 38px; line-height: 1.05; max-width: 10ch; overflow-wrap: normal; word-break: normal; }
+  .hero-tagline { font-size: 16px; line-height: 1.55; max-width: 34ch; overflow-wrap: break-word; }
+  .hero-note { font-size: 13px; max-width: 36ch; overflow-wrap: break-word; }
   .hero-cta-group { gap: 12px; }
   .btn { padding: 14px 20px; }
 }
 @media (max-width: 420px) {
-  .hero h1 { font-size: 34px; }
+  .hero h1 { font-size: 32px; }
   .hero-tagline { font-size: 15px; }
 }
 
@@ -344,7 +322,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 .hero-credentials {
   margin-top: 72px;
   padding-top: 24px;
-  border-top: 2px solid rgba(217, 249, 157, 0.45);
+  border-top: 1px solid rgba(94, 234, 212, 0.34);
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -354,13 +332,13 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 }
 .hero-credentials span {
   padding: 12px 16px;
-  border: 1px solid rgba(217, 249, 157, 0.34);
+  border: 1px solid rgba(94, 234, 212, 0.28);
   border-radius: 6px;
   color: rgba(250, 250, 247, 0.9);
   background: rgba(4, 31, 42, 0.56);
   font-size: 13px;
   font-weight: 600;
-  box-shadow: 0 12px 28px -24px rgba(217, 249, 157, 0.8);
+  box-shadow: 0 12px 28px -24px rgba(94, 234, 212, 0.8);
 }
 @media (max-width: 700px) {
   .hero-credentials { margin-top: 52px; gap: 10px; }
@@ -452,15 +430,13 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 .how-section {
   padding: clamp(80px, 9vw, 140px) 0;
   background:
-    linear-gradient(118deg, #041f2a 0%, #063f4e 34%, #0d9488 64%, #d9f99d 100%);
+    linear-gradient(180deg, #052b38 0%, #0a5f68 100%);
   position: relative;
   overflow: hidden;
 }
 .how-section::before {
   content: ''; position: absolute; inset: 0;
-  background:
-    repeating-linear-gradient(118deg, rgba(244, 251, 248, 0.14) 0 2px, transparent 2px 90px),
-    linear-gradient(90deg, rgba(4, 31, 42, 0.64), transparent 62%);
+  background: linear-gradient(90deg, rgba(4, 31, 42, 0.34), transparent 72%);
   pointer-events: none; z-index: 0;
 }
 .how-section .container { position: relative; z-index: 1; }
@@ -469,11 +445,11 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   margin-bottom: 48px;
 }
 .how-header .eyebrow { display: inline-block; margin-bottom: 24px; }
-.how-section .eyebrow { color: var(--chlorine); }
-.how-section .eyebrow .dot { background: var(--chlorine); }
+.how-section .eyebrow { color: var(--aqua-light); }
+.how-section .eyebrow .dot { background: var(--aqua-light); }
 .how-header h2 { font-size: clamp(36px, 4.8vw, 60px); color: var(--canvas); line-height: 1.05; }
 .how-header h2 em { font-style: italic; color: var(--aqua); font-variation-settings: "SOFT" 100, "WONK" 1; }
-.how-header p { font-size: 17px; line-height: 1.65; color: var(--muted); max-width: 480px; }
+.how-header p { font-size: 17px; line-height: 1.65; color: rgba(244, 251, 248, 0.78); max-width: 480px; }
 @media (max-width: 900px) { .how-header { grid-template-columns: 1fr; gap: 24px; } }
 @media (max-width: 640px) {
   .how-header h2 { font-size: 32px; overflow-wrap: anywhere; }
@@ -482,7 +458,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   .how-header h2 { font-size: 29px; }
 }
 
-/* Services ladder */
+/* Pakalpojumu saraksts */
 .services-ladder { display: flex; flex-direction: column; gap: clamp(18px, 2.4vw, 34px); }
 .tier-card {
   display: grid; grid-template-columns: 220px 1fr auto; gap: 36px;
@@ -490,28 +466,22 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   background: rgba(244, 251, 248, 0.96); border-radius: 8px;
   position: relative; overflow: hidden;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), background 0.4s var(--ease);
-  border: 1px solid rgba(217, 249, 157, 0.32);
-  box-shadow: 0 34px 70px -54px rgba(4, 31, 42, 0.58);
+  border: 1px solid rgba(94, 234, 212, 0.24);
+  box-shadow: 0 26px 58px -48px rgba(4, 31, 42, 0.62);
 }
 .tier-card::after {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(118deg, transparent 0 72%, rgba(255, 120, 71, 0.16) 72% 84%, rgba(217, 249, 157, 0.28) 84% 100%);
-  pointer-events: none;
+  display: none;
 }
-.tier-card:nth-child(odd) { margin-left: clamp(0px, 5vw, 84px); }
-.tier-card:nth-child(even) { margin-right: clamp(0px, 7vw, 120px); }
-.tier-card:hover { background: var(--ink-strong); color: var(--canvas); transform: translateY(-4px) scale(1.01); box-shadow: 0 42px 84px -52px rgba(217, 249, 157, 0.72); }
+.tier-card:hover { background: var(--ink-strong); color: var(--canvas); transform: translateY(-4px); box-shadow: 0 36px 78px -52px rgba(94, 234, 212, 0.72); }
 .tier-card:hover .tier-kicker,
 .tier-card:hover .tier-bullets li { color: rgba(250, 250, 247, 0.75); }
 .tier-card:hover .tier-title { color: var(--canvas); }
-.tier-card:hover .tier-arrow { background: var(--chlorine); color: var(--ink-strong); border-color: var(--chlorine); transform: translate(4px, -4px); }
+.tier-card:hover .tier-arrow { background: var(--aqua-light); color: var(--ink-strong); border-color: var(--aqua-light); transform: translate(4px, -4px); }
 .tier-card:hover .tier-tag { background: rgba(94, 234, 212, 0.15); color: var(--aqua-light); border-color: rgba(94, 234, 212, 0.3); }
 .tier-card:hover .tier-desc { color: rgba(250, 250, 247, 0.85); }
 .tier-card.flagship {
-  background: linear-gradient(118deg, #ff7847 0%, #d9f99d 52%, #e6fffa 100%);
-  border-color: rgba(255, 255, 255, 0.72);
+  background: linear-gradient(135deg, #f4fbf8 0%, #d8f4ed 100%);
+  border-color: rgba(191, 231, 213, 0.72);
 }
 .tier-card.flagship:hover { background: var(--deep); }
 .tier-num-wrap { display: flex; flex-direction: column; justify-content: flex-start; }
@@ -527,7 +497,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   display: block;
   width: 42px;
   height: 2px;
-  background: var(--flare);
+  background: var(--aqua);
   margin-bottom: 16px;
 }
 .tier-body { display: flex; flex-direction: column; }
@@ -538,7 +508,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   background: var(--canvas); color: var(--aqua); border: 1px solid var(--aqua);
   margin-bottom: 16px; transition: all 0.4s var(--ease);
 }
-.tier-card.flagship .tier-tag { background: var(--ink-strong); color: var(--chlorine); border-color: var(--ink-strong); }
+.tier-card.flagship .tier-tag { background: var(--ink-strong); color: var(--aqua-light); border-color: var(--ink-strong); }
 .tier-title {
   font-family: var(--serif); font-size: clamp(32px, 4vw, 48px); color: var(--deep);
   margin-bottom: 14px; line-height: 1.1; font-weight: 500;
@@ -600,18 +570,12 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 .seminars {
   padding: clamp(84px, 9vw, 140px) 0;
   background:
-    linear-gradient(145deg, #f4fbf8 0%, #ccfbf1 44%, #d9f99d 100%);
+    linear-gradient(180deg, #f4fbf8 0%, #e6fffa 100%);
   position: relative;
   overflow: hidden;
 }
 .seminars::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(106deg, rgba(4, 31, 42, 0.08) 0 18%, transparent 18% 100%),
-    repeating-linear-gradient(90deg, transparent 0 82px, rgba(13, 148, 136, 0.12) 82px 84px);
-  pointer-events: none;
+  display: none;
 }
 .seminars .container { position: relative; z-index: 1; }
 .seminars-intro {
@@ -629,7 +593,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   border: 1px solid rgba(217, 249, 157, 0.46); font-size: 13px; font-weight: 700; color: var(--canvas);
   margin-top: 12px; max-width: 100%; line-height: 1.45;
 }
-.seminars-meta .cert-badge svg { color: var(--chlorine); flex-shrink: 0; }
+.seminars-meta .cert-badge svg { color: var(--aqua-light); flex-shrink: 0; }
 @media (max-width: 900px) { .seminars-intro { grid-template-columns: 1fr; gap: 32px; } }
 
 .seminars-caption {
@@ -648,9 +612,9 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   display: flex; gap: 20px; align-items: flex-start;
   transition: background 0.3s ease;
 }
-.topic:hover { background: #fff8ee; }
+.topic:hover { background: var(--seafoam-soft); }
 .topic-num {
-  font-family: var(--serif); font-size: 34px; color: var(--flare);
+  font-family: var(--serif); font-size: 34px; color: var(--aqua);
   line-height: 1; min-width: 36px; font-weight: 500;
 }
 .topic-text { font-size: 15px; line-height: 1.5; color: var(--ink); font-weight: 500; padding-top: 4px; }
@@ -774,7 +738,6 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 .about-image {
   aspect-ratio: 4/5; border-radius: 8px; overflow: hidden;
   position: relative; box-shadow: 0 42px 90px -44px rgba(4, 31, 42, 0.65);
-  transform: rotate(-1.5deg);
 }
 .about-image img { width: 100%; height: 100%; object-fit: cover; }
 .about-image::after {
@@ -794,7 +757,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 }
 .caption-role {
   font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em;
-  color: var(--chlorine); font-weight: 700;
+  color: var(--aqua-light); font-weight: 700;
 }
 .about-content .eyebrow { display: inline-block; margin-bottom: 24px; }
 .about-content h2 { font-size: clamp(42px, 5.8vw, 82px); color: var(--ink-strong); margin-bottom: 28px; line-height: 1.02; text-wrap: balance; }
@@ -808,7 +771,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   font-variation-settings: "SOFT" 100, "WONK" 1;
   padding: 24px 0 8px; border-top: 1px solid var(--line);
 }
-.values-triplet .value-word { color: var(--flare); }
+.values-triplet .value-word { color: var(--aqua); }
 .values-triplet .value-sep { color: var(--line); font-style: normal; font-size: 0.7em; }
 .credentials-list { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
 .credential {
@@ -817,7 +780,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   border: 1px solid rgba(13, 148, 136, 0.2);
   box-shadow: 0 16px 38px -34px rgba(4, 31, 42, 0.46);
 }
-.credential-icon { color: var(--flare); flex-shrink: 0; margin-top: 2px; }
+.credential-icon { color: var(--aqua); flex-shrink: 0; margin-top: 2px; }
 .credential-text { font-size: 15px; font-weight: 500; color: var(--deep); line-height: 1.4; }
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -847,9 +810,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 }
 .earlier::before {
   content: ''; position: absolute; inset: 0;
-  background:
-    linear-gradient(118deg, rgba(255, 120, 71, 0.18) 0 14%, transparent 14% 100%),
-    repeating-linear-gradient(90deg, transparent 0 112px, rgba(217, 249, 157, 0.09) 112px 114px);
+  background: linear-gradient(90deg, rgba(4, 31, 42, 0.28), transparent 68%);
   pointer-events: none; z-index: 0;
 }
 .earlier .container { position: relative; z-index: 1; }
@@ -863,7 +824,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   font-size: clamp(42px, 5.8vw, 82px); color: var(--canvas); line-height: 1.04; text-wrap: balance;
 }
 .earlier-header h2 em {
-  font-style: italic; color: var(--chlorine);
+  font-style: italic; color: var(--aqua-light);
   font-variation-settings: "SOFT" 100, "WONK" 1;
 }
 .earlier-header p {
@@ -1106,8 +1067,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 .turtle-moment::after {
   content: ''; position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(4, 31, 42, 0.92) 0%, rgba(4, 31, 42, 0.56) 52%, rgba(4, 31, 42, 0.76) 100%),
-    linear-gradient(128deg, rgba(255, 120, 71, 0.28) 0 16%, transparent 16% 100%);
+    linear-gradient(90deg, rgba(4, 31, 42, 0.94) 0%, rgba(4, 31, 42, 0.56) 52%, rgba(4, 31, 42, 0.78) 100%);
   pointer-events: none; z-index: 0;
 }
 .turtle-moment .container { position: relative; z-index: 1; text-align: left; max-width: 960px; }
@@ -1342,18 +1302,16 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 }
 .email-dropdown .copied-msg.show { display: block; }
 
-/* ===== Contact CTA ===== */
+/* ===== Kontaktu sadaļa ===== */
 .contact {
   padding: clamp(84px, 9vw, 140px) 0;
   background:
-    linear-gradient(130deg, #041f2a 0%, #083344 44%, #0d9488 100%);
+    linear-gradient(180deg, #041f2a 0%, #075361 100%);
   color: var(--canvas); position: relative; overflow: hidden;
 }
 .contact::before {
   content: ''; position: absolute; inset: 0;
-  background:
-    linear-gradient(112deg, transparent 0 58%, rgba(217, 249, 157, 0.22) 58% 70%, transparent 70% 100%),
-    repeating-linear-gradient(90deg, rgba(244, 251, 248, 0.08) 0 1px, transparent 1px 96px);
+  background: linear-gradient(110deg, rgba(94, 234, 212, 0.08) 0%, transparent 58%);
   pointer-events: none;
 }
 .contact .container { position: relative; }
@@ -1389,7 +1347,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
 .contact-intro .eyebrow { color: var(--aqua-light); display: inline-block; margin-bottom: 24px; }
 .contact-intro .eyebrow .dot { background: var(--aqua-light); }
 .contact-intro h2 { font-size: clamp(44px, 6.4vw, 88px); color: var(--canvas); margin-bottom: 24px; line-height: 1.03; text-wrap: balance; }
-.contact-intro h2 em { font-style: italic; color: var(--chlorine); font-variation-settings: "SOFT" 100, "WONK" 1; }
+.contact-intro h2 em { font-style: italic; color: var(--aqua-light); font-variation-settings: "SOFT" 100, "WONK" 1; }
 .contact-intro p { font-size: clamp(17px, 1.55vw, 22px); line-height: 1.58; color: rgba(250, 250, 247, 0.78); max-width: 560px; margin-bottom: 28px; }
 
 .audience-label {
@@ -1413,7 +1371,7 @@ nav.site .container { display: flex; align-items: center; justify-content: flex-
   border: 1px solid rgba(217, 249, 157, 0.18);
   transition: all 0.3s ease;
 }
-.contact-method:hover { background: rgba(4, 31, 42, 0.68); border-color: var(--chlorine); transform: translateY(-2px); }
+.contact-method:hover { background: rgba(4, 31, 42, 0.68); border-color: var(--aqua-light); transform: translateY(-2px); }
 .contact-method.featured {
   background: rgba(217, 249, 157, 0.12);
   border-color: rgba(217, 249, 157, 0.55);
@@ -1478,22 +1436,18 @@ footer a:hover { color: var(--aqua-light); }
       <img src="logo.jpg" alt="Aqualification.lv" class="logo-img">
       <span class="logo-text">
         <span class="logo-name">aqualification</span>
-        <span class="logo-tagline" data-en="Swimming is Life">Peldēšana ir dzīve</span>
+        <span class="logo-tagline">Peldēšana ir dzīve</span>
       </span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#about" data-en="About myself">Par mani</a>
-      <a href="#seminars" data-en="Lectures and seminars">Lekcijas un semināri</a>
-      <a href="#consulting" data-en="Consultations">Konsultācijas</a>
-      <a href="#open-water" data-en="Open Water">Atklātie ūdeņi</a>
-      <a href="#contact" data-en="Contact">Kontakti</a>
+      <a href="#about">Par mani</a>
+      <a href="#seminars">Lekcijas un semināri</a>
+      <a href="#consulting">Konsultācijas</a>
+      <a href="#open-water">Atklātie ūdeņi</a>
+      <a href="#contact">Kontakti</a>
     </div>
     <div class="nav-actions">
-      <div class="lang-toggle" role="group" aria-label="Language">
-        <button type="button" class="active" data-lang="lv" aria-pressed="true">LV</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-      <button class="mobile-menu-btn" id="mobileBtn" aria-label="Atvērt izvēlni" data-en-aria-label="Open menu" aria-expanded="false">
+      <button class="mobile-menu-btn" id="mobileBtn" aria-label="Atvērt izvēlni" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1511,31 +1465,31 @@ footer a:hover { color: var(--aqua-light); }
       <span class="eyebrow"><span class="dot"></span>
         Dr. Jeļena Solovjova
       </span>
-      <h1 class="display" data-en="Swimming is Life">
+      <h1 class="display">
         Peldēšana ir dzīve
       </h1>
       <p class="hero-tagline">
-        <span data-en="Sports coach continuing-education seminars, consultations for improving swimming technique, and experience exchange for sports teachers, coaches and specialists from Dr. Jeļena Solovjova, an A-category swimming coach and coach of swimmers at three Olympic Games.">Sporta treneru tālākizglītības semināri, konsultācijas peldēšanas tehnikas pilnveidei un pieredzes apmaiņa sporta skolotājiem, treneriem un speciālistiem no A kategorijas peldēšanas treneres un trīs olimpisko spēļu peldētāju treneres Dr. Jeļenas Solovjovas.</span>
+        <span>Sporta treneru tālākizglītības semināri, konsultācijas peldēšanas tehnikas pilnveidei un pieredzes apmaiņa sporta skolotājiem, treneriem un speciālistiem no A kategorijas peldēšanas treneres un trīs olimpisko spēļu peldētāju treneres Dr. Jeļenas Solovjovas.</span>
       </p>
-      <p class="hero-note" data-en="After completing a seminar, participants receive Training Centre certificates that can be submitted for LSFP certification and re-certification.">
+      <p class="hero-note">
         Seminārus pabeidzot, dalībnieki saņem Treneru tālākizglītības centra sertifikātus, kas ir derīgi iesniegšanai LSFP sertifikācijai un resertifikācijai.
       </p>
       <div class="hero-cta-group">
         <a href="#seminars" class="btn btn-primary">
-          <span data-en="View seminars">Skatīt seminārus</span>
+          <span>Skatīt seminārus</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a href="#contact" class="btn btn-ghost">
-          <span data-en="Contact">Kontakti</span>
+          <span>Kontakti</span>
         </a>
       </div>
     </div>
 
-    <div class="hero-credentials reveal" aria-label="Profesionālā pieredze" data-en-aria-label="Professional credentials">
-      <span data-en="Latvian Olympic team coach: 1996, 2000, 2004">Latvijas olimpiskās izlases trenere: 1996, 2000, 2004</span>
-      <span data-en="National-team coach since 1989">Latvijas izlases trenere kopš 1989. gada</span>
-      <span data-en="Sports academy professor since 2017">Sporta akadēmijas profesore kopš 2017. gada</span>
-      <span data-en="Latvian Science Council expert rights">Latvijas Zinātnes padomes eksperta tiesības</span>
+    <div class="hero-credentials reveal" aria-label="Profesionālā pieredze">
+      <span>Latvijas olimpiskās izlases trenere: 1996, 2000, 2004</span>
+      <span>Latvijas izlases trenere kopš 1989. gada</span>
+      <span>Sporta akadēmijas profesore kopš 2017. gada</span>
+      <span>Latvijas Zinātnes padomes eksperta tiesības</span>
     </div>
   </div>
 </section>
@@ -1546,7 +1500,7 @@ footer a:hover { color: var(--aqua-light); }
     <div class="how-header reveal">
       <div>
         <span class="eyebrow"><span class="dot"></span>
-          <span data-en="Services">Mans piedāvājums</span>
+          <span>Mans piedāvājums</span>
         </span>
       </div>
     </div>
@@ -1554,12 +1508,12 @@ footer a:hover { color: var(--aqua-light); }
     <div class="services-ladder">
       <a href="#seminars" id="seminars-card" class="tier-card flagship reveal">
         <div class="tier-num-wrap">
-          <div class="tier-kicker" data-en="Coach education">Treneru tālākizglītība</div>
+          <div class="tier-kicker">Treneru tālākizglītība</div>
         </div>
         <div class="tier-body">
-          <span class="tier-tag" data-en="Lectures and seminars">Lekcijas un semināri</span>
-          <h3 class="tier-title" data-en="Seminars, lectures and courses">Semināri, lekcijas un kursi</h3>
-          <p class="tier-desc" data-en="Professional development sessions for swimming coaches and sports teachers. Formats can be adapted for a single lecture, a short seminar or a multi-day course.">Profesionālās kompetences pilnveides nodarbības peldēšanas treneriem un sporta skolotājiem. Formātu var pielāgot vienai lekcijai, īsam semināram vai vairāku dienu kursam.</p>
+          <span class="tier-tag">Lekcijas un semināri</span>
+          <h3 class="tier-title">Semināri, lekcijas un kursi</h3>
+          <p class="tier-desc">Profesionālās kompetences pilnveides nodarbības peldēšanas treneriem un sporta skolotājiem. Formātu var pielāgot vienai lekcijai, īsam semināram vai vairāku dienu kursam.</p>
         </div>
         <div class="tier-arrow-wrap">
           <span class="tier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
@@ -1568,12 +1522,12 @@ footer a:hover { color: var(--aqua-light); }
 
       <a href="#contact" id="consulting" class="tier-card reveal">
         <div class="tier-num-wrap">
-          <div class="tier-kicker" data-en="Individual and coach support">Individuāls darbs</div>
+          <div class="tier-kicker">Individuāls darbs</div>
         </div>
         <div class="tier-body">
-          <span class="tier-tag" data-en="Technique and testing">Tehnika un testēšana</span>
-          <h3 class="tier-title" data-en="Consultations and functional testing">Konsultācijas un funkcionālā testēšana</h3>
-          <p class="tier-desc" data-en="Video analysis of swimming technique, corrective exercise planning, strength and endurance test analysis, swimming speed, stroke count, heart rate and lactate indicators. Training programmes can be created or corrected. Work can be arranged for individual swimmers or sports coaches.">Tehnikas video analīze un pilnveides vingrinājumu izveide. Funkcionālā testēšana: spēka un izturības testu analīze, peldēšanas ātrums, ciklu skaits, pulss un laktātu rādītāji. Treniņu programmu izveide un korekcija. Strādāju gan ar individuāliem peldētājiem, gan ar sporta treneriem.</p>
+          <span class="tier-tag">Tehnika un testēšana</span>
+          <h3 class="tier-title">Konsultācijas un funkcionālā testēšana</h3>
+          <p class="tier-desc">Tehnikas video analīze un pilnveides vingrinājumu izveide. Funkcionālā testēšana: spēka un izturības testu analīze, peldēšanas ātrums, ciklu skaits, pulss un laktātu rādītāji. Treniņu programmu izveide un korekcija. Strādāju gan ar individuāliem peldētājiem, gan ar sporta treneriem.</p>
         </div>
         <div class="tier-arrow-wrap">
           <span class="tier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
@@ -1582,12 +1536,12 @@ footer a:hover { color: var(--aqua-light); }
 
       <a href="#contact" class="tier-card reveal">
         <div class="tier-num-wrap">
-          <div class="tier-kicker" data-en="Articles and materials">Materiāli</div>
+          <div class="tier-kicker">Materiāli</div>
         </div>
         <div class="tier-body">
-          <span class="tier-tag" data-en="Blog">Blogs</span>
-          <h3 class="tier-title" data-en="Education and methodology materials">Izglītības un metodiskie materiāli</h3>
-          <p class="tier-desc" data-en="Educational articles and practical materials for coaches, sports teachers and swimmers. The blog can be expanded when the articles are ready.">Izglītības raksti un metodiskie materiāli treneriem, sporta skolotājiem un peldētājiem. Blogs tiks papildināts, kad materiāli būs gatavi.</p>
+          <span class="tier-tag">Blogs</span>
+          <h3 class="tier-title">Izglītības un metodiskie materiāli</h3>
+          <p class="tier-desc">Izglītības raksti un metodiskie materiāli treneriem, sporta skolotājiem un peldētājiem. Blogs tiks papildināts, kad materiāli būs gatavi.</p>
         </div>
         <div class="tier-arrow-wrap">
           <span class="tier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
@@ -1596,12 +1550,12 @@ footer a:hover { color: var(--aqua-light); }
 
       <a href="#contact" id="open-water" class="tier-card reveal">
         <div class="tier-num-wrap">
-          <div class="tier-kicker" data-en="Open water">Atklātie ūdeņi</div>
+          <div class="tier-kicker">Atklātie ūdeņi</div>
         </div>
         <div class="tier-body">
           <span class="tier-tag">Ogre Turtle Swim</span>
           <h3 class="tier-title">Ogre Turtle Swim</h3>
-          <p class="tier-desc" data-en="Open-water swimming work around Ogre Turtle Swim. The 2025 photo archive and 2026 event details can be added when the final material is ready.">Atklāto ūdeņu peldēšanas pasākums Ogrē. 2025. gada fotogrāfijas un 2026. gada informācija tiks pievienota, kad materiāli būs gatavi.</p>
+          <p class="tier-desc">Atklāto ūdeņu peldēšanas pasākums Ogrē. 2025. gada fotogrāfijas un 2026. gada informācija tiks pievienota, kad materiāli būs gatavi.</p>
         </div>
         <div class="tier-arrow-wrap">
           <span class="tier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
@@ -1616,103 +1570,103 @@ footer a:hover { color: var(--aqua-light); }
   <div class="container">
     <div class="seminars-intro reveal">
       <div>
-        <span class="eyebrow"><span class="dot"></span><span data-en="Seminar programs">Semināru programmas</span></span>
-        <h2 class="display" data-en-html="Lectures and seminars for <em>swimming coaches</em>.">
+        <span class="eyebrow"><span class="dot"></span><span>Semināru programmas</span></span>
+        <h2 class="display">
           Lekcijas un semināri <em>peldēšanas treneriem</em>.
         </h2>
       </div>
       <div class="seminars-meta">
         <p>
-          <span data-en="Sessions can be arranged as a single lecture, a short seminar or a multi-day course. The format is agreed around the group, location and level.">Nodarbības var organizēt kā atsevišķu lekciju, īsu semināru vai vairāku dienu kursu. Formāts tiek pielāgots grupai, norises vietai un dalībnieku līmenim.</span>
+          <span>Nodarbības var organizēt kā atsevišķu lekciju, īsu semināru vai vairāku dienu kursu. Formāts tiek pielāgots grupai, norises vietai un dalībnieku līmenim.</span>
         </p>
         <p>
-          <span data-en="Topics are built for swimming coaches, sports teachers and specialists who work with swimmers at different ages.">Tēmas paredzētas peldēšanas treneriem, sporta skolotājiem un speciālistiem, kas strādā ar dažāda vecuma peldētājiem.</span>
+          <span>Tēmas paredzētas peldēšanas treneriem, sporta skolotājiem un speciālistiem, kas strādā ar dažāda vecuma peldētājiem.</span>
         </p>
         <div class="cert-badge">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          <span data-en="After completing a seminar, participants receive Training Centre certificates that can be submitted for LSFP certification and re-certification.">Seminārus pabeidzot, dalībnieki saņem Treneru tālākizglītības centra sertifikātus, kas ir derīgi iesniegšanai LSFP sertifikācijai un resertifikācijai.</span>
+          <span>Seminārus pabeidzot, dalībnieki saņem Treneru tālākizglītības centra sertifikātus, kas ir derīgi iesniegšanai LSFP sertifikācijai un resertifikācijai.</span>
         </div>
       </div>
     </div>
 
     <div class="seminars-caption reveal">
-      <span data-en="&quot;How much should athletes train? Why do some swimmers train hard but see no result? What matters more: endurance, speed or health?&quot;">"Cik daudz jātrenējas? Kāpēc daži peldētāji daudz trenējas, bet rezultāts neuzlabojas? Kas ir svarīgāk: izturība, ātrums vai veselība?"</span>
+      <span>"Cik daudz jātrenējas? Kāpēc daži peldētāji daudz trenējas, bet rezultāts neuzlabojas? Kas ir svarīgāk: izturība, ātrums vai veselība?"</span>
     </div>
 
     <div class="topics-list reveal">
       <div class="topic"><div class="topic-num">1</div><div class="topic-text">
-        <span data-en="Teaching and refining all swimming stroke techniques across ages. Planning, monitoring, analysis.">Visu peldēšanas veidu tehnikas mācīšanas īpatnības un pilnveide dažādos vecumos. Plānošana, kontrole, analīze.</span>
+        <span>Visu peldēšanas veidu tehnikas mācīšanas īpatnības un pilnveide dažādos vecumos. Plānošana, kontrole, analīze.</span>
       </div></div>
       <div class="topic"><div class="topic-num">2</div><div class="topic-text">
-        <span data-en="Swimmers' functional preparation. Designing training tasks. Testing and load control.">Peldētāju funkcionālā sagatavotība. Treniņu uzdevumu veidošana. Testēšana un slodžu kontrole.</span>
+        <span>Peldētāju funkcionālā sagatavotība. Treniņu uzdevumu veidošana. Testēšana un slodžu kontrole.</span>
       </div></div>
       <div class="topic"><div class="topic-num">3</div><div class="topic-text">
-        <span data-en="Developing and refining endurance in swimmers of different ages.">Izturības attīstīšana un pilnveide dažāda vecuma peldētājiem.</span>
+        <span>Izturības attīstīšana un pilnveide dažāda vecuma peldētājiem.</span>
       </div></div>
       <div class="topic"><div class="topic-num">4</div><div class="topic-text">
-        <span data-en="Developing and refining speed qualities in swimmers of different ages.">Peldēšanas ātruma īpašību attīstīšana un pilnveide dažāda vecuma peldētājiem.</span>
+        <span>Peldēšanas ātruma īpašību attīstīšana un pilnveide dažāda vecuma peldētājiem.</span>
       </div></div>
       <div class="topic"><div class="topic-num">5</div><div class="topic-text">
-        <span data-en="Developing and refining strength in swimmers of different ages.">Spēka attīstīšana un pilnveide dažāda vecuma peldētājiem.</span>
+        <span>Spēka attīstīšana un pilnveide dažāda vecuma peldētājiem.</span>
       </div></div>
       <div class="topic"><div class="topic-num">6</div><div class="topic-text">
-        <span data-en="Building race distance execution during training. Competition performance analysis.">Sacensību distances veikšanas izveide treniņu laikā. Sacensību darbības analīze.</span>
+        <span>Sacensību distances veikšanas izveide treniņu laikā. Sacensību darbības analīze.</span>
       </div></div>
       <div class="topic"><div class="topic-num">7</div><div class="topic-text">
-        <span data-en="Refining starts and turns.">Startu un apgriezienu pilnveide.</span>
+        <span>Startu un apgriezienu pilnveide.</span>
       </div></div>
       <div class="topic"><div class="topic-num">8</div><div class="topic-text">
-        <span data-en="Training methods.">Treniņu metodes.</span>
+        <span>Treniņu metodes.</span>
       </div></div>
       <div class="topic"><div class="topic-num">9</div><div class="topic-text">
-        <span data-en="Talent identification and selection in competitive swimming.">Atlase un selekcija sporta peldēšanā.</span>
+        <span>Atlase un selekcija sporta peldēšanā.</span>
       </div></div>
     </div>
 
     <!-- Modern horizontal scroll gallery with lightbox -->
     <div class="seminars-gallery-wrap reveal">
       <div class="seminars-gallery-label">
-        <span data-en="From seminars and courses">No semināriem un kursiem</span>
+        <span>No semināriem un kursiem</span>
       </div>
       <div class="seminars-gallery" id="semGallery">
-        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Kustību pamati - lekcijas slaids" data-lb-caption-en="Movement fundamentals - lecture slide">
+        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Kustību pamati - lekcijas slaids">
           <img src="seminar-lecture-mannequin-slide.jpg" alt="" loading="lazy">
-          <div class="gallery-item-overlay"><span data-en="Movement fundamentals">Kustību pamati</span></div>
+          <div class="gallery-item-overlay"><span>Kustību pamati</span></div>
           <span class="expand-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
         </div>
-        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Teorijas nodarbība treneriem" data-lb-caption-en="Theory session for coaches">
+        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Teorijas nodarbība treneriem">
           <img src="seminar-classroom-lecture.jpg" alt="" loading="lazy">
-          <div class="gallery-item-overlay"><span data-en="Theory session">Teorijas nodarbība</span></div>
+          <div class="gallery-item-overlay"><span>Teorijas nodarbība</span></div>
           <span class="expand-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
         </div>
-        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Korekcijas pie baseina" data-lb-caption-en="Corrections at the pool's edge">
+        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Korekcijas pie baseina">
           <img src="seminar-lena-coaching-poolside.jpg" alt="" loading="lazy">
-          <div class="gallery-item-overlay"><span data-en="Poolside corrections">Korekcijas pie baseina</span></div>
+          <div class="gallery-item-overlay"><span>Korekcijas pie baseina</span></div>
           <span class="expand-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
         </div>
-        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Grupas nodarbība celiņos" data-lb-caption-en="Group lesson in the lanes">
+        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Grupas nodarbība celiņos">
           <img src="seminar-pool-lesson-lanes.jpg" alt="" loading="lazy">
-          <div class="gallery-item-overlay"><span data-en="Group lesson">Grupas nodarbība</span></div>
+          <div class="gallery-item-overlay"><span>Grupas nodarbība</span></div>
           <span class="expand-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
         </div>
-        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Instruktāža pirms nodarbības" data-lb-caption-en="Pre-session briefing">
+        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Instruktāža pirms nodarbības">
           <img src="seminar-athletes-briefing.jpg" alt="" loading="lazy">
-          <div class="gallery-item-overlay"><span data-en="Briefing">Instruktāža</span></div>
+          <div class="gallery-item-overlay"><span>Instruktāža</span></div>
           <span class="expand-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
         </div>
-        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Ūdenī kopā ar grupu" data-lb-caption-en="In the water with the group">
+        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Ūdenī kopā ar grupu">
           <img src="seminar-inwater-group.jpg" alt="" loading="lazy">
-          <div class="gallery-item-overlay"><span data-en="In water with group">Ūdenī ar grupu</span></div>
+          <div class="gallery-item-overlay"><span>Ūdenī ar grupu</span></div>
           <span class="expand-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
         </div>
-        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Semināra auditorija" data-lb-caption-en="Seminar classroom">
+        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Semināra auditorija">
           <img src="seminar-classroom.jpg" alt="" loading="lazy">
-          <div class="gallery-item-overlay"><span data-en="Classroom">Auditorija</span></div>
+          <div class="gallery-item-overlay"><span>Auditorija</span></div>
           <span class="expand-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
         </div>
-        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Trenera darbs ūdenī" data-lb-caption-en="In-water coaching">
+        <div class="gallery-item" data-lb-group="seminars" data-lb-caption-lv="Trenera darbs ūdenī">
           <img src="seminar-inwater-talk.jpg" alt="" loading="lazy">
-          <div class="gallery-item-overlay"><span data-en="In-water coaching">Darbs ūdenī</span></div>
+          <div class="gallery-item-overlay"><span>Darbs ūdenī</span></div>
           <span class="expand-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
         </div>
       </div>
@@ -1729,51 +1683,51 @@ footer a:hover { color: var(--aqua-light); }
           <img src="lena-portrait.jpg" alt="Dr. Jeļena Solovjova" loading="lazy">
           <div class="about-image-caption">
             <div class="caption-name">Dr. Jeļena Solovjova</div>
-            <div class="caption-role" data-en="Sports science doctor · A-category swimming coach">Sporta zinātnes doktore · A kategorijas peldēšanas trenere</div>
+            <div class="caption-role">Sporta zinātnes doktore · A kategorijas peldēšanas trenere</div>
           </div>
         </div>
         <div class="about-proof-row" data-lb-group="certs">
-          <img src="cert-a-category-422.jpg" alt="A kategorijas sertifikāts Nr. 422" data-en-alt="A-category certificate #422" loading="lazy" data-lb-caption-lv="A kategorijas sertifikāts" data-lb-caption-en="A-category certificate">
-          <img src="cert-lspa-pateiciba-2024.jpg" alt="LSPA Pateicība 2024" loading="lazy" data-lb-caption-lv="LSPA Pateicība 2024" data-lb-caption-en="LSPA Recognition 2024">
-          <img src="cert-lok-apliecinajums.jpg" alt="Latvijas Olimpiskās komitejas apliecinājums" data-en-alt="Latvian Olympic Committee certificate" loading="lazy" data-lb-caption-lv="Latvijas Olimpiskās komitejas apliecinājums" data-lb-caption-en="Latvian Olympic Committee certificate">
+          <img src="cert-a-category-422.jpg" alt="A kategorijas sertifikāts Nr. 422" loading="lazy" data-lb-caption-lv="A kategorijas sertifikāts">
+          <img src="cert-lspa-pateiciba-2024.jpg" alt="LSPA Pateicība 2024" loading="lazy" data-lb-caption-lv="LSPA Pateicība 2024">
+          <img src="cert-lok-apliecinajums.jpg" alt="Latvijas Olimpiskās komitejas apliecinājums" loading="lazy" data-lb-caption-lv="Latvijas Olimpiskās komitejas apliecinājums">
         </div>
       </div>
       <div class="about-content reveal">
-        <span class="eyebrow"><span class="dot"></span><span data-en="About myself">Par mani</span></span>
+        <span class="eyebrow"><span class="dot"></span><span>Par mani</span></span>
         <h2 class="display">
           Dr. Jeļena <em>Solovjova</em>
         </h2>
         <p>
-          <span data-en="Sports science doctor, A-category swimming coach and Latvian swimming national team coach since 1989. Sports academy professor since 2017.">Sporta zinātnes doktore, A kategorijas peldēšanas trenere un Latvijas izlases peldēšanas trenere kopš 1989. gada. Sporta akadēmijas profesore kopš 2017. gada.</span>
+          <span>Sporta zinātnes doktore, A kategorijas peldēšanas trenere un Latvijas izlases peldēšanas trenere kopš 1989. gada. Sporta akadēmijas profesore kopš 2017. gada.</span>
         </p>
         <p>
-          <span data-en="Latvian Olympic swimming team coach in 1996, 2000 and 2004. Author of two textbooks and more than 50 scientific publications, with Latvian Science Council expert rights in sports science.">Latvijas olimpiskās izlases trenere 1996., 2000. un 2004. gadā. Divu mācību grāmatu un vairāk nekā 50 zinātnisku publikāciju autore, ar Latvijas Zinātnes padomes eksperta tiesībām sporta zinātnē.</span>
+          <span>Latvijas olimpiskās izlases trenere 1996., 2000. un 2004. gadā. Divu mācību grāmatu un vairāk nekā 50 zinātnisku publikāciju autore, ar Latvijas Zinātnes padomes eksperta tiesībām sporta zinātnē.</span>
         </p>
 
         <div class="values-triplet">
-          <span class="value-word" data-en="Safely.">Droši.</span>
+          <span class="value-word">Droši.</span>
           <span class="value-sep">·</span>
-          <span class="value-word" data-en="Correctly.">Pareizi.</span>
+          <span class="value-word">Pareizi.</span>
           <span class="value-sep">·</span>
-          <span class="value-word" data-en="With joy.">Ar prieku.</span>
+          <span class="value-word">Ar prieku.</span>
         </div>
 
         <div class="credentials-list">
           <div class="credential">
             <span class="credential-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
-            <span class="credential-text" data-en="Sports science doctor">Sporta zinātnes doktore</span>
+            <span class="credential-text">Sporta zinātnes doktore</span>
           </div>
           <div class="credential">
             <span class="credential-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></span>
-            <span class="credential-text" data-en="A-category swimming coach">A kategorijas peldēšanas trenere</span>
+            <span class="credential-text">A kategorijas peldēšanas trenere</span>
           </div>
           <div class="credential">
             <span class="credential-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
-            <span class="credential-text" data-en="Latvian Olympic swimming team coach · 1996 · 2000 · 2004">Latvijas olimpiskās izlases trenere · 1996 · 2000 · 2004</span>
+            <span class="credential-text">Latvijas olimpiskās izlases trenere · 1996 · 2000 · 2004</span>
           </div>
           <div class="credential">
             <span class="credential-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
-            <span class="credential-text" data-en="2 textbooks · 50+ scientific publications">2 mācību grāmatas · 50+ zinātniskas publikācijas</span>
+            <span class="credential-text">2 mācību grāmatas · 50+ zinātniskas publikācijas</span>
           </div>
         </div>
       </div>
@@ -1787,29 +1741,29 @@ footer a:hover { color: var(--aqua-light); }
     <div class="publications-band reveal">
       <div class="publications-band-header" style="border-top:none; margin-top:0; padding-top:0;">
         <div>
-          <h3 data-en-html="Two textbooks. <em>50+ publications.</em>">Divas mācību grāmatas. <em>50+ publikācijas.</em></h3>
+          <h3>Divas mācību grāmatas. <em>50+ publikācijas.</em></h3>
         </div>
         <div class="publications-author-photo">
           <img src="lena-with-book.jpg" alt="" loading="lazy">
-          <span class="publications-author-caption" data-en="The author with her textbook &quot;Peldēšana&quot;">Autore ar savu mācību grāmatu "Peldēšana"</span>
+          <span class="publications-author-caption">Autore ar savu mācību grāmatu "Peldēšana"</span>
         </div>
       </div>
       <div class="publications-grid" data-lb-group="publications">
         <figure class="publication-card">
-          <img src="book-peldesanas-trenina-pamati-2001.jpg" alt="" loading="lazy" data-lb-caption-lv="Peldēšanas treniņa pamati · Rīga · 2001" data-lb-caption-en="Swimming Training Fundamentals · Riga · 2001">
-          <figcaption><span class="pub-title">Peldēšanas treniņa pamati</span><span class="pub-meta" data-en="Textbook · 2001">Mācību grāmata · 2001</span></figcaption>
+          <img src="book-peldesanas-trenina-pamati-2001.jpg" alt="" loading="lazy" data-lb-caption-lv="Peldēšanas treniņa pamati · Rīga · 2001">
+          <figcaption><span class="pub-title">Peldēšanas treniņa pamati</span><span class="pub-meta">Mācību grāmata · 2001</span></figcaption>
         </figure>
         <figure class="publication-card">
-          <img src="book-peldesana-cover.jpg" alt="" loading="lazy" data-lb-caption-lv="Mācību grāmata Peldēšana" data-lb-caption-en="Peldēšana textbook">
-          <figcaption><span class="pub-title">Peldēšana</span><span class="pub-meta" data-en="Textbook">Mācību grāmata</span></figcaption>
+          <img src="book-peldesana-cover.jpg" alt="" loading="lazy" data-lb-caption-lv="Mācību grāmata Peldēšana">
+          <figcaption><span class="pub-title">Peldēšana</span><span class="pub-meta">Mācību grāmata</span></figcaption>
         </figure>
         <figure class="publication-card">
-          <img src="magazine-peldies-imunitate.jpg" alt="" loading="lazy" data-lb-caption-lv="Peldies un stiprini imunitāti!" data-lb-caption-en="Swim and boost your immunity!">
-          <figcaption><span class="pub-title">Peldies un stiprini imunitāti!</span><span class="pub-meta" data-en="Magazine article">Žurnāla raksts</span></figcaption>
+          <img src="magazine-peldies-imunitate.jpg" alt="" loading="lazy" data-lb-caption-lv="Peldies un stiprini imunitāti!">
+          <figcaption><span class="pub-title">Peldies un stiprini imunitāti!</span><span class="pub-meta">Žurnāla raksts</span></figcaption>
         </figure>
         <figure class="publication-card">
-          <img src="article-protu-peldet-vai-tiesam.jpg" alt="" loading="lazy" data-lb-caption-lv="Protu peldēt! Vai tiešām?" data-lb-caption-en="Can you swim? Really?">
-          <figcaption><span class="pub-title">Protu peldēt! Vai tiešām?</span><span class="pub-meta" data-en="Feature article">Raksts</span></figcaption>
+          <img src="article-protu-peldet-vai-tiesam.jpg" alt="" loading="lazy" data-lb-caption-lv="Protu peldēt! Vai tiešām?">
+          <figcaption><span class="pub-title">Protu peldēt! Vai tiešām?</span><span class="pub-meta">Raksts</span></figcaption>
         </figure>
       </div>
     </div>
@@ -1819,12 +1773,12 @@ footer a:hover { color: var(--aqua-light); }
 <!-- ===== LOGO NOTE ===== -->
 <section class="turtle-moment">
   <div class="container reveal">
-    <span class="eyebrow"><span class="dot"></span><span data-en="Swimming Turtle">Peldēšanas bruņurupucis</span></span>
-    <blockquote data-en="Swimming is Life">
+    <span class="eyebrow"><span class="dot"></span><span>Peldēšanas bruņurupucis</span></span>
+    <blockquote>
       Peldēšana ir dzīve
     </blockquote>
     <p class="turtle-sub">
-      <span data-en="The swimming turtle in the logo stands for patient, steady progress in the water.">Peldēšanas bruņurupucis logotipā simbolizē pacietīgu un noturīgu virzību ūdenī.</span>
+      <span>Peldēšanas bruņurupucis logotipā simbolizē pacietīgu un noturīgu virzību ūdenī.</span>
     </p>
   </div>
 </section>
@@ -1834,21 +1788,21 @@ footer a:hover { color: var(--aqua-light); }
   <div class="container">
     <div class="earlier-header reveal">
       <div>
-        <span class="eyebrow"><span class="dot"></span><span data-en="Professional experience">Profesionālā pieredze</span></span>
-        <h2 class="display" data-en-html="Olympic swimmers and <em>long-distance work</em>.">Olimpiskie peldētāji un <em>garās distances</em>.</h2>
+        <span class="eyebrow"><span class="dot"></span><span>Profesionālā pieredze</span></span>
+        <h2 class="display">Olimpiskie peldētāji un <em>garās distances</em>.</h2>
       </div>
       <p>
-        <span data-en="Dr. Solovjova coached Latvian Olympic swimmers across Atlanta 1996, Sydney 2000 and Athens 2004. Her work combines swimming technique, functional preparation, testing and long-term coach education.">Dr. Solovjova trenēja Latvijas olimpiskos peldētājus Atlantā 1996, Sidnejā 2000 un Atēnās 2004. Viņas darbs apvieno peldēšanas tehniku, funkcionālo sagatavotību, testēšanu un treneru tālākizglītību.</span>
+        <span>Dr. Solovjova trenēja Latvijas olimpiskos peldētājus Atlantā 1996, Sidnejā 2000 un Atēnās 2004. Viņas darbs apvieno peldēšanas tehniku, funkcionālo sagatavotību, testēšanu un treneru tālākizglītību.</span>
       </p>
     </div>
 
     <div class="olympic-band reveal">
       <div class="olympic-band-header">
-        <h3 data-en-html="Latvian Olympic <em>swimmers</em>.">Latvijas olimpiskie <em>peldētāji</em>.</h3>
-        <div class="olympic-band-meta" data-en="Latvian national-team coach since 1989">Latvijas izlases trenere kopš 1989. gada</div>
+        <h3>Latvijas olimpiskie <em>peldētāji</em>.</h3>
+        <div class="olympic-band-meta">Latvijas izlases trenere kopš 1989. gada</div>
       </div>
       <p style="font-size:16px; line-height:1.65; color:rgba(250,250,247,0.72); max-width:720px; margin-bottom:36px;">
-        <span data-en="Three Latvian Olympic swimmers connected with Dr. Solovjova's coaching work are shown here with competition images.">Trīs Latvijas olimpiskie peldētāji, kas saistīti ar Dr. Solovjovas trenera darbu, ir redzami šeit kopā ar sacensību fotogrāfijām.</span>
+        <span>Trīs Latvijas olimpiskie peldētāji, kas saistīti ar Dr. Solovjovas trenera darbu, ir redzami šeit kopā ar sacensību fotogrāfijām.</span>
       </p>
       <div class="olympians-grid">
         <div class="olympian-card">
@@ -1859,7 +1813,7 @@ footer a:hover { color: var(--aqua-light); }
           <div class="olympian-details">
             <div class="olympian-name">Valērijs Kalmikovs</div>
             <div class="olympian-games">Atlanta 1996 · Sydney 2000</div>
-            <div class="olympian-placing" data-en="13th · 19th">13. vieta · 19. vieta</div>
+            <div class="olympian-placing">13. vieta · 19. vieta</div>
           </div>
         </div>
         <div class="olympian-card">
@@ -1870,7 +1824,7 @@ footer a:hover { color: var(--aqua-light); }
           <div class="olympian-details">
             <div class="olympian-name">Margarita Kalmikova</div>
             <div class="olympian-games">Sydney 2000</div>
-            <div class="olympian-placing" data-en="28th">28. vieta</div>
+            <div class="olympian-placing">28. vieta</div>
           </div>
         </div>
         <div class="olympian-card">
@@ -1881,26 +1835,26 @@ footer a:hover { color: var(--aqua-light); }
           <div class="olympian-details">
             <div class="olympian-name">Pāvels Murāns</div>
             <div class="olympian-games">Athens 2004</div>
-            <div class="olympian-placing" data-en="31st">31. vieta</div>
+            <div class="olympian-placing">31. vieta</div>
           </div>
         </div>
       </div>
 
       <div class="olympic-band-story reveal">
         <figure class="olympic-band-story-figure">
-          <img src="kalmikovs-channel-crossing-news.jpg" alt="Latvijas Avīzes raksts par Valērija Kalmikova Lamanša pārpeldēšanu" data-en-alt="Latvijas Avīze article about Valērijs Kalmikovs crossing the English Channel" loading="lazy" data-lb-group="channel" data-lb-caption-lv="Latvijas Avīze · 2019. Kalmikovs pārpeld Lamanšu." data-lb-caption-en="Latvijas Avīze · 2019. Kalmikovs crosses the English Channel.">
+          <img src="kalmikovs-channel-crossing-news.jpg" alt="Latvijas Avīzes raksts par Valērija Kalmikova Lamanša pārpeldēšanu" loading="lazy" data-lb-group="channel" data-lb-caption-lv="Latvijas Avīze · 2019. Kalmikovs pārpeld Lamanšu.">
           <figcaption>Latvijas Avīze · 2019</figcaption>
         </figure>
         <div class="olympic-band-story-text">
-          <h4 data-en="English Channel, 2019.">Lamanšs, 2019.</h4>
-          <p data-en="Professor Jeļena Solovjova's son and athlete, Valērijs Kalmikovs, became the first representative of Latvia to swim the English Channel from Great Britain to France. The official distance is 34 km; with waves and wind, the swim came to 40 km. He completed it overnight from 8 to 9 September 2019, spending 11 hours and 13 minutes in the water.">Profesores Jeļenas Solovjovas dēls un audzēknis Valērijs Kalmikovs kļuva par pirmo Latvijas pārstāvi, kurš pārpeldēja Lamanša jūras šaurumu no Lielbritānijas uz Franciju (34 km). Ar viļņiem un vēju sanāca 40 km. Viņš to paveica 2019. gadā naktī no 8. uz 9. septembri, distancē pavadot 11 stundas un 13 minūtes.</p>
+          <h4>Lamanšs, 2019.</h4>
+          <p>Profesores Jeļenas Solovjovas dēls un audzēknis Valērijs Kalmikovs kļuva par pirmo Latvijas pārstāvi, kurš pārpeldēja Lamanša jūras šaurumu no Lielbritānijas uz Franciju (34 km). Ar viļņiem un vēju sanāca 40 km. Viņš to paveica 2019. gadā naktī no 8. uz 9. septembri, distancē pavadot 11 stundas un 13 minūtes.</p>
         </div>
       </div>
 
       <div class="coaching-continues reveal" data-lb-group="coaching">
-        <img src="medals-team-poolside.jpg" alt="Jeļena ar saviem audzēkņiem" data-en-alt="Jeļena with her athletes" loading="lazy" data-lb-caption-lv="Jeļena ar saviem audzēkņiem." data-lb-caption-en="Jeļena with her athletes.">
-        <img src="medals-two-boys-lena.jpg" alt="Jeļena ar saviem audzēkņiem" data-en-alt="Jeļena with her athletes" loading="lazy" data-lb-caption-lv="Jeļena ar saviem audzēkņiem." data-lb-caption-en="Jeļena with her athletes.">
-        <img src="len-euro-juniors-2019.jpg" alt="Jeļena ar saviem audzēkņiem LEN Eiropas junioru čempionātā 2019" data-en-alt="Jeļena with her athletes at LEN European Junior Championships 2019" loading="lazy" data-lb-caption-lv="Jeļena ar saviem audzēkņiem." data-lb-caption-en="Jeļena with her athletes.">
+        <img src="medals-team-poolside.jpg" alt="Jeļena ar saviem audzēkņiem" loading="lazy" data-lb-caption-lv="Jeļena ar saviem audzēkņiem.">
+        <img src="medals-two-boys-lena.jpg" alt="Jeļena ar saviem audzēkņiem" loading="lazy" data-lb-caption-lv="Jeļena ar saviem audzēkņiem.">
+        <img src="len-euro-juniors-2019.jpg" alt="Jeļena ar saviem audzēkņiem LEN Eiropas junioru čempionātā 2019" loading="lazy" data-lb-caption-lv="Jeļena ar saviem audzēkņiem.">
       </div>
     </div>
   </div>
@@ -1911,19 +1865,19 @@ footer a:hover { color: var(--aqua-light); }
   <div class="container">
     <div class="contact-grid">
       <div class="contact-intro reveal">
-        <span class="eyebrow"><span class="dot"></span><span data-en="Contact">Kontakti</span></span>
-        <h2 class="display" data-en-html="Write to <em>Jeļena</em>.">Rakstiet <em>Jeļenai</em>.</h2>
-        <p data-en="Would you like to attend a seminar? Need a consultation about swimming technique? Write on WhatsApp or by email.">Vēlaties piedalīties seminārā? Konsultāciju par peldēšanas tehniku? Rakstiet ziņu WhatsApp vai pa e-pastu.</p>
+        <span class="eyebrow"><span class="dot"></span><span>Kontakti</span></span>
+        <h2 class="display">Rakstiet <em>Jeļenai</em>.</h2>
+        <p>Vēlaties piedalīties seminārā? Konsultāciju par peldēšanas tehniku? Rakstiet ziņu WhatsApp vai pa e-pastu.</p>
       </div>
       <div class="contact-methods reveal">
-        <a href="https://wa.me/37129623902?text=Sveiki%2C%20Dr.%20Solovjova%2C%20v%C4%93los%20jaut%C4%81t%20par%20semin%C4%81ru%20vai%20peld%C4%93%C5%A1anas%20tehnikas%20konsult%C4%81ciju." data-en-href="https://wa.me/37129623902?text=Hello%20Dr.%20Solovjova%2C%20I%20would%20like%20to%20ask%20about%20a%20seminar%20or%20swimming%20technique%20consultation." target="_blank" rel="noopener" class="contact-method featured" style="background:rgba(37,211,102,0.15); border-color:rgba(37,211,102,0.5);">
-          <span class="free-badge" style="background:#25D366; color:#fff;" data-en="Fastest way">Ātrākais veids</span>
+        <a href="https://wa.me/37129623902?text=Sveiki%2C%20Dr.%20Solovjova%2C%20v%C4%93los%20jaut%C4%81t%20par%20semin%C4%81ru%20vai%20peld%C4%93%C5%A1anas%20tehnikas%20konsult%C4%81ciju." target="_blank" rel="noopener" class="contact-method featured" style="background:rgba(37,211,102,0.15); border-color:rgba(37,211,102,0.5);">
+          <span class="free-badge" style="background:#25D366; color:#fff;">Ātrākais veids</span>
           <span class="contact-method-icon" style="background:#25D366; color:#fff;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </span>
           <div>
             <div class="contact-method-label">WhatsApp</div>
-            <div class="contact-method-value" data-en="Ask about a seminar or consultation">Jautājums par semināru vai konsultāciju</div>
+            <div class="contact-method-value">Jautājums par semināru vai konsultāciju</div>
           </div>
         </a>
         <div class="email-chooser">
@@ -1932,42 +1886,42 @@ footer a:hover { color: var(--aqua-light); }
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </span>
             <div>
-              <div class="contact-method-label" data-en="Send an email">Sūtīt e-pastu</div>
+              <div class="contact-method-label">Sūtīt e-pastu</div>
               <div class="contact-method-value">elena.aqualification.lv@gmail.com</div>
             </div>
           </div>
           <div class="email-dropdown" id="emailDrop">
-            <div class="email-dropdown-label" data-en="Open with">Atvērt ar</div>
-            <a href="https://mail.google.com/mail/?view=cm&to=elena.aqualification.lv@gmail.com&su=Semin%C4%81rs%20%2F%20konsult%C4%81cija&body=Sveiki%2C%20Dr.%20Solovjova%2C%0A%0AV%C4%93los%20p%C4%81rrun%C4%81t%20semin%C4%81ra%20vai%20konsult%C4%81cijas%20iesp%C4%93jas.%0A%0AOrganiz%C4%81cija%3A%20%0ADal%C4%ABbnieku%20skaits%3A%20%0AInteres%C4%93jo%C5%A1%C4%81s%20t%C4%93mas%3A%20%0A%0AL%C5%ABdzu%2C%20dodiet%20zi%C5%86u%20par%20iesp%C4%93jamo%20laiku.%0A%0AAr%20cie%C5%86u" data-en-href="https://mail.google.com/mail/?view=cm&to=elena.aqualification.lv@gmail.com&su=Seminar%20%2F%20Consultation%20Inquiry&body=Hello%20Dr.%20Solovjova%2C%0A%0AI%20would%20like%20to%20discuss%20seminar%20or%20consultation%20options%20for%20my%20coaching%20team.%0A%0AOrganisation%3A%20%0ATeam%20size%3A%20%0ATopics%20of%20interest%3A%20%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0ABest%20regards" target="_blank" rel="noopener">
+            <div class="email-dropdown-label">Atvērt ar</div>
+            <a href="https://mail.google.com/mail/?view=cm&to=elena.aqualification.lv@gmail.com&su=Semin%C4%81rs%20%2F%20konsult%C4%81cija&body=Sveiki%2C%20Dr.%20Solovjova%2C%0A%0AV%C4%93los%20p%C4%81rrun%C4%81t%20semin%C4%81ra%20vai%20konsult%C4%81cijas%20iesp%C4%93jas.%0A%0AOrganiz%C4%81cija%3A%20%0ADal%C4%ABbnieku%20skaits%3A%20%0AInteres%C4%93jo%C5%A1%C4%81s%20t%C4%93mas%3A%20%0A%0AL%C5%ABdzu%2C%20dodiet%20zi%C5%86u%20par%20iesp%C4%93jamo%20laiku.%0A%0AAr%20cie%C5%86u" target="_blank" rel="noopener">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               Gmail
             </a>
-            <a href="https://outlook.live.com/mail/0/deeplink/compose?to=elena.aqualification.lv@gmail.com&subject=Semin%C4%81rs%20%2F%20konsult%C4%81cija&body=Sveiki%2C%20Dr.%20Solovjova%2C%0A%0AV%C4%93los%20p%C4%81rrun%C4%81t%20semin%C4%81ra%20vai%20konsult%C4%81cijas%20iesp%C4%93jas.%0A%0AOrganiz%C4%81cija%3A%20%0ADal%C4%ABbnieku%20skaits%3A%20%0AInteres%C4%93jo%C5%A1%C4%81s%20t%C4%93mas%3A%20%0A%0AL%C5%ABdzu%2C%20dodiet%20zi%C5%86u%20par%20iesp%C4%93jamo%20laiku.%0A%0AAr%20cie%C5%86u" data-en-href="https://outlook.live.com/mail/0/deeplink/compose?to=elena.aqualification.lv@gmail.com&subject=Seminar%20%2F%20Consultation%20Inquiry&body=Hello%20Dr.%20Solovjova%2C%0A%0AI%20would%20like%20to%20discuss%20seminar%20or%20consultation%20options%20for%20my%20coaching%20team.%0A%0AOrganisation%3A%20%0ATeam%20size%3A%20%0ATopics%20of%20interest%3A%20%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0ABest%20regards" target="_blank" rel="noopener">
+            <a href="https://outlook.live.com/mail/0/deeplink/compose?to=elena.aqualification.lv@gmail.com&subject=Semin%C4%81rs%20%2F%20konsult%C4%81cija&body=Sveiki%2C%20Dr.%20Solovjova%2C%0A%0AV%C4%93los%20p%C4%81rrun%C4%81t%20semin%C4%81ra%20vai%20konsult%C4%81cijas%20iesp%C4%93jas.%0A%0AOrganiz%C4%81cija%3A%20%0ADal%C4%ABbnieku%20skaits%3A%20%0AInteres%C4%93jo%C5%A1%C4%81s%20t%C4%93mas%3A%20%0A%0AL%C5%ABdzu%2C%20dodiet%20zi%C5%86u%20par%20iesp%C4%93jamo%20laiku.%0A%0AAr%20cie%C5%86u" target="_blank" rel="noopener">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0078D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               Outlook
             </a>
-            <a href="mailto:elena.aqualification.lv@gmail.com?subject=Semin%C4%81rs%20%2F%20konsult%C4%81cija&body=Sveiki%2C%20Dr.%20Solovjova%2C%0A%0AV%C4%93los%20p%C4%81rrun%C4%81t%20semin%C4%81ra%20vai%20konsult%C4%81cijas%20iesp%C4%93jas.%0A%0AOrganiz%C4%81cija%3A%20%0ADal%C4%ABbnieku%20skaits%3A%20%0AInteres%C4%93jo%C5%A1%C4%81s%20t%C4%93mas%3A%20%0A%0AL%C5%ABdzu%2C%20dodiet%20zi%C5%86u%20par%20iesp%C4%93jamo%20laiku.%0A%0AAr%20cie%C5%86u" data-en-href="mailto:elena.aqualification.lv@gmail.com?subject=Seminar%20%2F%20Consultation%20Inquiry&body=Hello%20Dr.%20Solovjova%2C%0A%0AI%20would%20like%20to%20discuss%20seminar%20or%20consultation%20options%20for%20my%20coaching%20team.%0A%0AOrganisation%3A%20%0ATeam%20size%3A%20%0ATopics%20of%20interest%3A%20%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0ABest%20regards">
+            <a href="mailto:elena.aqualification.lv@gmail.com?subject=Semin%C4%81rs%20%2F%20konsult%C4%81cija&body=Sveiki%2C%20Dr.%20Solovjova%2C%0A%0AV%C4%93los%20p%C4%81rrun%C4%81t%20semin%C4%81ra%20vai%20konsult%C4%81cijas%20iesp%C4%93jas.%0A%0AOrganiz%C4%81cija%3A%20%0ADal%C4%ABbnieku%20skaits%3A%20%0AInteres%C4%93jo%C5%A1%C4%81s%20t%C4%93mas%3A%20%0A%0AL%C5%ABdzu%2C%20dodiet%20zi%C5%86u%20par%20iesp%C4%93jamo%20laiku.%0A%0AAr%20cie%C5%86u">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <span data-en="Default email app">Noklusējuma e-pasts</span>
+              <span>Noklusējuma e-pasts</span>
             </a>
             <button onclick="copyEmail(this)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-              <span data-en="Copy email address">Kopēt e-pasta adresi</span>
+              <span>Kopēt e-pasta adresi</span>
             </button>
-            <div class="copied-msg" id="copiedMsg" data-en="Copied!">Nokopēts!</div>
+            <div class="copied-msg" id="copiedMsg">Nokopēts!</div>
           </div>
         </div>
         <a href="tel:+37129623902" class="contact-method">
           <span class="contact-method-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </span>
-          <div><div class="contact-method-label" data-en="Phone">Tālrunis</div><div class="contact-method-value">+371 29623902</div></div>
+          <div><div class="contact-method-label">Tālrunis</div><div class="contact-method-value">+371 29623902</div></div>
         </a>
         <div class="contact-method">
           <span class="contact-method-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </span>
-          <div><div class="contact-method-label" data-en="Location">Atrašanās vieta</div><div class="contact-method-value" data-en="Ogre, Latvia">Ogre, Latvija</div></div>
+          <div><div class="contact-method-label">Atrašanās vieta</div><div class="contact-method-value">Ogre, Latvija</div></div>
         </div>
       </div>
     </div>
@@ -1981,7 +1935,7 @@ footer a:hover { color: var(--aqua-light); }
       <img src="logo.jpg" alt="Aqualification.lv" class="footer-logo">
       <div>
         <div>© 2025 BDR Aqualification.lv · Reg. Nr. 40008344078</div>
-        <div class="footer-tagline" data-en="Swimming is Life">Peldēšana ir dzīve</div>
+        <div class="footer-tagline">Peldēšana ir dzīve</div>
       </div>
     </div>
   </div>
@@ -1989,92 +1943,16 @@ footer a:hover { color: var(--aqua-light); }
 
 <!-- ===== LIGHTBOX COMPONENT ===== -->
 <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lbClose" aria-label="Aizvērt" data-en-aria-label="Close">✕</button>
-  <button class="lightbox-nav prev" id="lbPrev" aria-label="Iepriekšējais" data-en-aria-label="Previous">‹</button>
-  <button class="lightbox-nav next" id="lbNext" aria-label="Nākamais" data-en-aria-label="Next">›</button>
+  <button class="lightbox-close" id="lbClose" aria-label="Aizvērt">✕</button>
+  <button class="lightbox-nav prev" id="lbPrev" aria-label="Iepriekšējais">‹</button>
+  <button class="lightbox-nav next" id="lbNext" aria-label="Nākamais">›</button>
   <div class="lightbox-counter" id="lbCounter"></div>
   <img class="lightbox-img" id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
   <div class="lightbox-caption" id="lbCaption"></div>
 </div>
 
 <script>
-// ===== Language toggle =====
-const PAGE_META = {
-  lv: {
-    title: 'Aqualification — Dr. Jeļena Solovjova | Peldēšanas treneru tālākizglītība',
-    description: 'Sporta treneru tālākizglītības semināri, konsultācijas peldēšanas tehnikas pilnveidei un pieredzes apmaiņa ar Dr. Jeļenu Solovjovu.',
-    ogDescription: 'Peldēšanas treneru tālākizglītība, semināri un konsultācijas.'
-  },
-  en: {
-    title: 'Aqualification — Dr. Jeļena Solovjova | Swimming coach education',
-    description: 'Swimming coach education, seminars, consultations and functional testing with Dr. Jeļena Solovjova.',
-    ogDescription: 'Swimming coach education, seminars and consultations.'
-  }
-};
-
-function rememberLanguageDefaults() {
-  document.querySelectorAll('[data-en]').forEach(el => {
-    if (!el.hasAttribute('data-lv')) el.setAttribute('data-lv', el.textContent.trim());
-  });
-  document.querySelectorAll('[data-en-html]').forEach(el => {
-    if (!el.hasAttribute('data-lv-html')) el.setAttribute('data-lv-html', el.innerHTML.trim());
-  });
-  [
-    ['href', 'data-en-href', 'data-lv-href'],
-    ['alt', 'data-en-alt', 'data-lv-alt'],
-    ['aria-label', 'data-en-aria-label', 'data-lv-aria-label']
-  ].forEach(([attr, enAttr, lvAttr]) => {
-    document.querySelectorAll('[' + enAttr + ']').forEach(el => {
-      if (!el.hasAttribute(lvAttr)) el.setAttribute(lvAttr, el.getAttribute(attr) || '');
-    });
-  });
-}
-
-function setLanguage(lang, persist = true) {
-  const nextLang = lang === 'en' ? 'en' : 'lv';
-  document.documentElement.lang = nextLang;
-
-  document.querySelectorAll('[data-en]').forEach(el => {
-    el.textContent = nextLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-lv');
-  });
-  document.querySelectorAll('[data-en-html]').forEach(el => {
-    el.innerHTML = nextLang === 'en' ? el.getAttribute('data-en-html') : el.getAttribute('data-lv-html');
-  });
-  [
-    ['href', 'data-en-href', 'data-lv-href'],
-    ['alt', 'data-en-alt', 'data-lv-alt'],
-    ['aria-label', 'data-en-aria-label', 'data-lv-aria-label']
-  ].forEach(([attr, enAttr, lvAttr]) => {
-    document.querySelectorAll('[' + enAttr + ']').forEach(el => {
-      el.setAttribute(attr, nextLang === 'en' ? el.getAttribute(enAttr) : el.getAttribute(lvAttr));
-    });
-  });
-
-  document.querySelectorAll('.lang-toggle button').forEach(button => {
-    const active = button.getAttribute('data-lang') === nextLang;
-    button.classList.toggle('active', active);
-    button.setAttribute('aria-pressed', active ? 'true' : 'false');
-  });
-
-  const meta = PAGE_META[nextLang];
-  document.title = meta.title;
-  const description = document.querySelector('meta[name="description"]');
-  const ogDescription = document.querySelector('meta[property="og:description"]');
-  if (description) description.setAttribute('content', meta.description);
-  if (ogDescription) ogDescription.setAttribute('content', meta.ogDescription);
-
-  if (persist) {
-    try { localStorage.setItem('aq-lang', nextLang); } catch(e) {}
-  }
-}
-
-rememberLanguageDefaults();
-let savedLang = 'lv';
-try { savedLang = localStorage.getItem('aq-lang') === 'en' ? 'en' : 'lv'; } catch(e) {}
-setLanguage(savedLang, false);
-document.querySelectorAll('.lang-toggle button').forEach(button => {
-  button.addEventListener('click', () => setLanguage(button.getAttribute('data-lang')));
-});
+try { localStorage.removeItem('aq-lang'); } catch(e) {}
 
 // ===== Nav scroll state =====
 const nav = document.getElementById('nav');
@@ -2154,8 +2032,7 @@ let lbItems = [];
 let lbIndex = 0;
 
 function getCaption(el) {
-  const lang = document.documentElement.lang === 'en' ? 'en' : 'lv';
-  return el.getAttribute('data-lb-caption-' + lang) || el.getAttribute('data-lb-caption-lv') || el.getAttribute('data-lb-caption-en') || '';
+  return el.getAttribute('data-lb-caption-lv') || '';
 }
 
 function openLightbox(items, index) {
@@ -2170,7 +2047,7 @@ function showLbImage() {
   const item = lbItems[lbIndex];
   const img = item.tagName === 'IMG' ? item : item.querySelector('img');
   lbImg.src = img.src;
-  const captionEl = item.closest('[data-lb-caption-en]') || item;
+  const captionEl = item.closest('[data-lb-caption-lv]') || item;
   lbCaption.textContent = getCaption(captionEl);
   lbCounter.textContent = (lbIndex + 1) + ' / ' + lbItems.length;
 }

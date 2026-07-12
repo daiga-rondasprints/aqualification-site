@@ -34,4 +34,4 @@ Remove the old SiteGround hosting A record for the apex if it conflicts. Propaga
 
 ## Editing content
 
-Everything is in `index.html` — one file, inline CSS and JS. Latvian is the default DOM copy. English strings live in `data-en` / `data-en-html` attributes and are shown only after the visitor selects `EN` in the top-right language toggle.
+Everything is in `index.html` — one file, inline CSS and JS. The public site is Latvian-only for now; do not add a language toggle or hidden English copy until the Latvian version is approved.

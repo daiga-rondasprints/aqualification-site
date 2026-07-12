@@ -24,9 +24,9 @@ Do not make the page feel like a generic AI landing page, a startup sales funnel
 
 - Lead with facts Lena recognises: qualifications, years, roles, publications, athletes and real services.
 - Prefer direct contact and clear sections over heavy persuasion.
-- Keep the turtle/Swimming is Life identity as brand texture, not as a gimmick.
+- Keep the turtle and "Peldēšana ir dzīve" identity as brand texture, not as a gimmick.
 - Use photos and documents as evidence; do not imply affiliations the site cannot prove.
-- Keep Latvian as the default public language. English is available only through the top-right language toggle.
+- Keep the public site Latvian-only for now. English can return later as a separate, deliberate addition after the Latvian site is stable.
 
 ## Accessibility & Inclusion
 
